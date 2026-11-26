@@ -83,7 +83,10 @@ You need Power BI Desktop (Windows).
 
 2. Open `powerbi/AviationReliability.pbip`, go to Transform data > Edit parameters and
    set `DataFolder` to the repository's `data\` folder (with the trailing backslash).
-3. Refresh. The full refresh takes about a minute.
+3. Refresh. The full refresh takes about a minute. The data isn't committed, so the
+   visuals show (Blank) until this first refresh. After you save, Power BI keeps the data
+   in a local cache (`.pbi/cache.abf`, ignored by git) and the report opens with data from
+   then on.
 
 `FirstYear` and `LastYear` change the period. Setting `SourceMode` to `Web` makes Power
 Query read the same files straight from the FAA site and the reference tables from this
