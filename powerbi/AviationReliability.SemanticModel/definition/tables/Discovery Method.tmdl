@@ -1,0 +1,38 @@
+table 'Discovery Method'
+	lineageTag: 0762c06a-c4a0-5887-bbf1-4acb9351d5a6
+
+	column 'Method Code'
+		dataType: string
+		isHidden
+		lineageTag: 74ca35e1-6125-545d-81f4-bf938648d671
+		summarizeBy: none
+		sourceColumn: Method Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column Method
+		dataType: string
+		lineageTag: 00bc075f-c29a-5e02-bfeb-f45558f2706c
+		summarizeBy: none
+		sourceColumn: Method
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Method Group'
+		dataType: string
+		lineageTag: 20c9fa6b-28b9-5c69-b6f6-59138be31360
+		summarizeBy: none
+		sourceColumn: Method Group
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Discovery Method' = m
+		mode: import
+		source =
+				let
+				    Source = fnReference("how_discovered"),
+				    Renamed = Table.RenameColumns(Source, {{"method_code", "Method Code"}, {"method", "Method"}, {"method_group", "Method Group"}})
+				in
+				    Renamed
+
+	annotation PBI_ResultType = Table

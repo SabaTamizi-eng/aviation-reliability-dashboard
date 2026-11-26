@@ -1,0 +1,51 @@
+table 'Analyze By'
+	lineageTag: b77fe07c-8de1-512b-a78e-baa2bb36993a
+
+	column 'Analyze By'
+		lineageTag: 4fcf9cfc-ce5e-5cf7-8835-17df21efaf3c
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Analyze By Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Analyze By Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Analyze By Fields'
+		isHidden
+		lineageTag: c12a1d6f-65ba-5f03-8204-28f42f8cb729
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Analyze By Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Analyze By Order'
+		isHidden
+		formatString: 0
+		lineageTag: ffee7cee-bc06-58be-912d-17ca2d8a50f6
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Analyze By' = calculated
+		mode: import
+		source =
+				{
+				    ("System", NAMEOF ( 'System'[Chapter] ), 0),
+				    ("Aircraft", NAMEOF ( Aircraft[Family] ), 1),
+				    ("Finding", NAMEOF ( Finding[Finding Category] ), 2),
+				    ("Phase", NAMEOF ( 'Flight Phase'[Stage] ), 3),
+				    ("Method", NAMEOF ( 'Discovery Method'[Method] ), 4),
+				    ("Part", NAMEOF ( SDR[Part Name] ), 5)
+				}
+
+	annotation PBI_Id = fa62a58bde2d5b8e9eee48eaf2d4fda3

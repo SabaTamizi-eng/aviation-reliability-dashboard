@@ -1,0 +1,61 @@
+table 'Flight Phase'
+	lineageTag: 85f9622f-fef2-5ed8-9389-621286b15ad4
+
+	column 'Stage Code'
+		dataType: string
+		isHidden
+		lineageTag: e15720d1-ddb7-58fe-b84b-eefa8f8f25d2
+		summarizeBy: none
+		sourceColumn: Stage Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column Stage
+		dataType: string
+		lineageTag: 58483b43-dc2d-5a8e-962d-ef4ee948a267
+		summarizeBy: none
+		sourceColumn: Stage
+		sortByColumn: 'Stage Order'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Phase Group'
+		dataType: string
+		lineageTag: acf786fc-0af9-5b21-aa91-45f820f3bce9
+		summarizeBy: none
+		sourceColumn: Phase Group
+		sortByColumn: 'Phase Group Order'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Phase Group Order'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 5ff104d2-3bc7-5371-b3cf-b7bced7379f4
+		summarizeBy: none
+		sourceColumn: Phase Group Order
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Stage Order'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: df14fea7-02ce-50bb-902d-105ea6803b81
+		summarizeBy: none
+		sourceColumn: Stage Order
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Flight Phase' = m
+		mode: import
+		source =
+				let
+				    Source = fnReference("stage_of_operation"),
+				    Typed = Table.TransformColumnTypes(Source, {{"phase_group_order", Int64.Type}, {"stage_order", Int64.Type}}),
+				    Renamed = Table.RenameColumns(Typed, {{"stage_code", "Stage Code"}, {"stage", "Stage"}, {"phase_group", "Phase Group"}, {"phase_group_order", "Phase Group Order"}, {"stage_order", "Stage Order"}})
+				in
+				    Renamed
+
+	annotation PBI_ResultType = Table

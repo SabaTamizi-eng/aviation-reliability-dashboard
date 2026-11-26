@@ -1,0 +1,380 @@
+// Measures in the AviationReliability semantic model (copied from the TMDL definition).
+
+
+// ---------------------------------------------------------------- Volume
+
+[Reports] = COUNTROWS ( SDR )
+// format: #,0
+
+[Aircraft Reporting] = CALCULATE ( DISTINCTCOUNT ( SDR[Registration] ), NOT ISBLANK ( SDR[Registration] ) )
+// format: #,0
+
+[Reports per Aircraft] = DIVIDE ( [Reports], [Aircraft Reporting] )
+// format: 0.0
+
+[Share of Reports] = DIVIDE ( [Reports], CALCULATE ( [Reports], ALLSELECTED () ) )
+// format: 0.0%
+
+[Avg Reports per Month] = AVERAGEX ( VALUES ( 'Date'[Year Month Key] ), [Reports] )
+// format: #,0
+
+[Reports Prior Year] = CALCULATE ( [Reports], SAMEPERIODLASTYEAR ( 'Date'[Date] ) )
+// format: #,0
+
+[Latest Year] = MAX ( 'Date'[Year] )
+// format: 0
+
+[Reports YoY %] = CALCULATE ( [Reports], 'Year Comparison'[Comparison] = "Change %" )
+// format: +0.0%;-0.0%;0.0%
+
+
+// ---------------------------------------------------------------- Operational impact
+
+[In-Flight Reports] = CALCULATE ( [Reports], 'Flight Phase'[Phase Group] = "In flight" )
+// format: #,0
+
+[In-Flight Share] = DIVIDE ( [In-Flight Reports], [Reports] )
+// format: 0.0%
+
+[Found in Maintenance Share] = DIVIDE ( CALCULATE ( [Reports], 'Flight Phase'[Phase Group] = "Inspection & maintenance" ), [Reports] )
+// format: 0.0%
+
+[Unscheduled Landings] = CALCULATE ( [Reports], SDR[Unscheduled Landing] = TRUE () )
+// format: #,0
+
+[Aborted Takeoffs] = CALCULATE ( [Reports], SDR[Aborted Takeoff] = TRUE () )
+// format: #,0
+
+[Engine Shutdowns] = CALCULATE ( [Reports], SDR[Engine Shutdown] = TRUE () )
+// format: #,0
+
+[Returns to Gate] = CALCULATE ( [Reports], SDR[Return to Gate] = TRUE () )
+// format: #,0
+
+[Emergency Descents] = CALCULATE ( [Reports], SDR[Emergency Descent] = TRUE () )
+// format: #,0
+
+[Operational Impact Reports] = CALCULATE ( [Reports], SDR[Operational Impact] = TRUE () )
+// format: #,0
+
+[Smoke or Fumes Reports] = CALCULATE ( [Reports], SDR[Smoke or Fumes] = TRUE () )
+// format: #,0
+
+[Operational Impact Rate] = DIVIDE ( [Operational Impact Reports], [Reports] )
+// format: 0.0%
+
+[Unscheduled Landings YoY %] = CALCULATE ( [Unscheduled Landings], 'Year Comparison'[Comparison] = "Change %" )
+// format: +0.0%;-0.0%;0.0%
+
+[Unscheduled Landings per 1,000 Reports] = DIVIDE ( [Unscheduled Landings], [Reports] ) * 1000
+// format: 0.0
+
+
+// ---------------------------------------------------------------- Findings
+
+[Corrosion Reports] = CALCULATE ( [Reports], Finding[Finding Group] = "Corrosion" )
+// format: #,0
+
+[Corrosion Share] = DIVIDE ( [Corrosion Reports], [Reports] )
+// format: 0.0%
+
+[Cracking Reports] = CALCULATE ( [Reports], Finding[Finding Group] = "Cracking" )
+// format: #,0
+
+[Cracking Share] = DIVIDE ( [Cracking Reports], [Reports] )
+// format: 0.0%
+
+[Corrosion or Cracking Share] = [Corrosion Share] + [Cracking Share]
+// format: 0.0%
+
+[Structural Reports] = CALCULATE ( [Reports], 'System'[System Group] = "Structures" )
+// format: #,0
+
+[Structural Share] = DIVIDE ( [Structural Reports], [Reports] )
+// format: 0.0%
+
+[Powerplant Reports] = CALCULATE ( [Reports], 'System'[System Group] = "Powerplant & APU" )
+// format: #,0
+
+[Powerplant Share] = DIVIDE ( [Powerplant Reports], CALCULATE ( [Reports], REMOVEFILTERS ( 'System' ) ) )
+// format: 0.0%
+
+[Borescope Findings] = CALCULATE ( [Reports], 'Discovery Method'[Method Code] = "B" )
+// format: #,0
+
+[NDT Share] = DIVIDE ( CALCULATE ( [Reports], 'Discovery Method'[Method Group] = "NDT & borescope" ), [Reports] )
+// format: 0.0%
+
+[Median Airframe Hours] = MEDIAN ( SDR[Airframe Hours] )
+// format: #,0
+
+[Engine Manufacturer Reported Share] = DIVIDE ( CALCULATE ( [Reports], SDR[Engine Make Code] <> "NR" ), [Reports] )
+// format: 0%
+
+
+// ---------------------------------------------------------------- Pareto
+
+[Top 3 Chapters Share] =
+    VAR TopChapters = TOPN ( 3, ADDCOLUMNS ( VALUES ( 'System'[Chapter] ), "@Reports", [Reports] ), [@Reports], DESC )
+    RETURN
+        DIVIDE ( SUMX ( TopChapters, [@Reports] ), [Reports] )
+// format: 0%
+
+[Chapters for 80%] =
+    VAR ChapterTable = ADDCOLUMNS ( VALUES ( 'System'[Chapter] ), "@Reports", [Reports] )
+    VAR AllReports = SUMX ( ChapterTable, [@Reports] )
+    VAR WithRunning =
+        ADDCOLUMNS (
+            ChapterTable,
+            "@Running",
+                VAR ThisChapter = [@Reports]
+                RETURN SUMX ( FILTER ( ChapterTable, [@Reports] >= ThisChapter ), [@Reports] )
+        )
+    RETURN
+        COUNTROWS ( FILTER ( WithRunning, [@Running] - [@Reports] < 0.8 * AllReports ) )
+// format: 0
+
+
+// ---------------------------------------------------------------- Reporting
+
+[Median Days to Submit] = MEDIAN ( SDR[Days to Submit] )
+// format: 0
+
+[Submitted Within 7 Days] =
+    DIVIDE (
+        CALCULATE ( [Reports], SDR[Days to Submit] <= 7 ),
+        CALCULATE ( [Reports], NOT ISBLANK ( SDR[Days to Submit] ) )
+    )
+// format: 0%
+
+
+// ---------------------------------------------------------------- Pareto
+
+[Pareto Cumulative Share] =
+    VAR CurrentReports = [Reports]
+    VAR ChapterTable =
+        ADDCOLUMNS ( CALCULATETABLE ( VALUES ( 'System'[Chapter] ), REMOVEFILTERS ( 'System'[Chapter] ) ), "@Reports", [Reports] )
+    VAR RunningTotal = SUMX ( FILTER ( ChapterTable, [@Reports] >= CurrentReports ), [@Reports] )
+    RETURN
+        IF ( NOT ISBLANK ( CurrentReports ), DIVIDE ( RunningTotal, SUMX ( ChapterTable, [@Reports] ) ) )
+// format: 0%
+
+[Chapter Share] = DIVIDE ( [Reports], CALCULATE ( [Reports], REMOVEFILTERS ( 'System'[Chapter] ) ) )
+// format: 0.0%
+
+[Pareto Bar Color] =
+    VAR PriorShare = [Pareto Cumulative Share] - [Chapter Share]
+    RETURN
+        IF ( PriorShare < 0.8, "#1D4E89", "#B9C6D6" )
+
+
+// ---------------------------------------------------------------- Labels
+
+[Period Label] =
+    VAR FirstYear = MIN ( 'Date'[Year] )
+    VAR LastYear = MAX ( 'Date'[Year] )
+    RETURN
+        IF ( FirstYear = LastYear, FORMAT ( FirstYear, "0" ), FORMAT ( FirstYear, "0" ) & "-" & FORMAT ( LastYear, "0" ) )
+
+[Header Subtitle] = "FAA Service Difficulty Reports  ·  " & [Period Label] & "  ·  " & FORMAT ( [Reports], "#,0" ) & " reports"
+
+[Reports YoY Label] =
+    VAR LatestYear = [Latest Year]
+    VAR Change = CALCULATE ( [Reports], 'Year Comparison'[Comparison] = "Change %" )
+    RETURN
+        IF (
+            ISBLANK ( Change ),
+            "No earlier year selected",
+            FORMAT ( LatestYear, "0" ) & ": " & IF ( Change >= 0, "▲ ", "▼ " ) & FORMAT ( ABS ( Change ), "0.0%" ) & " vs " & FORMAT ( LatestYear - 1, "0" )
+        )
+
+[Unscheduled Landings YoY Label] =
+    VAR LatestYear = [Latest Year]
+    VAR Change = CALCULATE ( [Unscheduled Landings], 'Year Comparison'[Comparison] = "Change %" )
+    RETURN
+        IF (
+            ISBLANK ( Change ),
+            "No earlier year selected",
+            FORMAT ( LatestYear, "0" ) & ": " & IF ( Change >= 0, "▲ ", "▼ " ) & FORMAT ( ABS ( Change ), "0.0%" ) & " vs " & FORMAT ( LatestYear - 1, "0" )
+        )
+
+[Engine Shutdowns YoY Label] =
+    VAR LatestYear = [Latest Year]
+    VAR Change = CALCULATE ( [Engine Shutdowns], 'Year Comparison'[Comparison] = "Change %" )
+    RETURN
+        IF (
+            ISBLANK ( Change ),
+            "No earlier year selected",
+            FORMAT ( LatestYear, "0" ) & ": " & IF ( Change >= 0, "▲ ", "▼ " ) & FORMAT ( ABS ( Change ), "0.0%" ) & " vs " & FORMAT ( LatestYear - 1, "0" )
+        )
+
+[Powerplant YoY Label] =
+    VAR LatestYear = [Latest Year]
+    VAR Change = CALCULATE ( [Powerplant Reports], 'Year Comparison'[Comparison] = "Change %" )
+    RETURN
+        IF (
+            ISBLANK ( Change ),
+            "No earlier year selected",
+            FORMAT ( LatestYear, "0" ) & ": " & IF ( Change >= 0, "▲ ", "▼ " ) & FORMAT ( ABS ( Change ), "0.0%" ) & " vs " & FORMAT ( LatestYear - 1, "0" )
+        )
+
+[In-Flight Label] = FORMAT ( [In-Flight Reports], "#,0" ) & " reports in flight"
+
+[Maintenance Label] = FORMAT ( [Found in Maintenance Share], "0%" ) & " found during inspection"
+
+[Operational Impact Count Label] = FORMAT ( [Operational Impact Reports], "#,0" ) & " reports"
+
+[Operational Impact Label] = FORMAT ( [Operational Impact Rate], "0.0%" ) & " of reports"
+
+[Aircraft Label] = FORMAT ( [Reports per Aircraft], "0.0" ) & " reports per aircraft"
+
+[Submit Label] = FORMAT ( [Submitted Within 7 Days], "0%" ) & " filed within 7 days"
+
+[Corrosion Label] = FORMAT ( [Corrosion Reports], "#,0" ) & " reports"
+
+[Cracking Label] = FORMAT ( [Cracking Reports], "#,0" ) & " reports"
+
+[Structural Label] = FORMAT ( [Structural Reports], "#,0" ) & " structural reports"
+
+[Hours Label] = "Median airframe age at report"
+
+[Aborted Takeoffs Label] = FORMAT ( [Returns to Gate], "#,0" ) & " returns to gate"
+
+
+// ---------------------------------------------------------------- Operational impact
+
+[In-Flight Smoke or Fumes] = CALCULATE ( [Smoke or Fumes Reports], 'Flight Phase'[Phase Group] = "In flight" )
+// format: #,0
+
+
+// ---------------------------------------------------------------- Labels
+
+[Smoke Label] = FORMAT ( DIVIDE ( [In-Flight Smoke or Fumes], [In-Flight Reports] ), "0.0%" ) & " of in-flight reports"
+
+[Powerplant Share Label] = FORMAT ( [Powerplant Share], "0.0%" ) & " of all reports"
+
+[Borescope Label] = "found with a borescope"
+
+[NDT Label] = "found with NDT or a borescope"
+
+[In-Flight Share Label] = FORMAT ( [In-Flight Share], "0.0%" ) & " of all reports"
+
+[Corrosion or Cracking Label] = FORMAT ( [Corrosion Reports] + [Cracking Reports], "#,0" ) & " reports"
+
+[Top 3 Chapters Label] =
+    VAR TopChapters = TOPN ( 3, ADDCOLUMNS ( VALUES ( 'System'[Chapter Name] ), "@Reports", [Reports] ), [@Reports], DESC )
+    RETURN
+        CONCATENATEX ( TopChapters, 'System'[Chapter Name], ", ", [@Reports], DESC )
+
+[Chapters Label] = "out of " & FORMAT ( COUNTROWS ( FILTER ( VALUES ( 'System'[Chapter] ), [Reports] > 0 ) ), "0" ) & " chapters with reports"
+
+[Engine Make Label] = FORMAT ( [Engine Manufacturer Reported Share], "0%" ) & " name the engine maker"
+
+[Insight Top System] =
+    VAR Ranked =
+        TOPN (
+            1,
+            FILTER ( ADDCOLUMNS ( VALUES ( 'System'[Chapter Name] ), "@Reports", [Reports] ), NOT 'System'[Chapter Name] IN { "Other" } ),
+            [@Reports], DESC
+        )
+    VAR TopName = MAXX ( Ranked, 'System'[Chapter Name] )
+    VAR TopShare = DIVIDE ( MAXX ( Ranked, [@Reports] ), [Reports] )
+    RETURN
+        IF ( ISBLANK ( TopName ), BLANK (), TopName & " is the largest source, with " & FORMAT ( TopShare, "0%" ) & " of all reports." )
+
+[Insight Top Finding] =
+    VAR Ranked =
+        TOPN (
+            1,
+            FILTER ( ADDCOLUMNS ( VALUES ( Finding[Finding Category] ), "@Reports", [Reports] ), NOT Finding[Finding Category] IN { "Not specified", "Other" } ),
+            [@Reports], DESC
+        )
+    VAR TopName = MAXX ( Ranked, Finding[Finding Category] )
+    VAR TopShare = DIVIDE ( MAXX ( Ranked, [@Reports] ), [Reports] )
+    RETURN
+        IF ( ISBLANK ( TopName ), BLANK (), TopName & " is the most common finding, in " & FORMAT ( TopShare, "0%" ) & " of reports." )
+
+[Top Part] =
+    VAR Ranked =
+        TOPN (
+            1,
+            FILTER ( ADDCOLUMNS ( VALUES ( SDR[Part Name] ), "@Reports", [Reports] ), NOT SDR[Part Name] IN { "None", "Unknown", "Not Reported" } ),
+            [@Reports], DESC
+        )
+    VAR TopName = MAXX ( Ranked, SDR[Part Name] )
+    VAR TopShare = DIVIDE ( MAXX ( Ranked, [@Reports] ), [Reports] )
+    RETURN
+        IF ( ISBLANK ( TopName ), BLANK (), TopName )
+
+[Top Finding] =
+    VAR Ranked =
+        TOPN (
+            1,
+            FILTER ( ADDCOLUMNS ( VALUES ( Finding[Finding Category] ), "@Reports", [Reports] ), NOT Finding[Finding Category] IN { "Not specified", "Other" } ),
+            [@Reports], DESC
+        )
+    VAR TopName = MAXX ( Ranked, Finding[Finding Category] )
+    VAR TopShare = DIVIDE ( MAXX ( Ranked, [@Reports] ), [Reports] )
+    RETURN
+        IF ( ISBLANK ( TopName ), BLANK (), TopName & " (" & FORMAT ( TopShare, "0%" ) & ")" )
+
+[Top System] =
+    VAR Ranked =
+        TOPN (
+            1,
+            FILTER ( ADDCOLUMNS ( VALUES ( 'System'[System Name] ), "@Reports", [Reports] ), NOT 'System'[System Name] IN { "Other" } ),
+            [@Reports], DESC
+        )
+    VAR TopName = MAXX ( Ranked, 'System'[System Name] )
+    VAR TopShare = DIVIDE ( MAXX ( Ranked, [@Reports] ), [Reports] )
+    RETURN
+        IF ( ISBLANK ( TopName ), BLANK (), TopName & " (" & FORMAT ( TopShare, "0%" ) & ")" )
+
+[Insight Ground vs Flight] =
+    FORMAT ( [Found in Maintenance Share], "0%" ) & " are found on the ground during checks; "
+        & FORMAT ( [In-Flight Share], "0%" ) & " in flight." 
+
+[Insight Unscheduled Landings] =
+    VAR FirstYear = MIN ( 'Date'[Year] )
+    VAR LastYear = MAX ( 'Date'[Year] )
+    VAR FirstValue = CALCULATE ( [Unscheduled Landings], REMOVEFILTERS ( 'Date' ), 'Date'[Year] = FirstYear )
+    VAR LastValue = CALCULATE ( [Unscheduled Landings], REMOVEFILTERS ( 'Date' ), 'Date'[Year] = LastYear )
+    RETURN
+        IF (
+            FirstYear = LastYear,
+            FORMAT ( LastValue, "#,0" ) & " reports led to an unscheduled landing in " & FORMAT ( LastYear, "0" ) & ".",
+            "Unscheduled landings: " & FORMAT ( FirstValue, "#,0" ) & " in " & FORMAT ( FirstYear, "0" )
+                & ", " & FORMAT ( LastValue, "#,0" ) & " in " & FORMAT ( LastYear, "0" )
+                & " (" & FORMAT ( DIVIDE ( LastValue - FirstValue, FirstValue ), "+0%;-0%" ) & ")."
+        )
+
+[Trend Title] = "Reports per month, " & [Period Label]
+
+[Detail Title] =
+    VAR Parts =
+        FILTER (
+            {
+                IF ( HASONEVALUE ( 'System'[Chapter] ), VALUES ( 'System'[Chapter] ) ),
+                IF ( HASONEVALUE ( 'System'[System] ), VALUES ( 'System'[System] ) ),
+                IF ( HASONEVALUE ( Aircraft[Family] ), VALUES ( Aircraft[Family] ) ),
+                IF ( HASONEVALUE ( Finding[Finding Category] ), VALUES ( Finding[Finding Category] ) ),
+                IF ( HASONEVALUE ( 'Flight Phase'[Stage] ), VALUES ( 'Flight Phase'[Stage] ) ),
+                IF ( HASONEVALUE ( SDR[Part Name] ), VALUES ( SDR[Part Name] ) )
+            },
+            NOT ISBLANK ( [Value] )
+        )
+    RETURN
+        FORMAT ( [Reports], "#,0" ) & " reports" & IF ( COUNTROWS ( Parts ) > 0, "  ·  " & CONCATENATEX ( Parts, [Value], "  ·  " ), "" )
+
+
+// ---------------------------------------------------------------- Formatting
+
+[YoY Font Color] = IF ( [Reports YoY %] > 0, "#B23A2B", "#2D7D4F" )
+
+[Landings YoY Font Color] = IF ( [Unscheduled Landings YoY %] > 0, "#B23A2B", "#2D7D4F" )
+
+
+// ---------------------------------------------------------------- Year Comparison (calculation group)
+
+// Items: Selected years, Latest year, Previous year, Change, Change %. See
+// AviationReliability.SemanticModel/definition/tables/Year Comparison.tmdl for the full definition.

@@ -1,0 +1,39 @@
+relationship f1821880-bee4-5ca7-a9c7-8d0fc1e8d1a4
+	fromColumn: SDR.'Difficulty Date'
+	toColumn: Date.Date
+
+relationship 55305ec6-6968-5ab9-8ed0-9c1027becbd7
+	fromColumn: SDR.'JASC Code'
+	toColumn: System.'JASC Code'
+
+relationship 5e6bda68-54a5-5d4d-91a4-e34511d0ab8b
+	fromColumn: SDR.'Aircraft Key'
+	toColumn: Aircraft.'Aircraft Key'
+
+relationship 99da607e-3e36-5937-bae2-c1fb72b2257e
+	fromColumn: SDR.'Stage Code'
+	toColumn: 'Flight Phase'.'Stage Code'
+
+relationship e0375b7e-b542-57ab-b318-6fd268abc0f2
+	fromColumn: SDR.'Method Code'
+	toColumn: 'Discovery Method'.'Method Code'
+
+relationship 34550730-92cb-538e-97a8-023f40d85575
+	fromColumn: SDR.'Symptom Code'
+	toColumn: Symptom.'Symptom Code'
+
+relationship aaed782b-dab0-5c92-99c1-ff5984096cf5
+	fromColumn: SDR.'Action Code'
+	toColumn: 'Crew Action'.'Action Code'
+
+relationship 5052731f-f86c-5d59-8662-704b899d3c11
+	fromColumn: SDR.'Submitter Code'
+	toColumn: Submitter.'Submitter Code'
+
+relationship dd8e121d-cccd-50f6-97e0-be77767dde4e
+	fromColumn: SDR.'Part Condition'
+	toColumn: Finding.'Part Condition Code'
+
+relationship 57643bb9-b2cc-54c3-9da7-e4a97123edc4
+	fromColumn: SDR.'Engine Make Code'
+	toColumn: 'Engine Manufacturer'.'Engine Make Code'

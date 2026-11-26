@@ -1,0 +1,60 @@
+expression SourceMode = "Web" meta [IsParameterQuery=true, List={"Web", "Folder"}, DefaultValue="Web", Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 170a30e8-973b-5a0f-9de6-dee0a2fe2b0f
+
+	annotation PBI_ResultType = Text
+
+expression DataFolder = "C:\path\to\aviation-reliability-dashboard\data\" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: c4a38591-133e-52c4-b37e-adf58db42b61
+
+	annotation PBI_ResultType = Text
+
+expression ReferenceUrl = "https://raw.githubusercontent.com/SabaTamizi-eng/aviation-reliability-dashboard/main/data/reference/" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 5f184591-5fe5-553e-910e-f861365ff7a5
+
+	annotation PBI_ResultType = Text
+
+expression FirstYear = 2021 meta [IsParameterQuery=true, Type="Number", IsParameterQueryRequired=true]
+	lineageTag: 96850cd2-c0a6-5d15-a5f7-634a8f54f295
+
+	annotation PBI_ResultType = Number
+
+expression LastYear = 2025 meta [IsParameterQuery=true, Type="Number", IsParameterQueryRequired=true]
+	lineageTag: 8d95959a-020e-5f96-9863-0f80832583d3
+
+	annotation PBI_ResultType = Number
+
+expression fnReference =
+		// Reads one of the small lookup files in data/reference (from GitHub, or a local copy of the repo)
+		(name as text) as table =>
+		let
+		    Source =
+		        if SourceMode = "Folder" then
+		            File.Contents(DataFolder & "reference\" & name & ".csv")
+		        else
+		            Web.Contents(ReferenceUrl, [RelativePath = name & ".csv"]),
+		    Csv = Csv.Document(Source, [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+		    Promoted = Table.PromoteHeaders(Csv, [PromoteAllScalars = true])
+		in
+		    Promoted
+	lineageTag: 1a2691a6-6054-521e-8884-e7f10a2ba33a
+
+	annotation PBI_ResultType = Function
+
+expression fnSdrYear =
+		// One year of Service Difficulty Reports, straight from the FAA download page (or data\raw in Folder mode)
+		(year as number) as table =>
+		let
+		    FileName = "SDR-" & Text.From(year) & ".csv",
+		    Source =
+		        if SourceMode = "Folder" then
+		            File.Contents(DataFolder & "raw\" & FileName)
+		        else
+		            Web.Contents("https://external.apic4e.faa.gov/sdrs/retrieve/", [RelativePath = FileName]),
+		    Csv = Csv.Document(Source, [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+		    Promoted = Table.PromoteHeaders(Csv, [PromoteAllScalars = true]),
+		    Kept = Table.SelectColumns(Promoted, {"OperatorControlNumber", "DifficultyDate", "SubmissionDate", "SubmitterTypeCode", "SDRType", "JASCCode", "NatureOfConditionA", "NatureOfConditionB", "NatureOfConditionC", "PrecautionaryProcedureA", "PrecautionaryProcedureB", "PrecautionaryProcedureC", "PrecautionaryProcedureD", "StageOfOperationCode", "HowDiscoveredCode", "RegistryNNumber", "AircraftMake", "AircraftModel", "AircraftTotalTime", "EngineMake", "PartName", "PartCondition", "Discrepancy"}, MissingField.UseNull)
+		in
+		    Kept
+	lineageTag: 40399471-9d81-50ed-9e10-473d9158fc9c
+
+	annotation PBI_ResultType = Function

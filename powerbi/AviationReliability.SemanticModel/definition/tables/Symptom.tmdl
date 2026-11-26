@@ -1,0 +1,38 @@
+table Symptom
+	lineageTag: 51cb7aa4-b1b1-5a6a-be83-7e642c540677
+
+	column 'Symptom Code'
+		dataType: string
+		isHidden
+		lineageTag: b8652a9a-f7de-5201-8034-ea7ea514bbcd
+		summarizeBy: none
+		sourceColumn: Symptom Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column Symptom
+		dataType: string
+		lineageTag: 1a457351-a742-5972-9050-a049adf4da2e
+		summarizeBy: none
+		sourceColumn: Symptom
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Symptom Group'
+		dataType: string
+		lineageTag: d045b292-5741-56ff-946d-41c11d53afa7
+		summarizeBy: none
+		sourceColumn: Symptom Group
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Symptom = m
+		mode: import
+		source =
+				let
+				    Source = fnReference("nature_of_condition"),
+				    Renamed = Table.RenameColumns(Source, {{"nature_code", "Symptom Code"}, {"nature", "Symptom"}, {"nature_group", "Symptom Group"}})
+				in
+				    Renamed
+
+	annotation PBI_ResultType = Table

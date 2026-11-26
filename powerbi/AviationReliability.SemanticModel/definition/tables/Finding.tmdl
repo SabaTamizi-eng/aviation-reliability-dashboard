@@ -1,0 +1,59 @@
+table Finding
+	lineageTag: cc92394a-b1aa-5ed2-9689-c585455ce186
+
+	column 'Part Condition Code'
+		dataType: string
+		isHidden
+		lineageTag: ed386ba2-50f7-5936-a4e7-8a42a2f67fb2
+		summarizeBy: none
+		sourceColumn: Part Condition Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Finding Category'
+		dataType: string
+		lineageTag: 02e3bded-6926-54f5-a715-74a298f53a03
+		summarizeBy: none
+		sourceColumn: Finding Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Finding Group'
+		dataType: string
+		lineageTag: 7369f6d6-271d-5832-a709-0ee62dc6e46b
+		summarizeBy: none
+		sourceColumn: Finding Group
+		sortByColumn: 'Finding Group Order'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Finding Group Order'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: b349b742-9755-5077-8864-dd46378bd8d8
+		summarizeBy: none
+		sourceColumn: Finding Group Order
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Part Condition'
+		dataType: string
+		lineageTag: c209e48f-018f-5496-ac91-bbff1f5b0dec
+		summarizeBy: none
+		sourceColumn: Part Condition
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Finding = m
+		mode: import
+		source =
+				let
+				    Source = fnReference("part_conditions"),
+				    Typed = Table.TransformColumnTypes(Source, {{"condition_group_order", Int64.Type}}),
+				    Renamed = Table.RenameColumns(Typed, {{"part_condition", "Part Condition Code"}, {"condition_category", "Finding Category"}, {"condition_group", "Finding Group"}, {"condition_group_order", "Finding Group Order"}}),
+				    Result = Table.AddColumn(Renamed, "Part Condition", each Text.Proper([Part Condition Code]), type text)
+				in
+				    Result
+
+	annotation PBI_ResultType = Table

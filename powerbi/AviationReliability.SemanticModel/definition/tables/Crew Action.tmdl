@@ -1,0 +1,39 @@
+table 'Crew Action'
+	lineageTag: 0d61ed37-2cc7-53a8-90b1-cc08942cca99
+
+	column 'Action Code'
+		dataType: string
+		isHidden
+		lineageTag: 06d6edd7-a9ec-5500-8ca6-aa69364945e5
+		summarizeBy: none
+		sourceColumn: Action Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Crew Action'
+		dataType: string
+		lineageTag: 66a2427e-063b-5d31-9a51-e994f3eb0105
+		summarizeBy: none
+		sourceColumn: Crew Action
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operational Impact'
+		dataType: boolean
+		lineageTag: 19aff0bf-4c03-5d0a-8e42-44cfb030f0e1
+		summarizeBy: none
+		sourceColumn: Operational Impact
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Crew Action' = m
+		mode: import
+		source =
+				let
+				    Source = fnReference("precautionary_procedure"),
+				    Typed = Table.TransformColumnTypes(Source, {{"operational_impact", type logical}}),
+				    Renamed = Table.RenameColumns(Typed, {{"procedure_code", "Action Code"}, {"procedure", "Crew Action"}, {"operational_impact", "Operational Impact"}})
+				in
+				    Renamed
+
+	annotation PBI_ResultType = Table

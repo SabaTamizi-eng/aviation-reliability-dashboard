@@ -1,0 +1,29 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	discourageImplicitMeasures
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_QueryOrder = ["SourceMode", "DataFolder", "ReferenceUrl", "FirstYear", "LastYear", "fnReference", "fnSdrYear", "_Measures", "SDR", "Date", "System", "Aircraft", "Flight Phase", "Discovery Method", "Symptom", "Crew Action", "Submitter", "Finding", "Engine Manufacturer", "Analyze By", "Year Comparison"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table _Measures
+ref table SDR
+ref table Date
+ref table System
+ref table Aircraft
+ref table 'Flight Phase'
+ref table 'Discovery Method'
+ref table Symptom
+ref table 'Crew Action'
+ref table Submitter
+ref table Finding
+ref table 'Engine Manufacturer'
+ref table 'Analyze By'
+ref table 'Year Comparison'

@@ -1,0 +1,115 @@
+table Date
+	lineageTag: 53cbb295-de9d-5b8e-9b05-a0974a0ae6fc
+	dataCategory: Time
+
+	column Date
+		dataType: dateTime
+		isKey
+		formatString: yyyy-mm-dd
+		lineageTag: 71fac4fd-2fec-578a-bbce-b174589f52ce
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: 1dbe89be-31bf-5ad4-9746-0e5565f3d2f4
+		summarizeBy: none
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quarter
+		dataType: string
+		lineageTag: d6535cab-36bb-5bcc-bfae-3f8eb0d13850
+		summarizeBy: none
+		sourceColumn: Quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Number'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 3df64420-a1d0-59e3-a5e3-84d37ec56309
+		summarizeBy: none
+		sourceColumn: Month Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: string
+		lineageTag: 6a0bfaae-64f2-5676-bd3d-d22a98f73e62
+		summarizeBy: none
+		sourceColumn: Month
+		sortByColumn: 'Month Number'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Start'
+		dataType: dateTime
+		formatString: mmm yyyy
+		lineageTag: ee6188d0-d704-5501-a5c6-7dbc44f7c309
+		summarizeBy: none
+		sourceColumn: Month Start
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Year Month'
+		dataType: string
+		lineageTag: a3e6dcca-8fd7-593d-bbe8-42d5209f8327
+		summarizeBy: none
+		sourceColumn: Year Month
+		sortByColumn: 'Year Month Key'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Year Month Key'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: fb3221d0-2cf6-5a2e-9ae6-26f460308b7f
+		summarizeBy: none
+		sourceColumn: Year Month Key
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy Calendar
+		lineageTag: edbe58c2-0ed8-5d34-aa06-95d33873d194
+
+		level Year
+			ordinal: 0
+			lineageTag: db1ae3da-1e2d-5aeb-b6f8-0dd85413ea19
+			column: Year
+
+		level Quarter
+			ordinal: 1
+			lineageTag: 06054edc-80ee-5797-97f6-d6978f60cd35
+			column: Quarter
+
+		level Month
+			ordinal: 2
+			lineageTag: 1404479d-b5f8-5b21-8835-e799deffc531
+			column: Month
+
+	partition Date = m
+		mode: import
+		source =
+				let
+				    StartDate = #date(FirstYear, 1, 1),
+				    EndDate = #date(LastYear, 12, 31),
+				    Dates = List.Dates(StartDate, Duration.Days(EndDate - StartDate) + 1, #duration(1, 0, 0, 0)),
+				    Base = Table.FromList(Dates, Splitter.SplitByNothing(), type table [Date = date]),
+				    WithYear = Table.AddColumn(Base, "Year", each Date.Year([Date]), Int64.Type),
+				    WithQuarter = Table.AddColumn(WithYear, "Quarter", each "Q" & Text.From(Date.QuarterOfYear([Date])), type text),
+				    WithMonthNumber = Table.AddColumn(WithQuarter, "Month Number", each Date.Month([Date]), Int64.Type),
+				    WithMonth = Table.AddColumn(WithMonthNumber, "Month", each Date.ToText([Date], [Format = "MMM", Culture = "en-US"]), type text),
+				    WithMonthStart = Table.AddColumn(WithMonth, "Month Start", each Date.StartOfMonth([Date]), type date),
+				    WithYearMonth = Table.AddColumn(WithMonthStart, "Year Month", each Date.ToText([Date], [Format = "MMM yyyy", Culture = "en-US"]), type text),
+				    WithYearMonthKey = Table.AddColumn(WithYearMonth, "Year Month Key", each Date.Year([Date]) * 100 + Date.Month([Date]), Int64.Type)
+				in
+				    WithYearMonthKey
+
+	annotation PBI_ResultType = Table

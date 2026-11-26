@@ -1,0 +1,31 @@
+table 'Engine Manufacturer'
+	lineageTag: c7dac08e-9ccb-58e1-9c09-601c44c28aee
+
+	column 'Engine Make Code'
+		dataType: string
+		isHidden
+		lineageTag: 8afd71f2-e9f5-5ae4-9b2d-9a115789f861
+		summarizeBy: none
+		sourceColumn: Engine Make Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Engine Manufacturer'
+		dataType: string
+		lineageTag: e189bace-e2d6-5d17-83f8-27123b1bc896
+		summarizeBy: none
+		sourceColumn: Engine Manufacturer
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Engine Manufacturer' = m
+		mode: import
+		source =
+				let
+				    Source = fnReference("engine_makes"),
+				    WithNotReported = Table.Combine({Source, #table({"engine_make_code", "engine_manufacturer"}, {{"NR", "Not reported"}})}),
+				    Renamed = Table.RenameColumns(WithNotReported, {{"engine_make_code", "Engine Make Code"}, {"engine_manufacturer", "Engine Manufacturer"}})
+				in
+				    Renamed
+
+	annotation PBI_ResultType = Table

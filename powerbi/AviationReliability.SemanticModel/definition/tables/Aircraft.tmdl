@@ -1,0 +1,107 @@
+table Aircraft
+	lineageTag: 62760e83-aa9c-59f4-a8c6-b92e6cf1e25b
+
+	column 'Aircraft Key'
+		dataType: string
+		isHidden
+		lineageTag: 5ceb2edb-80c8-5482-aef5-fcac83624f8b
+		summarizeBy: none
+		sourceColumn: Aircraft Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Manufacturer
+		dataType: string
+		lineageTag: 15617c35-7a23-5e84-963e-ffcb7e1b6666
+		summarizeBy: none
+		sourceColumn: Manufacturer
+
+		annotation SummarizationSetBy = Automatic
+
+	column Family
+		dataType: string
+		lineageTag: a071248d-3526-5308-a2a4-ceb31d47b4ca
+		summarizeBy: none
+		sourceColumn: Family
+
+		annotation SummarizationSetBy = Automatic
+
+	column Model
+		dataType: string
+		lineageTag: 789aa3a2-c033-50cc-8b3e-50b5840d924f
+		summarizeBy: none
+		sourceColumn: Model
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		lineageTag: e83ce144-cece-54f5-a6b3-e31ce7096478
+		summarizeBy: none
+		sourceColumn: Category
+		sortByColumn: 'Category Order'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Category Order'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: b18759c8-b0b9-595a-811f-4fc021fc2e5b
+		summarizeBy: none
+		sourceColumn: Category Order
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'Fleet Hierarchy'
+		lineageTag: 74840f49-609a-555f-a688-63d9d0c35218
+
+		level Category
+			ordinal: 0
+			lineageTag: fc8558a5-bec5-5e1e-b53e-69b02a65ae3b
+			column: Category
+
+		level Family
+			ordinal: 1
+			lineageTag: 61c79da2-6168-57fd-afe0-71ffd0ea2221
+			column: Family
+
+		level Model
+			ordinal: 2
+			lineageTag: c8e35896-c9c8-5752-a6d4-f67be590700b
+			column: Model
+
+	partition Aircraft = m
+		mode: import
+		source =
+				let
+				    Models = fnReference("aircraft_models"),
+				    Makes = fnReference("aircraft_makes"),
+				    Rules = Table.Buffer(fnReference("aircraft_families")),
+				    // Longest matching model prefix wins; a rule with a suffix (A320neo "N"/"NX") beats one without
+				    MatchFamily = (make as text, model as text) as nullable record =>
+				        let
+				            Candidates = Table.SelectRows(Rules, each [make_code] = make and Text.StartsWith(model, [model_prefix])
+				                and ([model_suffix] = "" or Text.EndsWith(model, [model_suffix]))),
+				            Scored = Table.AddColumn(Candidates, "score", each Text.Length([model_prefix]) + (if [model_suffix] = "" then 0 else 100))
+				        in
+				            if Table.IsEmpty(Scored) then null else Table.Max(Scored, "score"),
+				    WithMake = Table.NestedJoin(Models, {"make_code"}, Makes, {"make_code"}, "Make", JoinKind.LeftOuter),
+				    Expanded = Table.ExpandTableColumn(WithMake, "Make", {"manufacturer", "default_category"}),
+				    WithMatch = Table.AddColumn(Expanded, "Match", each MatchFamily([make_code], [model_code])),
+				    WithKey = Table.AddColumn(WithMatch, "Aircraft Key", each [make_code] & "|" & [model_code], type text),
+				    WithManufacturer = Table.AddColumn(WithKey, "Manufacturer", each
+				        if [make_code] = "" then "Not reported" else if [manufacturer] = null then [make_code] else [manufacturer], type text),
+				    WithFamily = Table.AddColumn(WithManufacturer, "Family", each
+				        if [Match] <> null then [Match][family] else if [make_code] = "" then "Not reported" else [Manufacturer] & " (other)", type text),
+				    WithCategory = Table.AddColumn(WithFamily, "Category", each
+				        if [Match] <> null then [Match][category] else if [make_code] = "" then "Not reported"
+				        else if [default_category] = null then "Other" else [default_category], type text),
+				    WithModel = Table.AddColumn(WithCategory, "Model", each if [model_code] = "" then "(model not reported)" else [model_code], type text),
+				    CategoryOrder = Table.AddColumn(WithModel, "Category Order", each
+				        List.PositionOf({"Narrowbody", "Widebody", "Regional jet", "Turboprop", "Business jet", "Helicopter", "Piston / light", "Other", "Not reported"}, [Category]) + 1, Int64.Type),
+				    Result = Table.SelectColumns(CategoryOrder, {"Aircraft Key", "Manufacturer", "Family", "Model", "Category", "Category Order"})
+				in
+				    Result
+
+	annotation PBI_ResultType = Table

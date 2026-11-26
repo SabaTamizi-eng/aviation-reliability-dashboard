@@ -1,0 +1,38 @@
+table Submitter
+	lineageTag: e187e20e-06d1-5faf-ab06-e430da92a7bb
+
+	column 'Submitter Code'
+		dataType: string
+		isHidden
+		lineageTag: 89bd3949-a034-5b68-85cb-832abe36b3a8
+		summarizeBy: none
+		sourceColumn: Submitter Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column Submitter
+		dataType: string
+		lineageTag: f6a1362a-e90d-53ac-9be4-9eba8a0ed731
+		summarizeBy: none
+		sourceColumn: Submitter
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Submitter Group'
+		dataType: string
+		lineageTag: 52e5d5f0-fb6c-5c42-8ad0-6a42059f2eb3
+		summarizeBy: none
+		sourceColumn: Submitter Group
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Submitter = m
+		mode: import
+		source =
+				let
+				    Source = fnReference("submitter_type"),
+				    Renamed = Table.RenameColumns(Source, {{"submitter_code", "Submitter Code"}, {"submitter", "Submitter"}, {"submitter_group", "Submitter Group"}})
+				in
+				    Renamed
+
+	annotation PBI_ResultType = Table

@@ -1,0 +1,520 @@
+table _Measures
+	lineageTag: 6f828c8d-8bd0-51fe-8ecf-3908226d01fe
+
+	measure Reports = COUNTROWS ( SDR )
+		formatString: #,0
+		displayFolder: Volume
+		lineageTag: 54a51d59-9dfd-5dfc-b8e8-2dd3a41d7f8f
+
+	measure 'Aircraft Reporting' = CALCULATE ( DISTINCTCOUNT ( SDR[Registration] ), NOT ISBLANK ( SDR[Registration] ) )
+		formatString: #,0
+		displayFolder: Volume
+		lineageTag: 199c31dd-d3d6-5055-93f0-8f9bb91d46bc
+
+	measure 'Reports per Aircraft' = DIVIDE ( [Reports], [Aircraft Reporting] )
+		formatString: 0.0
+		displayFolder: Volume
+		lineageTag: 33167d7d-f189-5de5-9284-54d8872f2ff3
+
+	measure 'Share of Reports' = DIVIDE ( [Reports], CALCULATE ( [Reports], ALLSELECTED () ) )
+		formatString: 0.0%
+		displayFolder: Volume
+		lineageTag: 88fff23e-745d-5bc3-bdd3-22226f7743dd
+
+	measure 'Avg Reports per Month' = AVERAGEX ( VALUES ( 'Date'[Year Month Key] ), [Reports] )
+		formatString: #,0
+		displayFolder: Volume
+		lineageTag: 0d83263c-3945-5c46-ad74-e03227c99ad1
+
+	measure 'Reports Prior Year' = CALCULATE ( [Reports], SAMEPERIODLASTYEAR ( 'Date'[Date] ) )
+		formatString: #,0
+		displayFolder: Volume
+		lineageTag: 9bbbe9ff-9411-5bbf-9820-a4433a96506b
+
+	measure 'Latest Year' = MAX ( 'Date'[Year] )
+		formatString: 0
+		displayFolder: Volume
+		lineageTag: b648962a-aea1-5d52-95dc-5000dfc17281
+
+	measure 'Reports YoY %' = CALCULATE ( [Reports], 'Year Comparison'[Comparison] = "Change %" )
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: Volume
+		lineageTag: 591b1f52-1c93-560e-b808-e8a185424fa3
+
+	measure 'In-Flight Reports' = CALCULATE ( [Reports], 'Flight Phase'[Phase Group] = "In flight" )
+		formatString: #,0
+		displayFolder: Operational impact
+		lineageTag: 09b0e647-0956-5807-abff-7d462d154f7d
+
+	measure 'In-Flight Share' = DIVIDE ( [In-Flight Reports], [Reports] )
+		formatString: 0.0%
+		displayFolder: Operational impact
+		lineageTag: 4ed202b6-43ce-559b-9f67-2334671ef9f2
+
+	measure 'Found in Maintenance Share' = DIVIDE ( CALCULATE ( [Reports], 'Flight Phase'[Phase Group] = "Inspection & maintenance" ), [Reports] )
+		formatString: 0.0%
+		displayFolder: Operational impact
+		lineageTag: 489640b9-b246-5504-a7e7-8a11f330346b
+
+	measure 'Unscheduled Landings' = CALCULATE ( [Reports], SDR[Unscheduled Landing] = TRUE () )
+		formatString: #,0
+		displayFolder: Operational impact
+		lineageTag: ee5fd7d7-bc7e-5688-a8a2-5b03a3349afa
+
+	measure 'Aborted Takeoffs' = CALCULATE ( [Reports], SDR[Aborted Takeoff] = TRUE () )
+		formatString: #,0
+		displayFolder: Operational impact
+		lineageTag: 2f7c896b-26c1-5a7c-a8b3-43c0bed1d770
+
+	measure 'Engine Shutdowns' = CALCULATE ( [Reports], SDR[Engine Shutdown] = TRUE () )
+		formatString: #,0
+		displayFolder: Operational impact
+		lineageTag: 5d4c3ca0-4ea9-51f0-a2d9-a19b3a4c66f9
+
+	measure 'Returns to Gate' = CALCULATE ( [Reports], SDR[Return to Gate] = TRUE () )
+		formatString: #,0
+		displayFolder: Operational impact
+		lineageTag: 473e90e0-2a93-5a53-9325-9ee2f115308e
+
+	measure 'Emergency Descents' = CALCULATE ( [Reports], SDR[Emergency Descent] = TRUE () )
+		formatString: #,0
+		displayFolder: Operational impact
+		lineageTag: 65d9f2d4-7e74-5605-bb37-1b3af54cd7b3
+
+	measure 'Operational Impact Reports' = CALCULATE ( [Reports], SDR[Operational Impact] = TRUE () )
+		formatString: #,0
+		displayFolder: Operational impact
+		lineageTag: c3e9b400-384d-588a-ac12-8d98e1985b05
+
+	measure 'Smoke or Fumes Reports' = CALCULATE ( [Reports], SDR[Smoke or Fumes] = TRUE () )
+		formatString: #,0
+		displayFolder: Operational impact
+		lineageTag: cef51cbd-7c05-5ab2-8307-ffa556447621
+
+	measure 'Operational Impact Rate' = DIVIDE ( [Operational Impact Reports], [Reports] )
+		formatString: 0.0%
+		displayFolder: Operational impact
+		lineageTag: 69d3c6c0-03a5-5c30-b7fa-a634f7715553
+
+	measure 'Unscheduled Landings YoY %' = CALCULATE ( [Unscheduled Landings], 'Year Comparison'[Comparison] = "Change %" )
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: Operational impact
+		lineageTag: 5c4729e2-2d7e-5f71-b552-f246acc690f0
+
+	measure 'Unscheduled Landings per 1,000 Reports' = DIVIDE ( [Unscheduled Landings], [Reports] ) * 1000
+		formatString: 0.0
+		displayFolder: Operational impact
+		lineageTag: 3a125f4b-da5e-54a5-b063-be60abcab715
+
+	measure 'Corrosion Reports' = CALCULATE ( [Reports], Finding[Finding Group] = "Corrosion" )
+		formatString: #,0
+		displayFolder: Findings
+		lineageTag: dbeec4d3-aaba-5b68-84fe-fe0f1f7a041d
+
+	measure 'Corrosion Share' = DIVIDE ( [Corrosion Reports], [Reports] )
+		formatString: 0.0%
+		displayFolder: Findings
+		lineageTag: 7a608653-326b-50bc-9948-dac84a573fcf
+
+	measure 'Cracking Reports' = CALCULATE ( [Reports], Finding[Finding Group] = "Cracking" )
+		formatString: #,0
+		displayFolder: Findings
+		lineageTag: a95b5853-acd7-50bc-ac68-028b4fb62a14
+
+	measure 'Cracking Share' = DIVIDE ( [Cracking Reports], [Reports] )
+		formatString: 0.0%
+		displayFolder: Findings
+		lineageTag: 3a879b06-eeca-5ef2-ad4c-14698b5bf668
+
+	measure 'Corrosion or Cracking Share' = [Corrosion Share] + [Cracking Share]
+		formatString: 0.0%
+		displayFolder: Findings
+		lineageTag: 494973d2-a3e6-530f-939d-5b3c95b7b5cb
+
+	measure 'Structural Reports' = CALCULATE ( [Reports], 'System'[System Group] = "Structures" )
+		formatString: #,0
+		displayFolder: Findings
+		lineageTag: 2e741931-3049-5a4e-96a6-b0e641fd95fd
+
+	measure 'Structural Share' = DIVIDE ( [Structural Reports], [Reports] )
+		formatString: 0.0%
+		displayFolder: Findings
+		lineageTag: de7e024c-9349-5f39-a3c1-b9ad4d66ff9c
+
+	measure 'Powerplant Reports' = CALCULATE ( [Reports], 'System'[System Group] = "Powerplant & APU" )
+		formatString: #,0
+		displayFolder: Findings
+		lineageTag: 21315c16-c109-5d07-bbeb-e7ae6fe91f32
+
+	measure 'Powerplant Share' = DIVIDE ( [Powerplant Reports], CALCULATE ( [Reports], REMOVEFILTERS ( 'System' ) ) )
+		formatString: 0.0%
+		displayFolder: Findings
+		lineageTag: 69ac38a8-961c-59fc-bd35-8f43a933b13c
+
+	measure 'Borescope Findings' = CALCULATE ( [Reports], 'Discovery Method'[Method Code] = "B" )
+		formatString: #,0
+		displayFolder: Findings
+		lineageTag: 40895e9d-4d57-5a0c-9636-174a4f7b6794
+
+	measure 'NDT Share' = DIVIDE ( CALCULATE ( [Reports], 'Discovery Method'[Method Group] = "NDT & borescope" ), [Reports] )
+		formatString: 0.0%
+		displayFolder: Findings
+		lineageTag: d9ae3442-d14d-5614-ba69-696aefdf0ac1
+
+	measure 'Median Airframe Hours' = MEDIAN ( SDR[Airframe Hours] )
+		formatString: #,0
+		displayFolder: Findings
+		lineageTag: b91095e2-f8b9-50e9-92a2-ce7e036ca01f
+
+	measure 'Engine Manufacturer Reported Share' = DIVIDE ( CALCULATE ( [Reports], SDR[Engine Make Code] <> "NR" ), [Reports] )
+		formatString: 0%
+		displayFolder: Findings
+		lineageTag: 81ac6fcf-6a15-5474-970f-e98aeaa4d0aa
+
+	measure 'Top 3 Chapters Share' =
+			VAR TopChapters = TOPN ( 3, ADDCOLUMNS ( VALUES ( 'System'[Chapter] ), "@Reports", [Reports] ), [@Reports], DESC )
+			RETURN
+			    DIVIDE ( SUMX ( TopChapters, [@Reports] ), [Reports] )
+		formatString: 0%
+		displayFolder: Pareto
+		lineageTag: 5450a581-ca0f-51d9-ba5e-e748836180c6
+
+	measure 'Chapters for 80%' =
+			VAR ChapterTable = ADDCOLUMNS ( VALUES ( 'System'[Chapter] ), "@Reports", [Reports] )
+			VAR AllReports = SUMX ( ChapterTable, [@Reports] )
+			VAR WithRunning =
+			    ADDCOLUMNS (
+			        ChapterTable,
+			        "@Running",
+			            VAR ThisChapter = [@Reports]
+			            RETURN SUMX ( FILTER ( ChapterTable, [@Reports] >= ThisChapter ), [@Reports] )
+			    )
+			RETURN
+			    COUNTROWS ( FILTER ( WithRunning, [@Running] - [@Reports] < 0.8 * AllReports ) )
+		formatString: 0
+		displayFolder: Pareto
+		lineageTag: bf3071f5-ea59-59c5-8371-b5e6e9130935
+
+	measure 'Median Days to Submit' = MEDIAN ( SDR[Days to Submit] )
+		formatString: 0
+		displayFolder: Reporting
+		lineageTag: f1af80c8-09d8-57d2-b633-d5a4acf53d93
+
+	measure 'Submitted Within 7 Days' =
+			DIVIDE (
+			    CALCULATE ( [Reports], SDR[Days to Submit] <= 7 ),
+			    CALCULATE ( [Reports], NOT ISBLANK ( SDR[Days to Submit] ) )
+			)
+		formatString: 0%
+		displayFolder: Reporting
+		lineageTag: b0a9e57e-6ee4-547f-a221-8841c9b7c425
+
+	measure 'Pareto Cumulative Share' =
+			VAR CurrentReports = [Reports]
+			VAR ChapterTable =
+			    ADDCOLUMNS ( CALCULATETABLE ( VALUES ( 'System'[Chapter] ), REMOVEFILTERS ( 'System'[Chapter] ) ), "@Reports", [Reports] )
+			VAR RunningTotal = SUMX ( FILTER ( ChapterTable, [@Reports] >= CurrentReports ), [@Reports] )
+			RETURN
+			    IF ( NOT ISBLANK ( CurrentReports ), DIVIDE ( RunningTotal, SUMX ( ChapterTable, [@Reports] ) ) )
+		formatString: 0%
+		displayFolder: Pareto
+		lineageTag: b1c89720-d48a-53ea-b77d-7d7e8225e0ed
+
+	measure 'Chapter Share' = DIVIDE ( [Reports], CALCULATE ( [Reports], REMOVEFILTERS ( 'System'[Chapter] ) ) )
+		formatString: 0.0%
+		displayFolder: Pareto
+		lineageTag: 030664fc-0748-5d6d-b46d-935b6e1f988c
+
+	measure 'Pareto Bar Color' =
+			VAR PriorShare = [Pareto Cumulative Share] - [Chapter Share]
+			RETURN
+			    IF ( PriorShare < 0.8, "#1D4E89", "#B9C6D6" )
+		displayFolder: Pareto
+		lineageTag: dc4ac544-dd81-5e64-a665-1b7fd00b59f2
+
+	measure 'Period Label' =
+			VAR FirstYear = MIN ( 'Date'[Year] )
+			VAR LastYear = MAX ( 'Date'[Year] )
+			RETURN
+			    IF ( FirstYear = LastYear, FORMAT ( FirstYear, "0" ), FORMAT ( FirstYear, "0" ) & "-" & FORMAT ( LastYear, "0" ) )
+		displayFolder: Labels
+		lineageTag: 82a99222-7fa7-5de5-a496-57c18a7e68d4
+
+	measure 'Header Subtitle' = "FAA Service Difficulty Reports  ·  " & [Period Label] & "  ·  " & FORMAT ( [Reports], "#,0" ) & " reports"
+		displayFolder: Labels
+		lineageTag: 36e1b1f1-a6ef-56ee-a982-994d46e49f2b
+
+	measure 'Reports YoY Label' =
+			VAR LatestYear = [Latest Year]
+			VAR Change = CALCULATE ( [Reports], 'Year Comparison'[Comparison] = "Change %" )
+			RETURN
+			    IF (
+			        ISBLANK ( Change ),
+			        "No earlier year selected",
+			        FORMAT ( LatestYear, "0" ) & ": " & IF ( Change >= 0, "▲ ", "▼ " ) & FORMAT ( ABS ( Change ), "0.0%" ) & " vs " & FORMAT ( LatestYear - 1, "0" )
+			    )
+		displayFolder: Labels
+		lineageTag: e3931f4d-62fd-5a27-940a-27fe504cc9fb
+
+	measure 'Unscheduled Landings YoY Label' =
+			VAR LatestYear = [Latest Year]
+			VAR Change = CALCULATE ( [Unscheduled Landings], 'Year Comparison'[Comparison] = "Change %" )
+			RETURN
+			    IF (
+			        ISBLANK ( Change ),
+			        "No earlier year selected",
+			        FORMAT ( LatestYear, "0" ) & ": " & IF ( Change >= 0, "▲ ", "▼ " ) & FORMAT ( ABS ( Change ), "0.0%" ) & " vs " & FORMAT ( LatestYear - 1, "0" )
+			    )
+		displayFolder: Labels
+		lineageTag: f6035210-a40d-5a93-b0ef-710d1588d348
+
+	measure 'Engine Shutdowns YoY Label' =
+			VAR LatestYear = [Latest Year]
+			VAR Change = CALCULATE ( [Engine Shutdowns], 'Year Comparison'[Comparison] = "Change %" )
+			RETURN
+			    IF (
+			        ISBLANK ( Change ),
+			        "No earlier year selected",
+			        FORMAT ( LatestYear, "0" ) & ": " & IF ( Change >= 0, "▲ ", "▼ " ) & FORMAT ( ABS ( Change ), "0.0%" ) & " vs " & FORMAT ( LatestYear - 1, "0" )
+			    )
+		displayFolder: Labels
+		lineageTag: 0b72e7bc-a67d-5b94-a3a4-0cde4af142e3
+
+	measure 'Powerplant YoY Label' =
+			VAR LatestYear = [Latest Year]
+			VAR Change = CALCULATE ( [Powerplant Reports], 'Year Comparison'[Comparison] = "Change %" )
+			RETURN
+			    IF (
+			        ISBLANK ( Change ),
+			        "No earlier year selected",
+			        FORMAT ( LatestYear, "0" ) & ": " & IF ( Change >= 0, "▲ ", "▼ " ) & FORMAT ( ABS ( Change ), "0.0%" ) & " vs " & FORMAT ( LatestYear - 1, "0" )
+			    )
+		displayFolder: Labels
+		lineageTag: cf232116-ab3b-5cd2-b0f0-8f7a46f59a0b
+
+	measure 'In-Flight Label' = FORMAT ( [In-Flight Reports], "#,0" ) & " reports in flight"
+		displayFolder: Labels
+		lineageTag: 3f026202-ed98-5bc3-92f1-94641a822af1
+
+	measure 'Maintenance Label' = FORMAT ( [Found in Maintenance Share], "0%" ) & " found during inspection"
+		displayFolder: Labels
+		lineageTag: 81a682d4-ca2e-570d-9b2a-8ac11d56bda9
+
+	measure 'Operational Impact Count Label' = FORMAT ( [Operational Impact Reports], "#,0" ) & " reports"
+		displayFolder: Labels
+		lineageTag: fc5ede33-fa2a-560e-976c-0ee366e8d9df
+
+	measure 'Operational Impact Label' = FORMAT ( [Operational Impact Rate], "0.0%" ) & " of reports"
+		displayFolder: Labels
+		lineageTag: 082f1546-e757-5fe5-87bf-f458e33b02a3
+
+	measure 'Aircraft Label' = FORMAT ( [Reports per Aircraft], "0.0" ) & " reports per aircraft"
+		displayFolder: Labels
+		lineageTag: c54023c3-fba3-5f64-8db8-b455b5eaac21
+
+	measure 'Submit Label' = FORMAT ( [Submitted Within 7 Days], "0%" ) & " filed within 7 days"
+		displayFolder: Labels
+		lineageTag: 42ffe39f-8eaf-5420-b9f5-c1e96e47ae68
+
+	measure 'Corrosion Label' = FORMAT ( [Corrosion Reports], "#,0" ) & " reports"
+		displayFolder: Labels
+		lineageTag: c45ffdfc-853b-5660-b3ae-38ff935e75e8
+
+	measure 'Cracking Label' = FORMAT ( [Cracking Reports], "#,0" ) & " reports"
+		displayFolder: Labels
+		lineageTag: 77252600-f3a6-525c-a11d-0313502bb0cc
+
+	measure 'Structural Label' = FORMAT ( [Structural Reports], "#,0" ) & " structural reports"
+		displayFolder: Labels
+		lineageTag: e2f0b82c-026a-55c9-8631-0c2790f9a490
+
+	measure 'Hours Label' = "Median airframe age at report"
+		displayFolder: Labels
+		lineageTag: e6679c68-aa55-5fc6-9bf2-03d5f2b3ec51
+
+	measure 'Aborted Takeoffs Label' = FORMAT ( [Returns to Gate], "#,0" ) & " returns to gate"
+		displayFolder: Labels
+		lineageTag: c597a0b1-ba96-54bc-b3da-1e70d6722209
+
+	measure 'In-Flight Smoke or Fumes' = CALCULATE ( [Smoke or Fumes Reports], 'Flight Phase'[Phase Group] = "In flight" )
+		formatString: #,0
+		displayFolder: Operational impact
+		lineageTag: 72eb8f29-cb5c-53af-9779-5e8f0653b823
+
+	measure 'Smoke Label' = FORMAT ( DIVIDE ( [In-Flight Smoke or Fumes], [In-Flight Reports] ), "0.0%" ) & " of in-flight reports"
+		displayFolder: Labels
+		lineageTag: 71b3d14b-6fbd-5aed-bdfe-1d6ef716ba7b
+
+	measure 'Powerplant Share Label' = FORMAT ( [Powerplant Share], "0.0%" ) & " of all reports"
+		displayFolder: Labels
+		lineageTag: 341bd42e-cc0e-5185-9b43-8a14478a2e12
+
+	measure 'Borescope Label' = "found with a borescope"
+		displayFolder: Labels
+		lineageTag: 610801e8-5438-573a-863a-0cc97d171f9d
+
+	measure 'NDT Label' = "found with NDT or a borescope"
+		displayFolder: Labels
+		lineageTag: 5faf880a-f317-5e32-9ffd-dfed49205de5
+
+	measure 'In-Flight Share Label' = FORMAT ( [In-Flight Share], "0.0%" ) & " of all reports"
+		displayFolder: Labels
+		lineageTag: 370ba8cc-56d6-5b94-bb23-e600e42beadb
+
+	measure 'Corrosion or Cracking Label' = FORMAT ( [Corrosion Reports] + [Cracking Reports], "#,0" ) & " reports"
+		displayFolder: Labels
+		lineageTag: d89ea93e-1884-5e4f-b567-ee764dba0572
+
+	measure 'Top 3 Chapters Label' =
+			VAR TopChapters = TOPN ( 3, ADDCOLUMNS ( VALUES ( 'System'[Chapter Name] ), "@Reports", [Reports] ), [@Reports], DESC )
+			RETURN
+			    CONCATENATEX ( TopChapters, 'System'[Chapter Name], ", ", [@Reports], DESC )
+		displayFolder: Labels
+		lineageTag: 7145eb94-b0a1-50f2-ad2e-298025af2499
+
+	measure 'Chapters Label' = "out of " & FORMAT ( COUNTROWS ( FILTER ( VALUES ( 'System'[Chapter] ), [Reports] > 0 ) ), "0" ) & " chapters with reports"
+		displayFolder: Labels
+		lineageTag: 4ea3aeb5-7c1c-5e51-8c7f-1e6082bd66d9
+
+	measure 'Engine Make Label' = FORMAT ( [Engine Manufacturer Reported Share], "0%" ) & " name the engine maker"
+		displayFolder: Labels
+		lineageTag: cd6e3973-1577-547a-ba40-c96b0edc44e4
+
+	measure 'Insight Top System' =
+			VAR Ranked =
+			    TOPN (
+			        1,
+			        FILTER ( ADDCOLUMNS ( VALUES ( 'System'[Chapter Name] ), "@Reports", [Reports] ), NOT 'System'[Chapter Name] IN { "Other" } ),
+			        [@Reports], DESC
+			    )
+			VAR TopName = MAXX ( Ranked, 'System'[Chapter Name] )
+			VAR TopShare = DIVIDE ( MAXX ( Ranked, [@Reports] ), [Reports] )
+			RETURN
+			    IF ( ISBLANK ( TopName ), BLANK (), TopName & " is the largest source, with " & FORMAT ( TopShare, "0%" ) & " of all reports." )
+		displayFolder: Labels
+		lineageTag: 9df6eef3-5783-5c8d-85c1-2367482f9f2b
+
+	measure 'Insight Top Finding' =
+			VAR Ranked =
+			    TOPN (
+			        1,
+			        FILTER ( ADDCOLUMNS ( VALUES ( Finding[Finding Category] ), "@Reports", [Reports] ), NOT Finding[Finding Category] IN { "Not specified", "Other" } ),
+			        [@Reports], DESC
+			    )
+			VAR TopName = MAXX ( Ranked, Finding[Finding Category] )
+			VAR TopShare = DIVIDE ( MAXX ( Ranked, [@Reports] ), [Reports] )
+			RETURN
+			    IF ( ISBLANK ( TopName ), BLANK (), TopName & " is the most common finding, in " & FORMAT ( TopShare, "0%" ) & " of reports." )
+		displayFolder: Labels
+		lineageTag: 8ec436a9-c13c-5095-8ee3-96edc57f98c9
+
+	measure 'Top Part' =
+			VAR Ranked =
+			    TOPN (
+			        1,
+			        FILTER ( ADDCOLUMNS ( VALUES ( SDR[Part Name] ), "@Reports", [Reports] ), NOT SDR[Part Name] IN { "None", "Unknown", "Not Reported" } ),
+			        [@Reports], DESC
+			    )
+			VAR TopName = MAXX ( Ranked, SDR[Part Name] )
+			VAR TopShare = DIVIDE ( MAXX ( Ranked, [@Reports] ), [Reports] )
+			RETURN
+			    IF ( ISBLANK ( TopName ), BLANK (), TopName )
+		displayFolder: Labels
+		lineageTag: 7958b0ee-6ba0-5c8e-97aa-a59ce5dfca5f
+
+	measure 'Top Finding' =
+			VAR Ranked =
+			    TOPN (
+			        1,
+			        FILTER ( ADDCOLUMNS ( VALUES ( Finding[Finding Category] ), "@Reports", [Reports] ), NOT Finding[Finding Category] IN { "Not specified", "Other" } ),
+			        [@Reports], DESC
+			    )
+			VAR TopName = MAXX ( Ranked, Finding[Finding Category] )
+			VAR TopShare = DIVIDE ( MAXX ( Ranked, [@Reports] ), [Reports] )
+			RETURN
+			    IF ( ISBLANK ( TopName ), BLANK (), TopName & " (" & FORMAT ( TopShare, "0%" ) & ")" )
+		displayFolder: Labels
+		lineageTag: 2200c001-505d-5a56-9508-cdcae5c26b6a
+
+	measure 'Top System' =
+			VAR Ranked =
+			    TOPN (
+			        1,
+			        FILTER ( ADDCOLUMNS ( VALUES ( 'System'[System Name] ), "@Reports", [Reports] ), NOT 'System'[System Name] IN { "Other" } ),
+			        [@Reports], DESC
+			    )
+			VAR TopName = MAXX ( Ranked, 'System'[System Name] )
+			VAR TopShare = DIVIDE ( MAXX ( Ranked, [@Reports] ), [Reports] )
+			RETURN
+			    IF ( ISBLANK ( TopName ), BLANK (), TopName & " (" & FORMAT ( TopShare, "0%" ) & ")" )
+		displayFolder: Labels
+		lineageTag: 06a3fc6d-da94-5d83-aae3-4d5c489bfad0
+
+	measure 'Insight Ground vs Flight' =
+			FORMAT ( [Found in Maintenance Share], "0%" ) & " are found on the ground during checks; "
+			    & FORMAT ( [In-Flight Share], "0%" ) & " in flight." 
+		displayFolder: Labels
+		lineageTag: de28a53b-397b-5e6f-908d-aa5e6298c724
+
+	measure 'Insight Unscheduled Landings' =
+			VAR FirstYear = MIN ( 'Date'[Year] )
+			VAR LastYear = MAX ( 'Date'[Year] )
+			VAR FirstValue = CALCULATE ( [Unscheduled Landings], REMOVEFILTERS ( 'Date' ), 'Date'[Year] = FirstYear )
+			VAR LastValue = CALCULATE ( [Unscheduled Landings], REMOVEFILTERS ( 'Date' ), 'Date'[Year] = LastYear )
+			RETURN
+			    IF (
+			        FirstYear = LastYear,
+			        FORMAT ( LastValue, "#,0" ) & " reports led to an unscheduled landing in " & FORMAT ( LastYear, "0" ) & ".",
+			        "Unscheduled landings: " & FORMAT ( FirstValue, "#,0" ) & " in " & FORMAT ( FirstYear, "0" )
+			            & ", " & FORMAT ( LastValue, "#,0" ) & " in " & FORMAT ( LastYear, "0" )
+			            & " (" & FORMAT ( DIVIDE ( LastValue - FirstValue, FirstValue ), "+0%;-0%" ) & ")."
+			    )
+		displayFolder: Labels
+		lineageTag: 40a76667-a1d1-5be7-810e-6ec348d498e9
+
+	measure 'Trend Title' = "Reports per month, " & [Period Label]
+		displayFolder: Labels
+		lineageTag: b367c8c6-b5a4-5161-a621-836df1beca48
+
+	measure 'Detail Title' =
+			VAR Parts =
+			    FILTER (
+			        {
+			            IF ( HASONEVALUE ( 'System'[Chapter] ), VALUES ( 'System'[Chapter] ) ),
+			            IF ( HASONEVALUE ( 'System'[System] ), VALUES ( 'System'[System] ) ),
+			            IF ( HASONEVALUE ( Aircraft[Family] ), VALUES ( Aircraft[Family] ) ),
+			            IF ( HASONEVALUE ( Finding[Finding Category] ), VALUES ( Finding[Finding Category] ) ),
+			            IF ( HASONEVALUE ( 'Flight Phase'[Stage] ), VALUES ( 'Flight Phase'[Stage] ) ),
+			            IF ( HASONEVALUE ( SDR[Part Name] ), VALUES ( SDR[Part Name] ) )
+			        },
+			        NOT ISBLANK ( [Value] )
+			    )
+			RETURN
+			    FORMAT ( [Reports], "#,0" ) & " reports" & IF ( COUNTROWS ( Parts ) > 0, "  ·  " & CONCATENATEX ( Parts, [Value], "  ·  " ), "" )
+		displayFolder: Labels
+		lineageTag: f85e4425-0b4d-5755-ba80-df766a7632c0
+
+	measure 'YoY Font Color' = IF ( [Reports YoY %] > 0, "#B23A2B", "#2D7D4F" )
+		displayFolder: Formatting
+		lineageTag: e75704c8-187c-58bb-a268-ca4da7865fac
+
+	measure 'Landings YoY Font Color' = IF ( [Unscheduled Landings YoY %] > 0, "#B23A2B", "#2D7D4F" )
+		displayFolder: Formatting
+		lineageTag: 15f95384-248f-5128-b99f-15fb21cb18f9
+
+	column Measures
+		dataType: string
+		isHidden
+		lineageTag: e8d7b212-9d92-56d4-9447-477ea8302f67
+		summarizeBy: none
+		sourceColumn: Measures
+
+	partition _Measures = m
+		mode: import
+		source =
+				let
+				    Source = #table(type table [Measures = text], {})
+				in
+				    Source
+
+	annotation PBI_ResultType = Table

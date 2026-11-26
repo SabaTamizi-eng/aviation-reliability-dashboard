@@ -1,0 +1,59 @@
+table 'Year Comparison'
+	lineageTag: e44e35d6-cc14-5b1d-bc5e-07a7b51ac72a
+
+	calculationGroup
+		precedence: 1
+
+		calculationItem 'Selected years' = SELECTEDMEASURE ()
+			ordinal: 0
+
+		calculationItem 'Latest year' =
+				VAR LatestYear = MAX ( 'Date'[Year] )
+				RETURN
+				    CALCULATE ( SELECTEDMEASURE (), REMOVEFILTERS ( 'Date' ), 'Date'[Year] = LatestYear )
+			ordinal: 1
+
+		calculationItem 'Previous year' =
+				VAR LatestYear = MAX ( 'Date'[Year] )
+				RETURN
+				    CALCULATE ( SELECTEDMEASURE (), REMOVEFILTERS ( 'Date' ), 'Date'[Year] = LatestYear - 1 )
+			ordinal: 2
+
+		calculationItem Change =
+				VAR LatestYear = MAX ( 'Date'[Year] )
+				VAR LatestValue = CALCULATE ( SELECTEDMEASURE (), REMOVEFILTERS ( 'Date' ), 'Date'[Year] = LatestYear )
+				VAR PreviousValue = CALCULATE ( SELECTEDMEASURE (), REMOVEFILTERS ( 'Date' ), 'Date'[Year] = LatestYear - 1 )
+				RETURN
+				    IF ( NOT ISBLANK ( PreviousValue ), LatestValue - PreviousValue )
+			ordinal: 3
+
+		calculationItem 'Change %' =
+				VAR LatestYear = MAX ( 'Date'[Year] )
+				VAR LatestValue = CALCULATE ( SELECTEDMEASURE (), REMOVEFILTERS ( 'Date' ), 'Date'[Year] = LatestYear )
+				VAR PreviousValue = CALCULATE ( SELECTEDMEASURE (), REMOVEFILTERS ( 'Date' ), 'Date'[Year] = LatestYear - 1 )
+				RETURN
+				    IF ( NOT ISBLANK ( PreviousValue ), DIVIDE ( LatestValue - PreviousValue, PreviousValue ) )
+			ordinal: 4
+			formatStringDefinition = "+0.0%;-0.0%;0.0%"
+
+	column Comparison
+		dataType: string
+		lineageTag: 8039b75a-ef26-5bc5-8395-6666d8991430
+		summarizeBy: none
+		sourceColumn: Name
+		sortByColumn: Ordinal
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ordinal
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 0970c5e6-1547-56cc-9367-c4ad49f25916
+		summarizeBy: sum
+		sourceColumn: Ordinal
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Year Comparison' = calculationGroup
+		mode: import

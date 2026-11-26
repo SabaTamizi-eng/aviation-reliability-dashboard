@@ -1,0 +1,106 @@
+table System
+	lineageTag: 0ac213d8-6063-520f-aa72-ba6742b693eb
+
+	column 'JASC Code'
+		dataType: string
+		isHidden
+		lineageTag: 2d0febb8-470a-5279-a0d6-def78294b944
+		summarizeBy: none
+		sourceColumn: JASC Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'System Name'
+		dataType: string
+		lineageTag: 97af2d38-bfb5-5df8-a4e8-dbb39598a494
+		summarizeBy: none
+		sourceColumn: System Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Chapter Code'
+		dataType: string
+		isHidden
+		lineageTag: 894531cf-aa72-5480-a967-5d280b6cfa70
+		summarizeBy: none
+		sourceColumn: Chapter Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column Chapter
+		dataType: string
+		lineageTag: 5046de5d-8bb6-5996-93d7-3f57f24cc599
+		summarizeBy: none
+		sourceColumn: Chapter
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'System Group'
+		dataType: string
+		lineageTag: 7608bad6-b201-52c0-84ab-5f429db41a1c
+		summarizeBy: none
+		sourceColumn: System Group
+		sortByColumn: 'System Group Order'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'System Group Order'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: e80a443c-4010-5241-853b-4af1297527a8
+		summarizeBy: none
+		sourceColumn: System Group Order
+
+		annotation SummarizationSetBy = Automatic
+
+	column System
+		dataType: string
+		lineageTag: 16b200e7-b6a3-5b16-bbac-e169bfbf1146
+		summarizeBy: none
+		sourceColumn: System
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Chapter Name'
+		dataType: string
+		lineageTag: 19ab9cd5-0238-5332-9bfd-3075a927c787
+		summarizeBy: none
+		sourceColumn: Chapter Name
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'System Hierarchy'
+		lineageTag: 25cc3d81-a1fc-5b1c-9264-e16e85ca6ed7
+
+		level 'System Group'
+			ordinal: 0
+			lineageTag: 05c52cb8-d259-5b70-abc7-187649a03edc
+			column: 'System Group'
+
+		level Chapter
+			ordinal: 1
+			lineageTag: 7c76b660-78d0-5442-a020-99322af7cacd
+			column: Chapter
+
+		level System
+			ordinal: 2
+			lineageTag: 4f65d6c5-564b-5971-9f61-c383e5e9fb08
+			column: System
+
+	partition System = m
+		mode: import
+		source =
+				let
+				    Source = fnReference("jasc_codes"),
+				    Typed = Table.TransformColumnTypes(Source, {{"system_group_order", Int64.Type}}),
+				    Renamed = Table.RenameColumns(Typed, {
+				        {"jasc_code", "JASC Code"}, {"system", "System Name"}, {"chapter_code", "Chapter Code"}, {"chapter", "Chapter"},
+				        {"system_group", "System Group"}, {"system_group_order", "System Group Order"}
+				    }),
+				    WithSystem = Table.AddColumn(Renamed, "System", each [JASC Code] & " " & [System Name], type text),
+				    WithChapterName = Table.AddColumn(WithSystem, "Chapter Name", each Text.AfterDelimiter([Chapter], " "), type text)
+				in
+				    WithChapterName
+
+	annotation PBI_ResultType = Table

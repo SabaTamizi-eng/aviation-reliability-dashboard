@@ -1,0 +1,313 @@
+table SDR
+	lineageTag: cabcd09a-768c-5344-8d82-873a208fc12a
+
+	column 'Report ID'
+		dataType: string
+		lineageTag: e3ab3cfa-d28d-5a66-8c37-cde35a4f712c
+		summarizeBy: none
+		sourceColumn: Report ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Difficulty Date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 2ee95640-e9cf-5fb0-9517-ebd7798633fc
+		summarizeBy: none
+		sourceColumn: Difficulty Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Submission Date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: c72d8142-17db-52c4-85d5-fc80d5010770
+		summarizeBy: none
+		sourceColumn: Submission Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Days to Submit'
+		dataType: int64
+		formatString: 0
+		lineageTag: 18265c93-24ab-5c48-ba7c-3c687d61770e
+		summarizeBy: none
+		sourceColumn: Days to Submit
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'JASC Code'
+		dataType: string
+		isHidden
+		lineageTag: 9ecdc115-5cca-5136-9636-2007abbd4f22
+		summarizeBy: none
+		sourceColumn: JASC Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Aircraft Key'
+		dataType: string
+		isHidden
+		lineageTag: 1fab125f-da3e-5b36-bdb8-4d4993108b99
+		summarizeBy: none
+		sourceColumn: Aircraft Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Engine Make Code'
+		dataType: string
+		isHidden
+		lineageTag: a113ac4b-f52c-5571-ab81-4cf0b3e2c72c
+		summarizeBy: none
+		sourceColumn: Engine Make Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Stage Code'
+		dataType: string
+		isHidden
+		lineageTag: 39998027-20e7-583c-aa29-bcc4a62bf049
+		summarizeBy: none
+		sourceColumn: Stage Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Method Code'
+		dataType: string
+		isHidden
+		lineageTag: 1c72d790-f665-5b6a-8bb3-5cec5f7fa038
+		summarizeBy: none
+		sourceColumn: Method Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Symptom Code'
+		dataType: string
+		isHidden
+		lineageTag: 5b345dbf-b062-5df5-8a35-7c7c1515cbde
+		summarizeBy: none
+		sourceColumn: Symptom Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Action Code'
+		dataType: string
+		isHidden
+		lineageTag: 4f731189-53af-5fdc-8c6d-3406ad8e6e09
+		summarizeBy: none
+		sourceColumn: Action Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Submitter Code'
+		dataType: string
+		isHidden
+		lineageTag: b5d46a75-d7ee-5d7a-8b4c-08d084647b87
+		summarizeBy: none
+		sourceColumn: Submitter Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Part Condition'
+		dataType: string
+		isHidden
+		lineageTag: fede0d66-f750-5506-a8ba-034222be80f9
+		summarizeBy: none
+		sourceColumn: Part Condition
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operator Type'
+		dataType: string
+		lineageTag: b1844633-f5be-5903-9d64-7f38afbca74e
+		summarizeBy: none
+		sourceColumn: Operator Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Registration
+		dataType: string
+		isHidden
+		lineageTag: 1570d221-580b-5d09-a060-35bbb4981f9c
+		summarizeBy: none
+		sourceColumn: Registration
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Part Name'
+		dataType: string
+		lineageTag: 2deb04cd-9791-536d-8129-e78da375f072
+		summarizeBy: none
+		sourceColumn: Part Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Airframe Hours'
+		dataType: double
+		formatString: #,0
+		lineageTag: 51efdabd-f1aa-57fc-9f81-738df2cb8a48
+		summarizeBy: none
+		sourceColumn: Airframe Hours
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Airframe Hours Band'
+		dataType: string
+		lineageTag: 3778068b-2bf2-568f-a8d0-ad25bc4aabf6
+		summarizeBy: none
+		sourceColumn: Airframe Hours Band
+		sortByColumn: 'Hours Band Order'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hours Band Order'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 3436e376-706b-5813-857f-a47af56ae74d
+		summarizeBy: none
+		sourceColumn: Hours Band Order
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unscheduled Landing'
+		dataType: boolean
+		lineageTag: 3e0930af-5cbc-5639-ac62-d5acd5984da3
+		summarizeBy: none
+		sourceColumn: Unscheduled Landing
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Aborted Takeoff'
+		dataType: boolean
+		lineageTag: 5c7ed211-46b4-5360-8cab-383cd187530c
+		summarizeBy: none
+		sourceColumn: Aborted Takeoff
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Engine Shutdown'
+		dataType: boolean
+		lineageTag: a5042093-393b-5fbc-874d-cd699000702a
+		summarizeBy: none
+		sourceColumn: Engine Shutdown
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Return to Gate'
+		dataType: boolean
+		lineageTag: a65a187e-169c-57a3-8620-ec91e6e6610d
+		summarizeBy: none
+		sourceColumn: Return to Gate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Emergency Descent'
+		dataType: boolean
+		lineageTag: ba2bd125-1878-5e11-9bb8-bae65297237a
+		summarizeBy: none
+		sourceColumn: Emergency Descent
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operational Impact'
+		dataType: boolean
+		lineageTag: 36b0e4f9-c884-5526-9291-4b3dcce16ef7
+		summarizeBy: none
+		sourceColumn: Operational Impact
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Smoke or Fumes'
+		dataType: boolean
+		lineageTag: 6e130126-0fde-5f46-91bd-05405db54346
+		summarizeBy: none
+		sourceColumn: Smoke or Fumes
+
+		annotation SummarizationSetBy = Automatic
+
+	column Discrepancy
+		dataType: string
+		lineageTag: 54d9487d-c0e2-5a57-b34d-dc513b199cbf
+		summarizeBy: none
+		sourceColumn: Discrepancy
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SDR = m
+		mode: import
+		source =
+				let
+				    Years = List.Numbers(FirstYear, LastYear - FirstYear + 1),
+				    Combined = Table.Combine(List.Transform(Years, fnSdrYear)),
+				    // Trim every field and turn empty strings into nulls
+				    Cleaned = Table.TransformColumns(
+				        Combined,
+				        List.Transform(Table.ColumnNames(Combined), (c) => {c, each let t = if _ = null then null else Text.Trim(_) in if t = "" then null else t, type nullable text})
+				    ),
+				    WithDate = Table.AddColumn(Cleaned, "Difficulty Date", each try Date.FromText([DifficultyDate], [Format = "MM/dd/yyyy", Culture = "en-US"]) otherwise null, type date),
+				    InRange = Table.SelectRows(WithDate, each [Difficulty Date] <> null and Date.Year([Difficulty Date]) >= FirstYear and Date.Year([Difficulty Date]) <= LastYear),
+				    WithSubmitted = Table.AddColumn(InRange, "Submission Date", each try Date.From(DateTimeZone.FromText([SubmissionDate])) otherwise null, type date),
+				    // Days between the event and the report; negative or over a year means a bad date
+				    WithDays = Table.AddColumn(WithSubmitted, "Days to Submit", each
+				        let d = if [Submission Date] = null then null else Duration.Days([Submission Date] - [Difficulty Date])
+				        in if d = null or d < 0 or d > 365 then null else d, Int64.Type),
+				    WithHours = Table.AddColumn(WithDays, "Airframe Hours", each
+				        let h = try Number.FromText([AircraftTotalTime], "en-US") otherwise null
+				        in if h = null or h <= 0 or h > 200000 then null else h, type number),
+				    WithBandOrder = Table.AddColumn(WithHours, "Hours Band Order", each
+				        if [Airframe Hours] = null then 99 else List.Min({Number.IntegerDivide([Airframe Hours], 10000), 8}), Int64.Type),
+				    WithBand = Table.AddColumn(WithBandOrder, "Airframe Hours Band", each
+				        let o = [Hours Band Order] in
+				        if o = 99 then "Not reported"
+				        else if o = 0 then "Under 10k"
+				        else if o = 8 then "80k+"
+				        else Text.From(o * 10) & "k-" & Text.From(o * 10 + 10) & "k", type text),
+				    // A report can list up to four precautionary procedures and three conditions
+				    WithProcedures = Table.AddColumn(WithBand, "Procedures", each List.RemoveNulls({[PrecautionaryProcedureA], [PrecautionaryProcedureB], [PrecautionaryProcedureC], [PrecautionaryProcedureD]})),
+				    WithNatures = Table.AddColumn(WithProcedures, "Natures", each List.RemoveNulls({[NatureOfConditionA], [NatureOfConditionB], [NatureOfConditionC]})),
+				    Flags = List.Accumulate(
+				        {
+				            {"Unscheduled Landing", {"A"}},
+				            {"Emergency Descent", {"B"}},
+				            {"Aborted Takeoff", {"C"}},
+				            {"Return to Gate", {"D"}},
+				            {"Engine Shutdown", {"E"}},
+				            {"Operational Impact", {"A", "B", "C", "D", "E", "F", "G", "I", "J", "L", "R"}}
+				        },
+				        WithNatures,
+				        (state, flag) => Table.AddColumn(state, flag{0}, each List.ContainsAny([Procedures], flag{1}), type logical)
+				    ),
+				    WithSmoke = Table.AddColumn(Flags, "Smoke or Fumes", each List.ContainsAny([Natures], {"A", "B"}), type logical),
+				    // Part names come in capitals; keep common abbreviations in capitals after Text.Proper
+				    Acronyms = {"APU", "ECU", "EEC", "FADEC", "IDG", "HPT", "LPT", "HPC", "LPC", "EGT", "PCU", "CVR", "FDR", "ELT", "ADC", "ADIRU", "FMC", "FMS", "GPS", "VHF", "HF", "TCAS", "EICAS", "LED", "O2", "PSU", "AC", "DC", "CSD", "TRU", "GCU", "BPCU", "PTU", "RAT", "HMU", "FCU", "IGV", "VSV", "LRU", "ADF", "DME", "VOR", "ILS", "AOA", "RVDT", "LVDT", "ACM", "PRSOV", "TR"},
+				    WithAircraftKey = Table.AddColumn(WithSmoke, "Aircraft Key", each
+				        (if [AircraftMake] = null then "" else [AircraftMake]) & "|" & (if [AircraftModel] = null then "" else [AircraftModel]), type text),
+				    Defaults = Table.TransformColumns(WithAircraftKey, {
+				        {"EngineMake", each if _ = null then "NR" else _, type text},
+				        {"StageOfOperationCode", each if _ = null then "NR" else _, type text},
+				        {"HowDiscoveredCode", each if _ = null then "9" else _, type text},
+				        {"NatureOfConditionA", each if _ = null then "0" else _, type text},
+				        {"PrecautionaryProcedureA", each if _ = null then "0" else _, type text},
+				        {"PartCondition", each if _ = null then "NOT REPORTED" else Text.Upper(_), type text},
+				        {"PartName", each if _ = null then "Not reported" else Text.Combine(List.Transform(Text.Split(Text.Proper(_), " "), (w) => if List.Contains(Acronyms, Text.Upper(w)) then Text.Upper(w) else w), " "), type text},
+				        {"SDRType", each if _ = "G" then "General aviation" else "Air carrier", type text},
+				        {"Discrepancy", each if _ = null then null else Text.Start(Text.Clean(Text.Replace(Text.Replace(_, "#(cr)", " "), "#(lf)", " ")), 300), type text}
+				    }),
+				    Selected = Table.SelectColumns(Defaults, {
+				        "OperatorControlNumber", "Difficulty Date", "Submission Date", "Days to Submit", "JASCCode", "Aircraft Key", "EngineMake",
+				        "StageOfOperationCode", "HowDiscoveredCode", "NatureOfConditionA", "PrecautionaryProcedureA", "SubmitterTypeCode",
+				        "PartCondition", "SDRType", "RegistryNNumber", "PartName", "Airframe Hours", "Airframe Hours Band", "Hours Band Order",
+				        "Unscheduled Landing", "Aborted Takeoff", "Engine Shutdown", "Return to Gate", "Emergency Descent",
+				        "Operational Impact", "Smoke or Fumes", "Discrepancy"
+				    }),
+				    Renamed = Table.RenameColumns(Selected, {
+				        {"OperatorControlNumber", "Report ID"}, {"JASCCode", "JASC Code"}, {"EngineMake", "Engine Make Code"},
+				        {"StageOfOperationCode", "Stage Code"}, {"HowDiscoveredCode", "Method Code"}, {"NatureOfConditionA", "Symptom Code"},
+				        {"PrecautionaryProcedureA", "Action Code"}, {"SubmitterTypeCode", "Submitter Code"}, {"PartCondition", "Part Condition"},
+				        {"SDRType", "Operator Type"}, {"RegistryNNumber", "Registration"}, {"PartName", "Part Name"}
+				    })
+				in
+				    Renamed
+
+	annotation PBI_ResultType = Table
