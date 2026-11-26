@@ -1,0 +1,15 @@
+method_code,method,method_group
+9,Unknown,Not reported
+B,Borescope,NDT & borescope
+C,Functional Check,Functional check
+D,Dye Penetrant,NDT & borescope
+E,Eddy Current,NDT & borescope
+L,Light Source,Visual inspection
+M,Magnetic Particle,NDT & borescope
+O,Other,Other
+T,Thermal,NDT & borescope
+U,Ultrasonic,NDT & borescope
+V,Visual,Visual inspection
+W,Magnified Visual,Visual inspection
+X,X-Ray,NDT & borescope
+0,Not Available,Not reported

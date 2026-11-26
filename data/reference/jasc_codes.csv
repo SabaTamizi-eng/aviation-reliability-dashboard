@@ -1,0 +1,549 @@
+jasc_code,system,chapter_code,chapter,system_group,system_group_order
+1100,Placards and markings,11,11 Placards and markings,Aircraft general,1
+1210,Fuel servicing,12,12 Servicing,Aircraft general,1
+1220,Oil servicing,12,12 Servicing,Aircraft general,1
+1230,Hydraulic fluid servicing,12,12 Servicing,Aircraft general,1
+1240,Coolant servicing,12,12 Servicing,Aircraft general,1
+1400,Miscellaneous hardware,14,14 Hardware,Aircraft general,1
+1410,Hoses and tubes,14,14 Hardware,Aircraft general,1
+1420,Electrical connectors,14,14 Hardware,Aircraft general,1
+1430,Fasteners,14,14 Hardware,Aircraft general,1
+1497,Miscellaneous wiring,14,14 Hardware,Aircraft general,1
+1800,Helicopter vib/noise analysis,18,18 Helicopter vibration,Aircraft general,1
+1810,Helicopter vibration analysis,18,18 Helicopter vibration,Aircraft general,1
+1820,Helicopter noise analysis,18,18 Helicopter vibration,Aircraft general,1
+1897,Helicopter vibration system wiring,18,18 Helicopter vibration,Aircraft general,1
+2100,Air conditioning system,21,21 Air conditioning,Airframe systems,2
+2110,Cabin compressor system,21,21 Air conditioning,Airframe systems,2
+2120,Air distribution system,21,21 Air conditioning,Airframe systems,2
+2121,Air distribution fan,21,21 Air conditioning,Airframe systems,2
+2130,Cabin pressure control system,21,21 Air conditioning,Airframe systems,2
+2131,Cabin pressure controller,21,21 Air conditioning,Airframe systems,2
+2132,Cabin pressure indicator,21,21 Air conditioning,Airframe systems,2
+2133,Pressure regul/outflow valve,21,21 Air conditioning,Airframe systems,2
+2134,Cabin pressure sensor,21,21 Air conditioning,Airframe systems,2
+2140,Heating system,21,21 Air conditioning,Airframe systems,2
+2150,Cabin cooling system,21,21 Air conditioning,Airframe systems,2
+2160,Cabin temperature control system,21,21 Air conditioning,Airframe systems,2
+2161,Cabin temperature controller,21,21 Air conditioning,Airframe systems,2
+2162,Cabin temperature indicator,21,21 Air conditioning,Airframe systems,2
+2163,Cabin temperature sensor,21,21 Air conditioning,Airframe systems,2
+2170,Humidity control system,21,21 Air conditioning,Airframe systems,2
+2197,Air conditioning system wiring,21,21 Air conditioning,Airframe systems,2
+2200,Auto flight system,22,22 Auto flight,Airframe systems,2
+2210,Autopilot system,22,22 Auto flight,Airframe systems,2
+2211,Autopilot computer,22,22 Auto flight,Airframe systems,2
+2212,Altitude controller,22,22 Auto flight,Airframe systems,2
+2213,Flight controller,22,22 Auto flight,Airframe systems,2
+2214,Autopilot trim indicator,22,22 Auto flight,Airframe systems,2
+2215,Autopilot main servo,22,22 Auto flight,Airframe systems,2
+2216,Autopilot trim servo,22,22 Auto flight,Airframe systems,2
+2220,Speed-attitude correction system,22,22 Auto flight,Airframe systems,2
+2230,Auto throttle system,22,22 Auto flight,Airframe systems,2
+2250,Aerodynamic load alleviating,22,22 Auto flight,Airframe systems,2
+2297,Autoflight system wiring,22,22 Auto flight,Airframe systems,2
+2300,Communications system,23,23 Communications,Airframe systems,2
+2310,HF communication system,23,23 Communications,Airframe systems,2
+2311,UHF communication system,23,23 Communications,Airframe systems,2
+2312,VHF communication system,23,23 Communications,Airframe systems,2
+2315,Communications system (other),23,23 Communications,Airframe systems,2
+2320,Data transmission auto call,23,23 Communications,Airframe systems,2
+2330,Entertainment system,23,23 Communications,Airframe systems,2
+2340,Interphone/passenger pa system,23,23 Communications,Airframe systems,2
+2350,Audio integrating system,23,23 Communications,Airframe systems,2
+2360,Static discharge system,23,23 Communications,Airframe systems,2
+2370,Audio/video monitoring,23,23 Communications,Airframe systems,2
+2397,Communication system wiring,23,23 Communications,Airframe systems,2
+2400,Electrical power system,24,24 Electrical power,Airframe systems,2
+2410,Alternator-generator drive,24,24 Electrical power,Airframe systems,2
+2420,AC generation system,24,24 Electrical power,Airframe systems,2
+2421,AC generator-alternator,24,24 Electrical power,Airframe systems,2
+2422,AC inverter,24,24 Electrical power,Airframe systems,2
+2423,Phase adapter,24,24 Electrical power,Airframe systems,2
+2424,AC regulator,24,24 Electrical power,Airframe systems,2
+2425,AC indicating system,24,24 Electrical power,Airframe systems,2
+2430,DC generating system,24,24 Electrical power,Airframe systems,2
+2431,Battery overheat warning system,24,24 Electrical power,Airframe systems,2
+2432,Battery/charger system,24,24 Electrical power,Airframe systems,2
+2433,DC rectifier/converter,24,24 Electrical power,Airframe systems,2
+2434,DC generator-alternator,24,24 Electrical power,Airframe systems,2
+2435,Starter-generator,24,24 Electrical power,Airframe systems,2
+2436,DC regulator,24,24 Electrical power,Airframe systems,2
+2437,DC indicating system,24,24 Electrical power,Airframe systems,2
+2440,External power system,24,24 Electrical power,Airframe systems,2
+2450,AC power distribution system,24,24 Electrical power,Airframe systems,2
+2460,DC power/distribution system,24,24 Electrical power,Airframe systems,2
+2497,Electrical power system wiring,24,24 Electrical power,Airframe systems,2
+2500,Cabin equipment/furnishings,25,25 Equipment/furnishings,Airframe systems,2
+2510,Flight compartment equipment,25,25 Equipment/furnishings,Airframe systems,2
+2520,Passenger compartment equipment,25,25 Equipment/furnishings,Airframe systems,2
+2530,Buffet/galleys,25,25 Equipment/furnishings,Airframe systems,2
+2540,Lavatories,25,25 Equipment/furnishings,Airframe systems,2
+2550,Cargo compartments,25,25 Equipment/furnishings,Airframe systems,2
+2551,Agricultural spray system,25,25 Equipment/furnishings,Airframe systems,2
+2560,Emergency equipment,25,25 Equipment/furnishings,Airframe systems,2
+2561,Life jacket,25,25 Equipment/furnishings,Airframe systems,2
+2562,Emergency locator beacon,25,25 Equipment/furnishings,Airframe systems,2
+2563,Parachute,25,25 Equipment/furnishings,Airframe systems,2
+2564,Life raft,25,25 Equipment/furnishings,Airframe systems,2
+2565,Escape slide,25,25 Equipment/furnishings,Airframe systems,2
+2570,Accessory compartment,25,25 Equipment/furnishings,Airframe systems,2
+2571,Battery box structure,25,25 Equipment/furnishings,Airframe systems,2
+2572,Electronic shelf section,25,25 Equipment/furnishings,Airframe systems,2
+2597,Equip/furnishing system wiring,25,25 Equipment/furnishings,Airframe systems,2
+2600,Fire protection system,26,26 Fire protection,Airframe systems,2
+2610,Detection system,26,26 Fire protection,Airframe systems,2
+2611,Smoke detection,26,26 Fire protection,Airframe systems,2
+2612,Fire detection,26,26 Fire protection,Airframe systems,2
+2613,Overheat detection,26,26 Fire protection,Airframe systems,2
+2620,Extinguishing system,26,26 Fire protection,Airframe systems,2
+2621,"Fire bottle, fixed",26,26 Fire protection,Airframe systems,2
+2622,"Fire bottle, portable",26,26 Fire protection,Airframe systems,2
+2697,Fire protection system wiring,26,26 Fire protection,Airframe systems,2
+2700,Flight control system,27,27 Flight controls,Airframe systems,2
+2701,Control column section,27,27 Flight controls,Airframe systems,2
+2710,Aileron control system,27,27 Flight controls,Airframe systems,2
+2711,Aileron tab control system,27,27 Flight controls,Airframe systems,2
+2720,Rudder control system,27,27 Flight controls,Airframe systems,2
+2721,Rudder tab control system,27,27 Flight controls,Airframe systems,2
+2722,Rudder actuator,27,27 Flight controls,Airframe systems,2
+2730,Elevator control system,27,27 Flight controls,Airframe systems,2
+2731,Elevator tab control system,27,27 Flight controls,Airframe systems,2
+2740,Stabilizer control system,27,27 Flight controls,Airframe systems,2
+2741,Stabilizer position indicating,27,27 Flight controls,Airframe systems,2
+2742,Stabilizer actuator,27,27 Flight controls,Airframe systems,2
+2750,TE flap control system,27,27 Flight controls,Airframe systems,2
+2751,TE flap position indicating system,27,27 Flight controls,Airframe systems,2
+2752,TE flap actuator,27,27 Flight controls,Airframe systems,2
+2760,Drag control system,27,27 Flight controls,Airframe systems,2
+2761,Drag control actuator,27,27 Flight controls,Airframe systems,2
+2770,Gust lock/damper system,27,27 Flight controls,Airframe systems,2
+2780,LE slat control system,27,27 Flight controls,Airframe systems,2
+2781,LE slat position indicating system,27,27 Flight controls,Airframe systems,2
+2782,LE slat actuator,27,27 Flight controls,Airframe systems,2
+2797,Flight control system wiring,27,27 Flight controls,Airframe systems,2
+2800,Aircraft fuel system,28,28 Fuel,Airframe systems,2
+2810,Fuel storage,28,28 Fuel,Airframe systems,2
+2820,Aircraft fuel distribution system,28,28 Fuel,Airframe systems,2
+2821,Aircraft fuel filter/strainer,28,28 Fuel,Airframe systems,2
+2822,Fuel boost pump,28,28 Fuel,Airframe systems,2
+2823,Fuel selector/shut-off valve,28,28 Fuel,Airframe systems,2
+2824,Fuel transfer valve,28,28 Fuel,Airframe systems,2
+2830,Fuel dump system,28,28 Fuel,Airframe systems,2
+2840,Aircraft fuel indicating system,28,28 Fuel,Airframe systems,2
+2841,Fuel quantity indicator,28,28 Fuel,Airframe systems,2
+2842,Fuel quantity sensor,28,28 Fuel,Airframe systems,2
+2843,Fuel temperature indicator,28,28 Fuel,Airframe systems,2
+2844,Fuel pressure indicator,28,28 Fuel,Airframe systems,2
+2897,Fuel system wiring,28,28 Fuel,Airframe systems,2
+2900,Hydraulic power system,29,29 Hydraulic power,Airframe systems,2
+2910,"Hydraulic system, main",29,29 Hydraulic power,Airframe systems,2
+2911,"Hydraulic power accumulator, main",29,29 Hydraulic power,Airframe systems,2
+2912,"Hydraulic filter, main",29,29 Hydraulic power,Airframe systems,2
+2913,"Hydraulic pump, (elect/eng), main",29,29 Hydraulic power,Airframe systems,2
+2914,"Hydraulic handpump, main",29,29 Hydraulic power,Airframe systems,2
+2915,"Hydraulic pressure relief vlv, main",29,29 Hydraulic power,Airframe systems,2
+2916,"Hydraulic reservoir, main",29,29 Hydraulic power,Airframe systems,2
+2917,"Hydraulic pressure regulator, main",29,29 Hydraulic power,Airframe systems,2
+2920,"Hydraulic system, auxiliary",29,29 Hydraulic power,Airframe systems,2
+2921,"Hydraulic accumulator, auxiliary",29,29 Hydraulic power,Airframe systems,2
+2922,"Hydraulic filter, auxiliary",29,29 Hydraulic power,Airframe systems,2
+2923,"Hydraulic pump, auxiliary",29,29 Hydraulic power,Airframe systems,2
+2925,"Hydraulic pressure relief, auxiliary",29,29 Hydraulic power,Airframe systems,2
+2926,"Hydraulic reservoir, auxiliary",29,29 Hydraulic power,Airframe systems,2
+2927,"Hydraulic pressure regulator, aux.",29,29 Hydraulic power,Airframe systems,2
+2930,Hydraulic indicating system,29,29 Hydraulic power,Airframe systems,2
+2931,Hydraulic pressure indicator,29,29 Hydraulic power,Airframe systems,2
+2932,Hydraulic pressure sensor,29,29 Hydraulic power,Airframe systems,2
+2933,Hydraulic quantity indicator,29,29 Hydraulic power,Airframe systems,2
+2934,Hydraulic quantity sensor,29,29 Hydraulic power,Airframe systems,2
+2997,Hydraulic power system wiring,29,29 Hydraulic power,Airframe systems,2
+3000,Ice/rain protection system,30,30 Ice and rain protection,Airframe systems,2
+3010,Airfoil anti/de-ice system,30,30 Ice and rain protection,Airframe systems,2
+3020,Air intake anti/de-ice system,30,30 Ice and rain protection,Airframe systems,2
+3030,Pitot/static anti-ice system,30,30 Ice and rain protection,Airframe systems,2
+3040,Windshield/door rain/ice removal,30,30 Ice and rain protection,Airframe systems,2
+3050,Antenna/radome anti-ice/de-ice system,30,30 Ice and rain protection,Airframe systems,2
+3060,Prop/rotor anti-ice/de-ice system,30,30 Ice and rain protection,Airframe systems,2
+3070,Water line anti-ice system,30,30 Ice and rain protection,Airframe systems,2
+3080,Ice detection,30,30 Ice and rain protection,Airframe systems,2
+3097,Ice/rain protection system wiring,30,30 Ice and rain protection,Airframe systems,2
+3100,Indicating/recording system,31,31 Instruments,Airframe systems,2
+3110,Instrument panel,31,31 Instruments,Airframe systems,2
+3120,"Independent instruments (clock, etc.)",31,31 Instruments,Airframe systems,2
+3130,Data recorders (flt/maint),31,31 Instruments,Airframe systems,2
+3140,Central computers (eicas),31,31 Instruments,Airframe systems,2
+3150,Central warning,31,31 Instruments,Airframe systems,2
+3160,Central display,31,31 Instruments,Airframe systems,2
+3170,Automatic data,31,31 Instruments,Airframe systems,2
+3197,Instrument system wiring,31,31 Instruments,Airframe systems,2
+3200,Landing gear system,32,32 Landing gear,Airframe systems,2
+3201,Landing gear/wheel fairing,32,32 Landing gear,Airframe systems,2
+3210,Main landing gear,32,32 Landing gear,Airframe systems,2
+3211,Main landing gear attach section,32,32 Landing gear,Airframe systems,2
+3212,Emergency flotation section,32,32 Landing gear,Airframe systems,2
+3213,Main landing gear strut/axle/truck,32,32 Landing gear,Airframe systems,2
+3220,Nose/tail landing gear,32,32 Landing gear,Airframe systems,2
+3221,Nose/tail landing gear attach section,32,32 Landing gear,Airframe systems,2
+3222,Nose/tail landing gear strut/axle,32,32 Landing gear,Airframe systems,2
+3230,Landing gear retract/extend system,32,32 Landing gear,Airframe systems,2
+3231,Landing gear door retract section,32,32 Landing gear,Airframe systems,2
+3232,Landing gear door actuator,32,32 Landing gear,Airframe systems,2
+3233,Landing gear actuator,32,32 Landing gear,Airframe systems,2
+3234,Landing gear selector,32,32 Landing gear,Airframe systems,2
+3240,Landing gear brake system,32,32 Landing gear,Airframe systems,2
+3241,Brake anti-skid section,32,32 Landing gear,Airframe systems,2
+3242,Brake,32,32 Landing gear,Airframe systems,2
+3243,Master cylinder/brake valve,32,32 Landing gear,Airframe systems,2
+3244,Tire,32,32 Landing gear,Airframe systems,2
+3245,Tire tube,32,32 Landing gear,Airframe systems,2
+3246,Wheel/ski/float,32,32 Landing gear,Airframe systems,2
+3250,Landing gear steering system,32,32 Landing gear,Airframe systems,2
+3251,Steering unit,32,32 Landing gear,Airframe systems,2
+3252,Shimmy damper,32,32 Landing gear,Airframe systems,2
+3260,Landing gear position and warning,32,32 Landing gear,Airframe systems,2
+3270,Auxiliary gear (tail skid),32,32 Landing gear,Airframe systems,2
+3297,Landing gear system wiring,32,32 Landing gear,Airframe systems,2
+3300,Lighting system,33,33 Lights,Airframe systems,2
+3310,Flight compartment lighting,33,33 Lights,Airframe systems,2
+3320,Passenger compartment lighting,33,33 Lights,Airframe systems,2
+3330,Cargo compartment lighting,33,33 Lights,Airframe systems,2
+3340,Exterior lighting,33,33 Lights,Airframe systems,2
+3350,Emergency lighting,33,33 Lights,Airframe systems,2
+3397,Light system wiring,33,33 Lights,Airframe systems,2
+3400,Navigation system,34,34 Navigation,Airframe systems,2
+3410,Flight environment data,34,34 Navigation,Airframe systems,2
+3411,Pitot/static system,34,34 Navigation,Airframe systems,2
+3412,Outside air temperature ind./sensor,34,34 Navigation,Airframe systems,2
+3413,Rate of climb indicator,34,34 Navigation,Airframe systems,2
+3414,Airspeed/mach indicator,34,34 Navigation,Airframe systems,2
+3415,High speed warning,34,34 Navigation,Airframe systems,2
+3416,"Altimeter, barometric/encoder",34,34 Navigation,Airframe systems,2
+3417,Air data computer,34,34 Navigation,Airframe systems,2
+3418,Stall warning system,34,34 Navigation,Airframe systems,2
+3420,Attitude and direction data system,34,34 Navigation,Airframe systems,2
+3421,Attitude gyro and indicating system,34,34 Navigation,Airframe systems,2
+3422,Directional gyro and indicating system,34,34 Navigation,Airframe systems,2
+3423,Magnetic compass,34,34 Navigation,Airframe systems,2
+3424,Turn and bank/rate of turn indicator,34,34 Navigation,Airframe systems,2
+3425,Integrated flight director system,34,34 Navigation,Airframe systems,2
+3430,Landing and taxi aids,34,34 Navigation,Airframe systems,2
+3431,Localizer/vor system,34,34 Navigation,Airframe systems,2
+3432,Glide slope system,34,34 Navigation,Airframe systems,2
+3433,Microwave landing system,34,34 Navigation,Airframe systems,2
+3434,Marker beacon system,34,34 Navigation,Airframe systems,2
+3435,Heads up display system,34,34 Navigation,Airframe systems,2
+3436,Wind shear detection system,34,34 Navigation,Airframe systems,2
+3440,Independent pos. determining system,34,34 Navigation,Airframe systems,2
+3441,Inertial guidance system,34,34 Navigation,Airframe systems,2
+3442,Weather radar system,34,34 Navigation,Airframe systems,2
+3443,Doppler system,34,34 Navigation,Airframe systems,2
+3444,Ground proximity system,34,34 Navigation,Airframe systems,2
+3445,Air collision avoidance system (tcas),34,34 Navigation,Airframe systems,2
+3446,Non radar weather system,34,34 Navigation,Airframe systems,2
+3450,Dependent position determining sys,34,34 Navigation,Airframe systems,2
+3451,Dme/tacan system,34,34 Navigation,Airframe systems,2
+3452,ATC transponder system,34,34 Navigation,Airframe systems,2
+3453,Loran system,34,34 Navigation,Airframe systems,2
+3454,VOR system,34,34 Navigation,Airframe systems,2
+3455,ADF system,34,34 Navigation,Airframe systems,2
+3456,Omega navigation system,34,34 Navigation,Airframe systems,2
+3457,Global positioning system,34,34 Navigation,Airframe systems,2
+3460,Flt manage. computing hardware sys,34,34 Navigation,Airframe systems,2
+3461,Flt manage. computing software sys,34,34 Navigation,Airframe systems,2
+3497,Navigation system wiring,34,34 Navigation,Airframe systems,2
+3500,Oxygen system,35,35 Oxygen,Airframe systems,2
+3510,Crew oxygen system,35,35 Oxygen,Airframe systems,2
+3520,Passenger oxygen system,35,35 Oxygen,Airframe systems,2
+3530,Portable oxygen system,35,35 Oxygen,Airframe systems,2
+3597,Oxygen system wiring,35,35 Oxygen,Airframe systems,2
+3600,Pneumatic system,36,36 Pneumatic,Airframe systems,2
+3610,Pneumatic distribution system,36,36 Pneumatic,Airframe systems,2
+3620,Pneumatic indicating system,36,36 Pneumatic,Airframe systems,2
+3697,Pneumatic system wiring,36,36 Pneumatic,Airframe systems,2
+3700,Vacuum system,37,37 Vacuum,Airframe systems,2
+3710,Vacuum distribution system,37,37 Vacuum,Airframe systems,2
+3720,Vacuum indicating system,37,37 Vacuum,Airframe systems,2
+3797,Vacuum system wiring,37,37 Vacuum,Airframe systems,2
+3800,Water and waste system,38,38 Water/waste,Airframe systems,2
+3810,Potable water system,38,38 Water/waste,Airframe systems,2
+3820,Wash water system,38,38 Water/waste,Airframe systems,2
+3830,Waste disposal system,38,38 Water/waste,Airframe systems,2
+3840,Air supply (water press. system),38,38 Water/waste,Airframe systems,2
+3897,Water/waste system wiring,38,38 Water/waste,Airframe systems,2
+4500,Central maint. computer,45,45 Other,Airframe systems,2
+4597,Central maint. system wiring,45,45 Other,Airframe systems,2
+4900,Airborne APU system,49,49 Airborne auxiliary power,Powerplant & APU,5
+4910,APU cowling/containment,49,49 Airborne auxiliary power,Powerplant & APU,5
+4920,APU core engine,49,49 Airborne auxiliary power,Powerplant & APU,5
+4930,APU engine fuel and control,49,49 Airborne auxiliary power,Powerplant & APU,5
+4940,APU start/ignition system,49,49 Airborne auxiliary power,Powerplant & APU,5
+4950,APU bleed air system,49,49 Airborne auxiliary power,Powerplant & APU,5
+4960,APU controls,49,49 Airborne auxiliary power,Powerplant & APU,5
+4970,APU indicating system,49,49 Airborne auxiliary power,Powerplant & APU,5
+4980,APU exhaust system,49,49 Airborne auxiliary power,Powerplant & APU,5
+4990,APU oil system,49,49 Airborne auxiliary power,Powerplant & APU,5
+4997,APU system wiring,49,49 Airborne auxiliary power,Powerplant & APU,5
+5100,Standard practices/structures,51,51 Standard practices/structures,Structures,3
+5101,Aircraft structures,51,51 Standard practices/structures,Structures,3
+5102,Balloon reports,51,51 Standard practices/structures,Structures,3
+5200,Doors,52,52 Doors,Structures,3
+5210,Passenger/crew doors,52,52 Doors,Structures,3
+5220,Emergency exits,52,52 Doors,Structures,3
+5230,Cargo/baggage doors,52,52 Doors,Structures,3
+5240,Service doors,52,52 Doors,Structures,3
+5241,Galley doors,52,52 Doors,Structures,3
+5242,E/e compartment doors,52,52 Doors,Structures,3
+5243,Hydraulic compartment doors,52,52 Doors,Structures,3
+5244,Accessory compartment doors,52,52 Doors,Structures,3
+5245,Air conditioning compart. doors,52,52 Doors,Structures,3
+5246,Fluid service doors,52,52 Doors,Structures,3
+5247,APU doors,52,52 Doors,Structures,3
+5248,Tail cone doors,52,52 Doors,Structures,3
+5250,Fixed inner doors,52,52 Doors,Structures,3
+5260,Entrance stairs,52,52 Doors,Structures,3
+5270,Door warning system,52,52 Doors,Structures,3
+5280,Landing gear doors,52,52 Doors,Structures,3
+5297,Door system wiring,52,52 Doors,Structures,3
+5300,Fuselage structure (general),53,53 Fuselage,Structures,3
+5301,Aerial tow equipment,53,53 Fuselage,Structures,3
+5302,Rotorcraft tail boom,53,53 Fuselage,Structures,3
+5310,"Fuselage main, structure",53,53 Fuselage,Structures,3
+5311,"Fuselage main, frame",53,53 Fuselage,Structures,3
+5312,"Fuselage main, bulkhead",53,53 Fuselage,Structures,3
+5313,"Fuselage main, longeron/stringer",53,53 Fuselage,Structures,3
+5314,"Fuselage main, keel",53,53 Fuselage,Structures,3
+5315,"Fuselage main, floor beam",53,53 Fuselage,Structures,3
+5320,Fuselage miscellaneous structure,53,53 Fuselage,Structures,3
+5321,Fuselage floor panel,53,53 Fuselage,Structures,3
+5322,Fuselage internal mount structure,53,53 Fuselage,Structures,3
+5323,Fuselage internal stairs,53,53 Fuselage,Structures,3
+5324,Fuselage fixed partitions,53,53 Fuselage,Structures,3
+5330,"Fuselage main, plate/skin",53,53 Fuselage,Structures,3
+5340,"Fuselage main, attach fittings",53,53 Fuselage,Structures,3
+5341,"Fuselage, wing attach fittings",53,53 Fuselage,Structures,3
+5342,"Fuselage, stabilizer attach fittings",53,53 Fuselage,Structures,3
+5343,Landing gear attach fittings,53,53 Fuselage,Structures,3
+5344,Fuselage door hinges,53,53 Fuselage,Structures,3
+5345,Fuselage equipment attach fittings,53,53 Fuselage,Structures,3
+5346,Powerplant attach fittings,53,53 Fuselage,Structures,3
+5347,Seat/cargo attach fittings,53,53 Fuselage,Structures,3
+5350,Aerodynamic fairings,53,53 Fuselage,Structures,3
+5397,Fuselage wiring,53,53 Fuselage,Structures,3
+5400,Nacelle/pylon structure,54,54 Nacelles/pylons,Structures,3
+5410,"Nacelle/pylon, main frame",54,54 Nacelles/pylons,Structures,3
+5411,"Nacelle/pylon, frame/spar/rib",54,54 Nacelles/pylons,Structures,3
+5412,"Nacelle/pylon, bulkhead/firewall",54,54 Nacelles/pylons,Structures,3
+5413,"Nacelle/pylon, longeron/stringer",54,54 Nacelles/pylons,Structures,3
+5414,"Nacelle/pylon, plate skin",54,54 Nacelles/pylons,Structures,3
+5415,"Nacelle/pylon, attach fittings",54,54 Nacelles/pylons,Structures,3
+5420,Nacelle/pylon miscellaneous struct.,54,54 Nacelles/pylons,Structures,3
+5497,Nacelle/pylon system wiring,54,54 Nacelles/pylons,Structures,3
+5500,Empennage structure,55,55 Stabilizers,Structures,3
+5510,Horizontal stabilizer structure,55,55 Stabilizers,Structures,3
+5511,"Horizontal stabilizer, spar/rib",55,55 Stabilizers,Structures,3
+5512,"Horizontal stabilizer, plate/skin",55,55 Stabilizers,Structures,3
+5513,"Horizontal stabilizer, tab structure",55,55 Stabilizers,Structures,3
+5514,Horiz stab miscellaneous structure,55,55 Stabilizers,Structures,3
+5520,Elevator structure,55,55 Stabilizers,Structures,3
+5521,"Elevator, spar/rib structure",55,55 Stabilizers,Structures,3
+5522,"Elevator, plates/skin structure",55,55 Stabilizers,Structures,3
+5523,"Elevator, tab structure",55,55 Stabilizers,Structures,3
+5524,Elevator miscellaneous structure,55,55 Stabilizers,Structures,3
+5530,Vertical stabilizer structure,55,55 Stabilizers,Structures,3
+5531,"Vertical stabilizer, spar/rib struct.",55,55 Stabilizers,Structures,3
+5532,"Vertical stabilizer, plates/skin",55,55 Stabilizers,Structures,3
+5533,Ventral structure,55,55 Stabilizers,Structures,3
+5534,Vert. stab. miscellaneous structure,55,55 Stabilizers,Structures,3
+5540,Rudder structure,55,55 Stabilizers,Structures,3
+5541,"Rudder, spar/rib",55,55 Stabilizers,Structures,3
+5542,"Rudder, plate/skin",55,55 Stabilizers,Structures,3
+5543,"Rudder, tab structure",55,55 Stabilizers,Structures,3
+5544,Rudder miscellaneous structure,55,55 Stabilizers,Structures,3
+5550,"Empennage flight cont., attach fitting",55,55 Stabilizers,Structures,3
+5551,"Horizontal stabilizer, attach fitting",55,55 Stabilizers,Structures,3
+5552,"Elevator/tab, attach fittings",55,55 Stabilizers,Structures,3
+5553,"Vert. stab., attach fittings",55,55 Stabilizers,Structures,3
+5554,"Rudder/tab, attach fittings",55,55 Stabilizers,Structures,3
+5597,Stabilizer system wiring,55,55 Stabilizers,Structures,3
+5600,Window/windshield system,56,56 Windows,Structures,3
+5610,Flight compartment windows,56,56 Windows,Structures,3
+5620,Passenger compartment windows,56,56 Windows,Structures,3
+5630,Door windows,56,56 Windows,Structures,3
+5640,Inspection windows,56,56 Windows,Structures,3
+5697,Window system wiring,56,56 Windows,Structures,3
+5700,Wing structure,57,57 Wings,Structures,3
+5710,"Wing, main frame structure",57,57 Wings,Structures,3
+5711,Wing spar,57,57 Wings,Structures,3
+5712,"Wing, rib/bulkhead",57,57 Wings,Structures,3
+5713,"Wing, longeron/stringer",57,57 Wings,Structures,3
+5714,"Wing, center box",57,57 Wings,Structures,3
+5720,Wing miscellaneous structure,57,57 Wings,Structures,3
+5730,"Wing, plates/skins",57,57 Wings,Structures,3
+5740,"Wing, attach fittings",57,57 Wings,Structures,3
+5741,"Wing, fuselage attach fittings",57,57 Wings,Structures,3
+5742,"Wing, nac/pylon attach fittings",57,57 Wings,Structures,3
+5743,"Wing, landing gear attach fittings",57,57 Wings,Structures,3
+5744,"Wing, cont. surface attach fittings",57,57 Wings,Structures,3
+5750,"Wing, control surfaces",57,57 Wings,Structures,3
+5751,Ailerons,57,57 Wings,Structures,3
+5752,Aileron tab structure,57,57 Wings,Structures,3
+5753,Trailing edge flaps,57,57 Wings,Structures,3
+5754,Leading edge devices,57,57 Wings,Structures,3
+5755,Spoilers,57,57 Wings,Structures,3
+5797,Wing system wiring,57,57 Wings,Structures,3
+6100,Propeller system,61,61 Propellers/propulsors,Propellers & rotors,4
+6110,Propeller assembly,61,61 Propellers/propulsors,Propellers & rotors,4
+6111,Propeller blade section,61,61 Propellers/propulsors,Propellers & rotors,4
+6112,Propeller de-ice boot section,61,61 Propellers/propulsors,Propellers & rotors,4
+6113,Propeller spinner section,61,61 Propellers/propulsors,Propellers & rotors,4
+6114,Propeller hub section,61,61 Propellers/propulsors,Propellers & rotors,4
+6120,Propeller controlling system,61,61 Propellers/propulsors,Propellers & rotors,4
+6121,Propeller synchronizer section,61,61 Propellers/propulsors,Propellers & rotors,4
+6122,Propeller governor,61,61 Propellers/propulsors,Propellers & rotors,4
+6123,Propeller feathering/reversing,61,61 Propellers/propulsors,Propellers & rotors,4
+6130,Propeller braking,61,61 Propellers/propulsors,Propellers & rotors,4
+6140,Propeller indicating system,61,61 Propellers/propulsors,Propellers & rotors,4
+6197,Propeller/propulsors system wiring,61,61 Propellers/propulsors,Propellers & rotors,4
+6200,Main rotor system,62,62 Main rotor,Propellers & rotors,4
+6210,Main rotor blades,62,62 Main rotor,Propellers & rotors,4
+6220,Main rotor head,62,62 Main rotor,Propellers & rotors,4
+6230,Main rotor mast/swashplate,62,62 Main rotor,Propellers & rotors,4
+6240,Main rotor indicating system,62,62 Main rotor,Propellers & rotors,4
+6297,Main rotor system wiring,62,62 Main rotor,Propellers & rotors,4
+6300,Main rotor drive system,63,63 Main rotor drive,Propellers & rotors,4
+6310,Engine/transmission coupling,63,63 Main rotor drive,Propellers & rotors,4
+6320,Main rotor gearbox,63,63 Main rotor drive,Propellers & rotors,4
+6321,Main rotor brake,63,63 Main rotor drive,Propellers & rotors,4
+6322,Rotorcraft cooling fan system,63,63 Main rotor drive,Propellers & rotors,4
+6330,Main rotor transmission mount,63,63 Main rotor drive,Propellers & rotors,4
+6340,Rotor drive indicating system,63,63 Main rotor drive,Propellers & rotors,4
+6397,Main rotor drive system wiring,63,63 Main rotor drive,Propellers & rotors,4
+6400,Tail rotor system,64,64 Tail rotor,Propellers & rotors,4
+6410,Tail rotor blades,64,64 Tail rotor,Propellers & rotors,4
+6420,Tail rotor head,64,64 Tail rotor,Propellers & rotors,4
+6440,Tail rotor indicating system,64,64 Tail rotor,Propellers & rotors,4
+6497,Tail rotor system wiring,64,64 Tail rotor,Propellers & rotors,4
+6500,Tail rotor drive system,65,65 Tail rotor drive,Propellers & rotors,4
+6510,Tail rotor drive shaft,65,65 Tail rotor drive,Propellers & rotors,4
+6520,Tail rotor gearbox,65,65 Tail rotor drive,Propellers & rotors,4
+6540,Tail rotor drive indicating system,65,65 Tail rotor drive,Propellers & rotors,4
+6597,Tail rotor drive system wiring,65,65 Tail rotor drive,Propellers & rotors,4
+6700,Rotorcraft flight control,67,67 Rotors flight control,Propellers & rotors,4
+6710,Main rotor control,67,67 Rotors flight control,Propellers & rotors,4
+6711,Tilt rotor flight control,67,67 Rotors flight control,Propellers & rotors,4
+6720,Tail rotor control system,67,67 Rotors flight control,Propellers & rotors,4
+6730,Rotorcraft servo system,67,67 Rotors flight control,Propellers & rotors,4
+6797,Rotors flight control system wiring,67,67 Rotors flight control,Propellers & rotors,4
+7100,Powerplant system,71,71 Powerplant,Powerplant & APU,5
+7110,Engine cowling system,71,71 Powerplant,Powerplant & APU,5
+7111,Engine cowl flaps,71,71 Powerplant,Powerplant & APU,5
+7112,Engine air baffle section,71,71 Powerplant,Powerplant & APU,5
+7120,Engine mount section,71,71 Powerplant,Powerplant & APU,5
+7130,Engine fireseals,71,71 Powerplant,Powerplant & APU,5
+7160,Engine air intake system,71,71 Powerplant,Powerplant & APU,5
+7170,Engine drains,71,71 Powerplant,Powerplant & APU,5
+7197,Powerplant system wiring,71,71 Powerplant,Powerplant & APU,5
+7200,Engine (turbine/turboprop),72,72 Turbine/turboprop engine,Powerplant & APU,5
+7210,Turbine engine reduction gear,72,72 Turbine/turboprop engine,Powerplant & APU,5
+7220,Turbine engine air inlet section,72,72 Turbine/turboprop engine,Powerplant & APU,5
+7230,Turbine engine compressor section,72,72 Turbine/turboprop engine,Powerplant & APU,5
+7240,Turbine engine combustion section,72,72 Turbine/turboprop engine,Powerplant & APU,5
+7250,Turbine section,72,72 Turbine/turboprop engine,Powerplant & APU,5
+7260,Turbine engine accessory drive,72,72 Turbine/turboprop engine,Powerplant & APU,5
+7261,Turbine engine oil system,72,72 Turbine/turboprop engine,Powerplant & APU,5
+7270,Turbine engine bypass section,72,72 Turbine/turboprop engine,Powerplant & APU,5
+7297,Turbine engine system wiring,72,72 Turbine/turboprop engine,Powerplant & APU,5
+7300,Engine fuel and control,73,73 Engine fuel and control,Powerplant & APU,5
+7310,Engine fuel distribution,73,73 Engine fuel and control,Powerplant & APU,5
+7311,Engine fuel/oil cooler,73,73 Engine fuel and control,Powerplant & APU,5
+7312,Fuel heater,73,73 Engine fuel and control,Powerplant & APU,5
+7313,Fuel injector nozzle,73,73 Engine fuel and control,Powerplant & APU,5
+7314,Engine fuel pump,73,73 Engine fuel and control,Powerplant & APU,5
+7320,Fuel controlling system,73,73 Engine fuel and control,Powerplant & APU,5
+7321,Fuel control/turbine engines,73,73 Engine fuel and control,Powerplant & APU,5
+7322,Fuel control/receiprocating engines,73,73 Engine fuel and control,Powerplant & APU,5
+7323,Turbine governor,73,73 Engine fuel and control,Powerplant & APU,5
+7324,Fuel divider,73,73 Engine fuel and control,Powerplant & APU,5
+7330,Engine fuel indicating system,73,73 Engine fuel and control,Powerplant & APU,5
+7331,Fuel flow indicating,73,73 Engine fuel and control,Powerplant & APU,5
+7332,Fuel pressure indicating,73,73 Engine fuel and control,Powerplant & APU,5
+7333,Fuel flow sensor,73,73 Engine fuel and control,Powerplant & APU,5
+7334,Fuel pressure sensor,73,73 Engine fuel and control,Powerplant & APU,5
+7397,Engine fuel system wiring,73,73 Engine fuel and control,Powerplant & APU,5
+7400,Ignition system,74,74 Ignition,Powerplant & APU,5
+7410,Ignition power supply,74,74 Ignition,Powerplant & APU,5
+7411,Low tension coil,74,74 Ignition,Powerplant & APU,5
+7412,Exciter,74,74 Ignition,Powerplant & APU,5
+7413,Induction vibrator,74,74 Ignition,Powerplant & APU,5
+7414,Magneto/distributor,74,74 Ignition,Powerplant & APU,5
+7420,Ignition harness (distribution),74,74 Ignition,Powerplant & APU,5
+7421,Spark plug/igniter,74,74 Ignition,Powerplant & APU,5
+7430,Ignition/starter switching,74,74 Ignition,Powerplant & APU,5
+7497,Ignition system wiring,74,74 Ignition,Powerplant & APU,5
+7500,Engine bleed air system,75,75 Air,Powerplant & APU,5
+7510,Engine anti-icing system,75,75 Air,Powerplant & APU,5
+7520,Engine cooling system,75,75 Air,Powerplant & APU,5
+7530,Compressor bleed control,75,75 Air,Powerplant & APU,5
+7531,Compressor bleed governor,75,75 Air,Powerplant & APU,5
+7532,Compressor bleed valve,75,75 Air,Powerplant & APU,5
+7540,Bleed air indicating system,75,75 Air,Powerplant & APU,5
+7597,Engine bleed air system wiring,75,75 Air,Powerplant & APU,5
+7600,Engine controls,76,76 Engine controls,Powerplant & APU,5
+7601,Engine synchronizing,76,76 Engine controls,Powerplant & APU,5
+7602,Mixture control,76,76 Engine controls,Powerplant & APU,5
+7603,Power lever,76,76 Engine controls,Powerplant & APU,5
+7620,Engine emergency shutdown system,76,76 Engine controls,Powerplant & APU,5
+7697,Engine control system wiring,76,76 Engine controls,Powerplant & APU,5
+7700,Engine indicating system,77,77 Engine indicating,Powerplant & APU,5
+7710,Power indicating system,77,77 Engine indicating,Powerplant & APU,5
+7711,Engine pressure ratio (epr),77,77 Engine indicating,Powerplant & APU,5
+7712,Engine bmep/torque indicating,77,77 Engine indicating,Powerplant & APU,5
+7713,Manifold pressure (mp) indicating,77,77 Engine indicating,Powerplant & APU,5
+7714,Engine RPM indicating system,77,77 Engine indicating,Powerplant & APU,5
+7720,Engine temperature indicating system,77,77 Engine indicating,Powerplant & APU,5
+7721,Cylinder head temp (cht) indicating,77,77 Engine indicating,Powerplant & APU,5
+7722,Eng. egt/tit indicating system,77,77 Engine indicating,Powerplant & APU,5
+7730,Engine ignition analyzer system,77,77 Engine indicating,Powerplant & APU,5
+7731,Engine ignition analyzer,77,77 Engine indicating,Powerplant & APU,5
+7732,Engine vibration analyzer,77,77 Engine indicating,Powerplant & APU,5
+7740,Engine integrated instrument system,77,77 Engine indicating,Powerplant & APU,5
+7797,Engine indicating system wiring,77,77 Engine indicating,Powerplant & APU,5
+7800,Engine exhaust system,78,78 Engine exhaust,Powerplant & APU,5
+7810,Engine collector/tailpipe/nozzle,78,78 Engine exhaust,Powerplant & APU,5
+7820,Engine noise suppressor,78,78 Engine exhaust,Powerplant & APU,5
+7830,Thrust reverser,78,78 Engine exhaust,Powerplant & APU,5
+7897,Engine exhaust system wiring,78,78 Engine exhaust,Powerplant & APU,5
+7900,Engine oil system (airframe),79,79 Engine oil,Powerplant & APU,5
+7910,Engine oil storage (airframe),79,79 Engine oil,Powerplant & APU,5
+7920,Engine oil distribution (airframe),79,79 Engine oil,Powerplant & APU,5
+7921,Engine oil cooler,79,79 Engine oil,Powerplant & APU,5
+7922,Engine oil temperature regulator,79,79 Engine oil,Powerplant & APU,5
+7923,Engine oil shutoff valve,79,79 Engine oil,Powerplant & APU,5
+7930,Engine oil indicating system,79,79 Engine oil,Powerplant & APU,5
+7931,Engine oil pressure,79,79 Engine oil,Powerplant & APU,5
+7932,Engine oil quantity,79,79 Engine oil,Powerplant & APU,5
+7933,Engine oil temperature,79,79 Engine oil,Powerplant & APU,5
+7997,Engine oil system wiring,79,79 Engine oil,Powerplant & APU,5
+8000,Engine starting system,80,80 Starting,Powerplant & APU,5
+8010,Engine cranking,80,80 Starting,Powerplant & APU,5
+8011,Engine starter,80,80 Starting,Powerplant & APU,5
+8012,Engine start valves/controls,80,80 Starting,Powerplant & APU,5
+8097,Engine starting system wiring,80,80 Starting,Powerplant & APU,5
+8100,Exhaust turbine system (recip),81,81 Turbocharging,Powerplant & APU,5
+8110,Power recovery turbine (recip),81,81 Turbocharging,Powerplant & APU,5
+8120,Exhaust turbocharger,81,81 Turbocharging,Powerplant & APU,5
+8197,Turbocharging system wiring,81,81 Turbocharging,Powerplant & APU,5
+8200,Water injection system,82,82 Water injection,Powerplant & APU,5
+8297,Water injection system wiring,82,82 Water injection,Powerplant & APU,5
+8300,Accessory gearboxes,83,83 Accessory gearboxes,Powerplant & APU,5
+8397,Accessory gearbox system wiring,83,83 Accessory gearboxes,Powerplant & APU,5
+8500,Engine (reciprocating),85,85 Reciprocating engine,Powerplant & APU,5
+8510,Reciprocating engine front section,85,85 Reciprocating engine,Powerplant & APU,5
+8520,Reciprocating engine power section,85,85 Reciprocating engine,Powerplant & APU,5
+8530,Reciprocating engine cylinder section,85,85 Reciprocating engine,Powerplant & APU,5
+8540,Reciprocating engine rear section,85,85 Reciprocating engine,Powerplant & APU,5
+8550,Reciprocating engine oil system,85,85 Reciprocating engine,Powerplant & APU,5
+8560,Reciprocating engine supercharger,85,85 Reciprocating engine,Powerplant & APU,5
+8570,Reciprocating engine liquid cooling,85,85 Reciprocating engine,Powerplant & APU,5
+8597,Reciprocating engine system wiring,85,85 Reciprocating engine,Powerplant & APU,5

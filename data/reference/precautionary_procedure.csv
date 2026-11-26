@@ -1,0 +1,16 @@
+procedure_code,procedure,operational_impact
+A,Unscheduled landing,True
+B,Emergency descent,True
+C,Aborted takeoff,True
+D,Return to gate,True
+E,Engine shutdown,True
+F,Fire extinguisher activated,True
+G,Oxygen masks deployed,True
+H,Deactivate systems/circuits,False
+I,Cabin depressurization,True
+J,Dump fuel,True
+K,None,False
+L,Aborted approach,True
+O,Other,False
+R,Autorotation,True
+0,Not available,False

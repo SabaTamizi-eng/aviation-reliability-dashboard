@@ -1,0 +1,45 @@
+make_code,manufacturer,default_category
+BOEING,Boeing,Other
+AIRBUS,Airbus,Other
+CNDAIR,Bombardier (Canadair),Regional jet
+EMB,Embraer,Other
+DOUG,McDonnell Douglas,Other
+CESSNA,Cessna,Piston / light
+BOMBDR,Bombardier,Business jet
+LKHEED,Lockheed,Other
+BOLKMS,MBB,Helicopter
+BEECH,Beechcraft,Piston / light
+PIPER,Piper,Piston / light
+UROCOP,Eurocopter,Helicopter
+TEXTRN,Textron Aviation,Other
+BELL,Bell,Helicopter
+AEROSP,ATR / Aerospatiale,Turboprop
+GULSTM,Gulfstream,Other
+ROBSIN,Robinson,Helicopter
+LEAR,Learjet,Business jet
+PILATS,Pilatus,Turboprop
+DHAV,De Havilland Canada,Turboprop
+SNIAS,Aerospatiale,Helicopter
+SKRSKY,Sikorsky,Helicopter
+CIRRUS,Cirrus,Piston / light
+DIAMON,Diamond,Piston / light
+RAYTHN,Raytheon (Hawker Beechcraft),Other
+AGUSTA,Leonardo (AgustaWestland),Helicopter
+SAAB,Saab,Turboprop
+TECNAM,Tecnam,Piston / light
+SWRNGN,Swearingen,Turboprop
+RKWELL,Rockwell,Piston / light
+CASA,CASA,Turboprop
+FRCHLD,Fairchild,Turboprop
+HUGHES,Hughes,Helicopter
+HONDA,Honda Aircraft,Business jet
+MOONEY,Mooney,Piston / light
+CVAC,Convair,Turboprop
+AMTR,Amateur-built,Piston / light
+BNORM,Britten-Norman,Piston / light
+AIRTRC,Air Tractor,Turboprop
+HAWBEE,Hawker Beechcraft,Business jet
+DORNER,Dornier,Turboprop
+AMD,AMD,Piston / light
+DASSLT,Dassault,Business jet
+ECLIPS,Eclipse,Business jet

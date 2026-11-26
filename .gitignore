@@ -1,0 +1,13 @@
+# FAA yearly files (download with data/download_sdr.ps1 or let Power BI read them from the FAA site)
+data/raw/
+
+# Power BI Desktop local files
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+**/TMDLScripts/
+*.pbix
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/

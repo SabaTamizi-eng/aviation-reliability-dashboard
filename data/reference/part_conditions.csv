@@ -1,0 +1,351 @@
+part_condition,condition_category,condition_group,condition_group_order
+ABNORMAL,Failed or inoperative,Failure or malfunction,4
+ACTIVATED,False warning or deployment,Failure or malfunction,4
+ACTIVATION ERROR,Other,Other / not specified,5
+ACTIVE,Other,Other / not specified,5
+AERATED,Other,Other / not specified,5
+ARCED,Failed or inoperative,Failure or malfunction,4
+ASYMETRIC,Other,Other / not specified,5
+AUTO SHUTDOWN,Other,Other / not specified,5
+BACKED OUT,Other,Other / not specified,5
+BATTERED,Other,Other / not specified,5
+BENT,Wear & damage,Wear & damage,3
+BINDING,Failed or inoperative,Failure or malfunction,4
+BINDS,Other,Other / not specified,5
+BIRD INGESTION,Wear & damage,Wear & damage,3
+BLEW OUT,Other,Other / not specified,5
+BLISTERED,Other,Other / not specified,5
+BLOCKED,Other,Other / not specified,5
+BLOWN,Wear & damage,Wear & damage,3
+BOWED,Other,Other / not specified,5
+BRINELLED,Other,Other / not specified,5
+BROKEN,Wear & damage,Wear & damage,3
+BUCKLED,Other,Other / not specified,5
+BULGED,Wear & damage,Wear & damage,3
+BURNED,Wear & damage,Wear & damage,3
+BURNED OUT,Failed or inoperative,Failure or malfunction,4
+BURRED,Other,Other / not specified,5
+BURST,Other,Other / not specified,5
+BYPASSING,Other,Other / not specified,5
+CANNING,Other,Other / not specified,5
+CARBONED,Other,Other / not specified,5
+CAVITATES,Other,Other / not specified,5
+CHAFED,Wear & damage,Wear & damage,3
+CHATTERING,Other,Other / not specified,5
+CHIPPED,Other,Other / not specified,5
+CLOGGED,Wear & damage,Wear & damage,3
+CLOSED,Other,Other / not specified,5
+CLOUDY,Other,Other / not specified,5
+COCKED,Other,Other / not specified,5
+COKED,Other,Other / not specified,5
+COLD SOLDER JT,Other,Other / not specified,5
+COLLAPSED,Other,Other / not specified,5
+CONSTRICTED,Other,Other / not specified,5
+CONTAMINATED,Wear & damage,Wear & damage,3
+CORRODED,Corrosion,Corrosion,1
+CORRUPTED,Other,Other / not specified,5
+CRACKED,Cracking,Cracking,2
+CRAZED,Other,Other / not specified,5
+CREW ERROR,Other,Other / not specified,5
+CRIMPED,Other,Other / not specified,5
+CROSSED,Other,Other / not specified,5
+CRUSHED,Other,Other / not specified,5
+CUT,Other,Other / not specified,5
+DAMAGED,Wear & damage,Wear & damage,3
+DEACTIVATED,Other,Other / not specified,5
+DEBONDED,Wear & damage,Wear & damage,3
+DECOMPRESSION,Other,Other / not specified,5
+DEFECTIVE,Failed or inoperative,Failure or malfunction,4
+DEFLATED,Other,Other / not specified,5
+DEFORMED,Wear & damage,Wear & damage,3
+DEGRADED,Other,Other / not specified,5
+DELAMINATED,Wear & damage,Wear & damage,3
+DENTED,Wear & damage,Wear & damage,3
+DEPARTED,Other,Other / not specified,5
+DEPLETED,Leak or pressure loss,Failure or malfunction,4
+DEPLOYED,False warning or deployment,Failure or malfunction,4
+DESTROYED,Other,Other / not specified,5
+DETACHED,"Loose, missing or misrigged",Wear & damage,3
+DETECTED,Other,Other / not specified,5
+DETERIORATED,Wear & damage,Wear & damage,3
+DID NOT STOW,Other,Other / not specified,5
+DIM,Other,Other / not specified,5
+DIRTY,Wear & damage,Wear & damage,3
+DISCHARGED,Leak or pressure loss,Failure or malfunction,4
+DISCOLORED,Other,Other / not specified,5
+DISCONNECTED,"Loose, missing or misrigged",Wear & damage,3
+DISCOVERED,Other,Other / not specified,5
+DISENGAGED,Other,Other / not specified,5
+DISINTEGRATED,Other,Other / not specified,5
+DISLODGED,"Loose, missing or misrigged",Wear & damage,3
+DISPLACED,Other,Other / not specified,5
+DISPLAYED,Other,Other / not specified,5
+DISSOLVED,Other,Other / not specified,5
+DISTORTED,Other,Other / not specified,5
+DISTRESSED,Other,Other / not specified,5
+DRAGGING,Other,Other / not specified,5
+DRY,Other,Other / not specified,5
+ELONGATED,Wear & damage,Wear & damage,3
+EMPTY,Other,Other / not specified,5
+ENGAGED,Other,Other / not specified,5
+ERODED,Wear & damage,Wear & damage,3
+ERRATIC,Other,Other / not specified,5
+EXCESS PLAY,Wear & damage,Wear & damage,3
+EXPIRED,"Loose, missing or misrigged",Wear & damage,3
+EXPLODED,Other,Other / not specified,5
+EXPOSED,Wear & damage,Wear & damage,3
+EXTINGUISHED,Other,Other / not specified,5
+FADED,Other,Other / not specified,5
+FAILED,Failed or inoperative,Failure or malfunction,4
+FAILED INSP,Failed or inoperative,Failure or malfunction,4
+FALSE ACTIVATION,False warning or deployment,Failure or malfunction,4
+FALSE INDICATION,False warning or deployment,Failure or malfunction,4
+FATIGUED,Other,Other / not specified,5
+FAULT MESSAGE,False warning or deployment,Failure or malfunction,4
+FAULTED,Failed or inoperative,Failure or malfunction,4
+FAULTY,Failed or inoperative,Failure or malfunction,4
+FIRE,"Smoke, fumes or fire",Failure or malfunction,4
+FIRE WARNING,Other,Other / not specified,5
+FLAKING,Other,Other / not specified,5
+FLAMED OUT,Other,Other / not specified,5
+FLAT,Other,Other / not specified,5
+FLATTENED,Other,Other / not specified,5
+FLUCTUATES,Failed or inoperative,Failure or malfunction,4
+FLUID LOSS,Other,Other / not specified,5
+FLUTTER,Other,Other / not specified,5
+FOD,Wear & damage,Wear & damage,3
+FOULED,Other,Other / not specified,5
+FRACTURED,Other,Other / not specified,5
+FRAGMENTED,Other,Other / not specified,5
+FRAYED,Wear & damage,Wear & damage,3
+FROZEN,Failed or inoperative,Failure or malfunction,4
+FULL,Other,Other / not specified,5
+FUMES,"Smoke, fumes or fire",Failure or malfunction,4
+FUSED,Other,Other / not specified,5
+GALLED,Other,Other / not specified,5
+GASSING,Other,Other / not specified,5
+GLAZED,Other,Other / not specified,5
+GOUGED,Wear & damage,Wear & damage,3
+GROOVED,Other,Other / not specified,5
+GROUND DAMAGE,Wear & damage,Wear & damage,3
+GROUNDED,Other,Other / not specified,5
+HANDLER ERROR,Other,Other / not specified,5
+HAZE,Other,Other / not specified,5
+HIGH PRESSURE,Other,Other / not specified,5
+HOT,Other,Other / not specified,5
+HOT START,Other,Other / not specified,5
+HUNG START,Other,Other / not specified,5
+HUNG UP,Other,Other / not specified,5
+ICED,Other,Other / not specified,5
+ILLUMINATED,False warning or deployment,Failure or malfunction,4
+IMPROPER PART,Other,Other / not specified,5
+IMPROPER STOW,"Loose, missing or misrigged",Wear & damage,3
+INACCURATE,Other,Other / not specified,5
+INACTIVE,Other,Other / not specified,5
+INADEQUATE,Other,Other / not specified,5
+INCORRECT,"Loose, missing or misrigged",Wear & damage,3
+INDICATION,Other,Other / not specified,5
+INFLT SEPARATION,Other,Other / not specified,5
+INOPERATIVE,Failed or inoperative,Failure or malfunction,4
+INSTALLED,Other,Other / not specified,5
+INTERFERENCE,Other,Other / not specified,5
+INTERMITTENT,Failed or inoperative,Failure or malfunction,4
+JAMMED,Failed or inoperative,Failure or malfunction,4
+KINKED,Other,Other / not specified,5
+LACK OF LUBE,Wear & damage,Wear & damage,3
+LEAKING,Leak or pressure loss,Failure or malfunction,4
+LOCKED,Failed or inoperative,Failure or malfunction,4
+LOOSE,"Loose, missing or misrigged",Wear & damage,3
+LOW,Leak or pressure loss,Failure or malfunction,4
+LOW PRESSURE,Leak or pressure loss,Failure or malfunction,4
+LOW QUANTITY,Other,Other / not specified,5
+LOW TENSION,Other,Other / not specified,5
+LOW TORQUE,Other,Other / not specified,5
+LOW VOLTAGE,Other,Other / not specified,5
+MAKING METAL,Wear & damage,Wear & damage,3
+MALFUNCTIONED,Failed or inoperative,Failure or malfunction,4
+MECHANIC ERROR,"Loose, missing or misrigged",Wear & damage,3
+MELTED,Other,Other / not specified,5
+MIGRATED,"Loose, missing or misrigged",Wear & damage,3
+MISALIGNED,"Loose, missing or misrigged",Wear & damage,3
+MISCONFIGURED,"Loose, missing or misrigged",Wear & damage,3
+MISINSTALLED,"Loose, missing or misrigged",Wear & damage,3
+MISLOCATED,Other,Other / not specified,5
+MISMANUFACTURED,Other,Other / not specified,5
+MISMARKED,Other,Other / not specified,5
+MISMATCHED,Other,Other / not specified,5
+MISOVERHAULED,Other,Other / not specified,5
+MISPINNED,Other,Other / not specified,5
+MISREPAIRED,"Loose, missing or misrigged",Wear & damage,3
+MISRIGGED,Other,Other / not specified,5
+MISROUTED,Other,Other / not specified,5
+MISSING,"Loose, missing or misrigged",Wear & damage,3
+MISUSED,Other,Other / not specified,5
+MISWIRED,Other,Other / not specified,5
+MOLDED,Other,Other / not specified,5
+MULTIPLE FAIL,Other,Other / not specified,5
+MULTIPLE IND,Other,Other / not specified,5
+MUSHROOMED,Other,Other / not specified,5
+NICKED,Wear & damage,Wear & damage,3
+NO DISCREPANCY,Not specified,Other / not specified,5
+NO INDICATION,Other,Other / not specified,5
+NO TEST,Failed or inoperative,Failure or malfunction,4
+NOISE,Other,Other / not specified,5
+NOISY,Other,Other / not specified,5
+NONE,Not specified,Other / not specified,5
+NOT BONDED,Other,Other / not specified,5
+NOT CLOSED,Other,Other / not specified,5
+NOT ENTERED,"Loose, missing or misrigged",Wear & damage,3
+NOT EXTENDED,Other,Other / not specified,5
+NOT GROUNDED,Other,Other / not specified,5
+NOT OPENED,Other,Other / not specified,5
+NOT REPORTED,Not specified,Other / not specified,5
+NOT SEATED,"Loose, missing or misrigged",Wear & damage,3
+OBSTRUCTED,Wear & damage,Wear & damage,3
+ODIFEROUS,Other,Other / not specified,5
+ODOR,"Smoke, fumes or fire",Failure or malfunction,4
+OFF TRACK,"Loose, missing or misrigged",Wear & damage,3
+OIL CONSUMPTION,Other,Other / not specified,5
+OIL STARVATION,Other,Other / not specified,5
+OPEN,Failed or inoperative,Failure or malfunction,4
+OSCILLATES,Other,Other / not specified,5
+OUT OF ADJUST,"Loose, missing or misrigged",Wear & damage,3
+OUT OF ALIGNMENT,"Loose, missing or misrigged",Wear & damage,3
+OUT OF BALANCE,"Loose, missing or misrigged",Wear & damage,3
+OUT OF DATE,Other,Other / not specified,5
+OUT OF LIMITS,"Loose, missing or misrigged",Wear & damage,3
+OUT OF POSITION,"Loose, missing or misrigged",Wear & damage,3
+OUT OF RANGE,"Loose, missing or misrigged",Wear & damage,3
+OUT OF RIG,"Loose, missing or misrigged",Wear & damage,3
+OUT OF ROUND,Other,Other / not specified,5
+OUT OF SEQUENCE,Other,Other / not specified,5
+OUT OF TOLERANCE,"Loose, missing or misrigged",Wear & damage,3
+OUT OF TRACK,Other,Other / not specified,5
+OUT OF TRIM,Other,Other / not specified,5
+OUTDATED,Other,Other / not specified,5
+OVER VOLTAGE,Other,Other / not specified,5
+OVERFLOW,Other,Other / not specified,5
+OVERHEATED,Failed or inoperative,Failure or malfunction,4
+OVERPRESSURED,Other,Other / not specified,5
+OVERROTATED,Other,Other / not specified,5
+OVERSERVICED,"Loose, missing or misrigged",Wear & damage,3
+OVERSPEED,Other,Other / not specified,5
+OVERTEMP,Failed or inoperative,Failure or malfunction,4
+OVERTORQUED,Other,Other / not specified,5
+OVERWEIGHT,Other,Other / not specified,5
+PARTIAL DEPLOY,False warning or deployment,Failure or malfunction,4
+PARTIAL INFLATE,Other,Other / not specified,5
+PAX ERROR,Other,Other / not specified,5
+PEELING,Wear & damage,Wear & damage,3
+PERFORATED,Other,Other / not specified,5
+PILOT ERROR,Other,Other / not specified,5
+PINCHED,Other,Other / not specified,5
+PLUGGED,Other,Other / not specified,5
+POPPED,Other,Other / not specified,5
+POROUS,Other,Other / not specified,5
+POWER LOSS,Failed or inoperative,Failure or malfunction,4
+PRECESSES,Other,Other / not specified,5
+PRELOADED,Other,Other / not specified,5
+PRESSURE LOSS,Other,Other / not specified,5
+PROPER,Other,Other / not specified,5
+PULLED,"Loose, missing or misrigged",Wear & damage,3
+PUNCTURED,Wear & damage,Wear & damage,3
+RATCHETING,Other,Other / not specified,5
+READS HIGH,Other,Other / not specified,5
+READS LOW,Other,Other / not specified,5
+RECESSED,Other,Other / not specified,5
+RESTRICTED,Other,Other / not specified,5
+REVERSED,Other,Other / not specified,5
+ROTATED,Other,Other / not specified,5
+ROTTED,Other,Other / not specified,5
+ROUGH,Other,Other / not specified,5
+RUPTURED,Other,Other / not specified,5
+RUSTED,Other,Other / not specified,5
+SATURATED,Other,Other / not specified,5
+SCORED,Other,Other / not specified,5
+SCRATCHED,Wear & damage,Wear & damage,3
+SECONDARY DAMAGE,Other,Other / not specified,5
+SEIZED,Failed or inoperative,Failure or malfunction,4
+SENSITIVITY,Other,Other / not specified,5
+SEPARATED,Wear & damage,Wear & damage,3
+SEPARATION,Other,Other / not specified,5
+SEVERED,Other,Other / not specified,5
+SHEARED,Wear & damage,Wear & damage,3
+SHIFTED,Other,Other / not specified,5
+SHINGLED,Other,Other / not specified,5
+SHORT,Other,Other / not specified,5
+SHORTED,Failed or inoperative,Failure or malfunction,4
+SHUTDOWN,Failed or inoperative,Failure or malfunction,4
+SIPHONING,Other,Other / not specified,5
+SLIPPED,Other,Other / not specified,5
+SLOW,Other,Other / not specified,5
+SLUGGISH,Other,Other / not specified,5
+SMOKE,"Smoke, fumes or fire",Failure or malfunction,4
+SOLIDIFIED,Other,Other / not specified,5
+SPALLED,Other,Other / not specified,5
+SPARKS,"Smoke, fumes or fire",Failure or malfunction,4
+SPINNING,Other,Other / not specified,5
+SPLIT,Other,Other / not specified,5
+SPUN,Other,Other / not specified,5
+STAINED,Other,Other / not specified,5
+STALLED,Failed or inoperative,Failure or malfunction,4
+STICKING,Failed or inoperative,Failure or malfunction,4
+STICKS,Other,Other / not specified,5
+STIFF,Failed or inoperative,Failure or malfunction,4
+STOPPED,Other,Other / not specified,5
+STRETCHED,Other,Other / not specified,5
+STRIPPED,Other,Other / not specified,5
+STUCK,Failed or inoperative,Failure or malfunction,4
+SURGES,Other,Other / not specified,5
+SWOLLEN,Other,Other / not specified,5
+TANGLED,Other,Other / not specified,5
+TEMP REPAIR,"Loose, missing or misrigged",Wear & damage,3
+THERMAL RUNAWAY,Other,Other / not specified,5
+TIGHT,Other,Other / not specified,5
+TOO LARGE,Other,Other / not specified,5
+TORN,Wear & damage,Wear & damage,3
+TRANSPOSED,Other,Other / not specified,5
+TRIPPED,Failed or inoperative,Failure or malfunction,4
+TUMBLES,Other,Other / not specified,5
+TWISTED,Other,Other / not specified,5
+UNBALANCED,Other,Other / not specified,5
+UNBONDED,Other,Other / not specified,5
+UNCALIBRATED,Other,Other / not specified,5
+UNCONTROLLABLE,Other,Other / not specified,5
+UNDAMAGED,Other,Other / not specified,5
+UNDERSERVICED,Other,Other / not specified,5
+UNDERSIZE,Other,Other / not specified,5
+UNDERTORQUED,Other,Other / not specified,5
+UNKNOWN,Not specified,Other / not specified,5
+UNLACED,Other,Other / not specified,5
+UNLATCHED,Other,Other / not specified,5
+UNLOCKED,Other,Other / not specified,5
+UNPACKED,"Loose, missing or misrigged",Wear & damage,3
+UNRAVELED,Wear & damage,Wear & damage,3
+UNRELIABLE,Other,Other / not specified,5
+UNRESPONSIVE,Other,Other / not specified,5
+UNSAFETIED,Other,Other / not specified,5
+UNSANITARY,Other,Other / not specified,5
+UNSCREWED,Other,Other / not specified,5
+UNSECURE,"Loose, missing or misrigged",Wear & damage,3
+UNSERVICEABLE,Failed or inoperative,Failure or malfunction,4
+UNSTABLE,Other,Other / not specified,5
+UNSTAKED,Other,Other / not specified,5
+UNWANTED DEPLOY,False warning or deployment,Failure or malfunction,4
+UNWANTED EXTEND,Other,Other / not specified,5
+USED,Other,Other / not specified,5
+VAPOR,Other,Other / not specified,5
+VAPOR LOCK,Other,Other / not specified,5
+VENTING,Other,Other / not specified,5
+VIBRATES,Other,Other / not specified,5
+VIBRATION,Failed or inoperative,Failure or malfunction,4
+WARNING LIGHT,False warning or deployment,Failure or malfunction,4
+WARNING MESSAGE,False warning or deployment,Failure or malfunction,4
+WARPED,Other,Other / not specified,5
+WEAK,Failed or inoperative,Failure or malfunction,4
+WILL NOT ARM,Other,Other / not specified,5
+WILL NOT BALANCE,Other,Other / not specified,5
+WITHIN LIMITS,Other,Other / not specified,5
+WORN,Wear & damage,Wear & damage,3
+WRINKLED,Other,Other / not specified,5
+WRONG PART,"Loose, missing or misrigged",Wear & damage,3

@@ -1,0 +1,16 @@
+submitter_code,submitter,submitter_group
+A,Carrier Part 121,Airline (Part 121)
+B,Repair Station Part 145,Repair station (Part 145)
+C,Operator Part 91,Other
+D,Mechanic,Other
+E,Carrier Part 135,Commuter & on-demand (Part 135)
+F,Manufacturer,Other
+G,Federal Aviation Administration,Other
+H,Other,Other
+I,Air Taxi Part 125,Other
+L,External Load Part 133,Other
+M,Military,Other
+P,Pilot,Other
+S,Light Sport Acft,Other
+W,Foreign Part 129,Foreign carrier (Part 129)
+Z,Non Cert International,Other

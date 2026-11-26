@@ -1,0 +1,25 @@
+nature_code,nature,nature_group
+A,Flame/fire,"Fire, smoke or fumes"
+B,"Smoke, fumes, odors or sparks","Fire, smoke or fumes"
+C,Foreign object damage (FOD),Other
+D,Inflight separation,Systems or controls affected
+E,Vibration/buffet,Systems or controls affected
+F,Flt control affected,Systems or controls affected
+G,Multiple failure,Systems or controls affected
+H,Electrical power loss-50 pc,Power or engine loss
+I,Flight attitude instrument,Warning or indication
+J,Warning indication,Warning or indication
+K,Fluid loss,Other
+L,No test,Other
+M,Over temp,Other
+N,False warning,Warning or indication
+O,Other,Other
+P,No warning indication,Warning or indication
+R,Partial rpm/pwr loss,Power or engine loss
+S,Affect systems,Systems or controls affected
+T,Engine case penetration,Power or engine loss
+W,Inadequate quality c,Other
+X,Engine flameout,Power or engine loss
+Y,Engine stoppage,Power or engine loss
+Z,Significant failure report,Other
+0,Not available,Other

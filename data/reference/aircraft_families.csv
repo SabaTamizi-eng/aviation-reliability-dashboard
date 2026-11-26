@@ -1,0 +1,124 @@
+make_code,model_prefix,model_suffix,family,category
+BOEING,737,,737,Narrowbody
+BOEING,757,,757,Narrowbody
+BOEING,717,,717,Narrowbody
+BOEING,727,,727,Narrowbody
+BOEING,767,,767,Widebody
+BOEING,777,,777,Widebody
+BOEING,787,,787,Widebody
+BOEING,747,,747,Widebody
+AIRBUS,A319,,A320ceo family,Narrowbody
+AIRBUS,A320,,A320ceo family,Narrowbody
+AIRBUS,A321,,A320ceo family,Narrowbody
+AIRBUS,A31,N,A320neo family,Narrowbody
+AIRBUS,A32,N,A320neo family,Narrowbody
+AIRBUS,A31,NX,A320neo family,Narrowbody
+AIRBUS,A32,NX,A320neo family,Narrowbody
+AIRBUS,A300,,A300,Widebody
+AIRBUS,A310,,A310,Widebody
+AIRBUS,A330,,A330,Widebody
+AIRBUS,A350,,A350,Widebody
+AIRBUS,A380,,A380,Widebody
+AIRBUS,BD500,,A220,Narrowbody
+AIRBUS,EC,,Airbus helicopters,Helicopter
+AIRBUS,H1,,Airbus helicopters,Helicopter
+BOMBDR,BD500,,A220,Narrowbody
+CNDAIR,CL6002B19,,CRJ200,Regional jet
+CNDAIR,CL6002C10,,CRJ700,Regional jet
+CNDAIR,CL6002C11,,CRJ700,Regional jet
+CNDAIR,CL6002D24,,CRJ900,Regional jet
+CNDAIR,CL6002D15,,CRJ900,Regional jet
+CNDAIR,CL6002E25,,CRJ1000,Regional jet
+CNDAIR,CL600*,,CRJ (series not reported),Regional jet
+CNDAIR,CL6002B16,,Challenger 600 series,Business jet
+CNDAIR,CL6002A12,,Challenger 600 series,Business jet
+CNDAIR,CL6013,,Challenger 600 series,Business jet
+CNDAIR,CL604,,Challenger 600 series,Business jet
+CNDAIR,CL215,,CL-215/415,Turboprop
+BOMBDR,CL6002D15,,CRJ900,Regional jet
+BOMBDR,BD100,,Challenger 300/350,Business jet
+BOMBDR,BD700,,Global series,Business jet
+BOMBDR,DHC8,,Dash 8 / Q400,Turboprop
+EMB,ERJ170100,,E170,Regional jet
+EMB,ERJ170200,,E175,Regional jet
+EMB,ERJ190100,,E190,Regional jet
+EMB,ERJ190200,,E195,Regional jet
+EMB,EMB145,,ERJ135/145,Regional jet
+EMB,EMB135,,ERJ135/145,Regional jet
+EMB,EMB50,,Phenom 100/300,Business jet
+EMB,EMB545,,Legacy / Praetor,Business jet
+EMB,EMB55,,Legacy / Praetor,Business jet
+EMB,EMB110,,EMB-110 Bandeirante,Turboprop
+EMB,EMB120,,EMB-120 Brasilia,Turboprop
+DOUG,MD11,,MD-11,Widebody
+DOUG,MD10,,DC-10 / MD-10,Widebody
+DOUG,DC10,,DC-10 / MD-10,Widebody
+DOUG,MD8,,DC-9 / MD-80,Narrowbody
+DOUG,DC9,,DC-9 / MD-80,Narrowbody
+DOUG,DC8,,DC-8,Narrowbody
+DOUG,DC3,,DC-3,Piston / light
+DOUG,600N,,MD helicopters,Helicopter
+DOUG,MD500,,MD helicopters,Helicopter
+DOUG,MD900,,MD helicopters,Helicopter
+CESSNA,680A,,Citation Latitude,Business jet
+CESSNA,680,,Citation Sovereign,Business jet
+CESSNA,560XL,,Citation Excel/XLS,Business jet
+CESSNA,560,,Citation V/Ultra/Encore,Business jet
+CESSNA,750,,Citation X,Business jet
+CESSNA,525,,CitationJet / CJ,Business jet
+CESSNA,650,,Citation III/VI/VII,Business jet
+CESSNA,550,,Citation II/Bravo,Business jet
+CESSNA,208,,Caravan,Turboprop
+CESSNA,441,,Conquest II,Turboprop
+TEXTRN,TEXTRON700,,Citation Longitude,Business jet
+TEXTRN,408,,SkyCourier,Turboprop
+LKHEED,382,,L-382 / C-130 Hercules,Turboprop
+LKHEED,C130,,L-382 / C-130 Hercules,Turboprop
+LKHEED,1011,,L-1011,Widebody
+BOLKMS,BK117,,BK117 / H145,Helicopter
+BEECH,400,,Beechjet 400,Business jet
+BEECH,B300,,King Air 300/350,Turboprop
+BEECH,300,,King Air 300/350,Turboprop
+BEECH,B200,,King Air 200/250,Turboprop
+BEECH,200,,King Air 200/250,Turboprop
+BEECH,C90,,King Air 90,Turboprop
+BEECH,E90,,King Air 90,Turboprop
+BEECH,F90,,King Air 90,Turboprop
+BEECH,100,,King Air 100,Turboprop
+BEECH,B100,,King Air 100,Turboprop
+BEECH,1900,,Beech 1900,Turboprop
+BEECH,99,,Beech 99,Turboprop
+BEECH,B99,,Beech 99,Turboprop
+BEECH,C99,,Beech 99,Turboprop
+AEROSP,ATR72,,ATR 72,Turboprop
+AEROSP,ATR42,,ATR 42,Turboprop
+AEROSP,AS3,,Aerospatiale helicopters,Helicopter
+GULSTM,GIV,,Gulfstream IV / G450,Business jet
+GULSTM,GV,,Gulfstream V / G550,Business jet
+GULSTM,GVI,,Gulfstream G650,Business jet
+GULSTM,GVII,,Gulfstream G500-G700,Business jet
+GULSTM,GULFSTREAMGV,,Gulfstream V / G550,Business jet
+GULSTM,G280,,Gulfstream G100-G280,Business jet
+GULSTM,G150,,Gulfstream G100-G280,Business jet
+GULSTM,G100,,Gulfstream G100-G280,Business jet
+GULSTM,200,,Gulfstream G100-G280,Business jet
+GULSTM,680,,Commander turboprops,Turboprop
+GULSTM,690,,Commander turboprops,Turboprop
+PILATS,PC12,,PC-12,Turboprop
+PILATS,PC24,,PC-24,Business jet
+PILATS,PC6,,PC-6 Porter,Turboprop
+DHAV,DHC8,,Dash 8 / Q400,Turboprop
+DHAV,DHC6,,Twin Otter,Turboprop
+DHAV,DHC7,,Dash 7,Turboprop
+RAYTHN,HAWKER,,Hawker 750-900,Business jet
+RAYTHN,400,,Beechjet 400,Business jet
+RAYTHN,390,,Premier,Business jet
+RAYTHN,B300,,King Air 300/350,Turboprop
+RAYTHN,200,,King Air 200/250,Turboprop
+RAYTHN,C90,,King Air 90,Turboprop
+HAWBEE,HAWKER,,Hawker 750-900,Business jet
+SAAB,340,,Saab 340,Turboprop
+SAAB,SF340,,Saab 340,Turboprop
+SAAB,2000,,Saab 2000,Turboprop
+CASA,C212,,C-212,Turboprop
+CIRRUS,SF50,,Vision Jet,Business jet
