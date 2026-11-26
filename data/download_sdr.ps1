@@ -1,5 +1,5 @@
 # Downloads the FAA Service Difficulty Report files into data\raw, for Power BI's Folder mode.
-# Not needed in Web mode, where Power BI reads the same files straight from the FAA site.
+# (In Web mode Power BI reads the same files straight from the FAA site instead.)
 #
 #   powershell -ExecutionPolicy Bypass -File data\download_sdr.ps1 -FirstYear 2021 -LastYear 2025
 

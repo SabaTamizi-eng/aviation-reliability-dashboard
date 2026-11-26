@@ -11,8 +11,8 @@ Operators, repair stations and mechanics in the US file a Service Difficulty Rep
 - Field definitions: [SDRS Batch File Layout](https://sdrs.faa.gov/Documents/Batch%20File%20Layout.pdf)
 
 The report uses 2021-2025 (five full years, 323,671 reports, about 33 MB per year).
-The raw files are not committed. Power BI reads them straight from the FAA site, or from
-`data/raw/` after running `download_sdr.ps1`.
+The raw files are not committed. Run `download_sdr.ps1` to put them in `data/raw/`, where
+Power BI reads them (Folder mode); Web mode reads them straight from the FAA site.
 
 An SDR describes what was found, not how often aircraft fly, so counts reflect fleet
 size and reporting practice as well as reliability. The report compares shares and

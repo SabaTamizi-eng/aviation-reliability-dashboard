@@ -53,14 +53,14 @@ operators.
 
 ## Power BI features used
 
-- **Power Query:** reads the yearly FAA files with `Web.Contents` and `RelativePath`
-  (so the dataset can refresh in the Power BI Service), combines them, cleans dates
-  and numbers, derives flags from the multi-value procedure and condition fields, and
-  maps 8,693 FAA aircraft codes to families with a rule table.
+- **Power Query:** one function per source reads a yearly FAA file (from a local
+  folder, or from the FAA site with `Web.Contents` and `RelativePath`), combines the
+  years, cleans dates and numbers, derives flags from the multi-value procedure and
+  condition fields, and maps 8,693 FAA aircraft codes to families with a rule table.
 - **Model:** star schema, one fact table and ten dimensions, date table, hierarchies
   for drill-down (date, system, aircraft).
 - **DAX:** 79 measures in display folders; a `Year Comparison` calculation group that
-  the year-over-year measures reuse; Pareto ranking with `ALLSELECTED`; text measures
+  the year-over-year measures reuse; a Pareto running share across all chapters; text measures
   for KPI captions, dynamic titles and the Key findings panel.
 - **Interaction:** drill-down (system group > chapter > system, category > family >
   model, year > quarter > month), drill-through to the Report details page, a
@@ -75,14 +75,20 @@ sources in [data/README.md](data/README.md).
 
 You need Power BI Desktop (Windows).
 
-1. Clone the repository and open `powerbi/AviationReliability.pbip`.
-2. Refresh. With the default `SourceMode = Web`, Power Query downloads the five FAA
-   files (about 165 MB) and the reference tables from this repository. If asked how to
-   connect, choose **Anonymous** for both sites.
+1. Clone the repository and download the FAA files (about 165 MB) into `data\raw`:
 
-To work offline, run `data/download_sdr.ps1`, then set `SourceMode` to `Folder` and
-`DataFolder` to your local `data\` folder (Transform data > Edit parameters).
-`FirstYear` and `LastYear` change the period.
+   ```powershell
+   powershell -ExecutionPolicy Bypass -File data\download_sdr.ps1
+   ```
+
+2. Open `powerbi/AviationReliability.pbip`, go to Transform data > Edit parameters and
+   set `DataFolder` to the repository's `data\` folder (with the trailing backslash).
+3. Refresh. The full refresh takes about a minute.
+
+`FirstYear` and `LastYear` change the period. Setting `SourceMode` to `Web` makes Power
+Query read the same files straight from the FAA site and the reference tables from this
+repository instead of the local folder; Power BI asks how to connect to each site the
+first time (Anonymous).
 
 ## Layout
 

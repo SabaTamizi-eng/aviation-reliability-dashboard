@@ -1,6 +1,6 @@
 // Parameters and functions (from expressions.tmdl). DataFolder is only used in Folder mode.
 
-expression SourceMode = "Web" meta [IsParameterQuery=true, List={"Web", "Folder"}, DefaultValue="Web", Type="Text", IsParameterQueryRequired=true]
+expression SourceMode = "Folder" meta [IsParameterQuery=true, List={"Folder", "Web"}, DefaultValue="Folder", Type="Text", IsParameterQueryRequired=true]
 
 expression DataFolder = "C:\path\to\aviation-reliability-dashboard\data\" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
 
@@ -33,7 +33,8 @@ expression fnSdrYear =
             if SourceMode = "Folder" then
                 File.Contents(DataFolder & "raw\" & FileName)
             else
-                Web.Contents("https://external.apic4e.faa.gov/sdrs/retrieve/", [RelativePath = FileName]),
+                // buffered so each file is downloaded once, not once per step
+                Binary.Buffer(Web.Contents("https://external.apic4e.faa.gov/sdrs/retrieve/", [RelativePath = FileName])),
         Csv = Csv.Document(Source, [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
         Promoted = Table.PromoteHeaders(Csv, [PromoteAllScalars = true]),
         Kept = Table.SelectColumns(Promoted, {"OperatorControlNumber", "DifficultyDate", "SubmissionDate", "SubmitterTypeCode", "SDRType", "JASCCode", "NatureOfConditionA", "NatureOfConditionB", "NatureOfConditionC", "PrecautionaryProcedureA", "PrecautionaryProcedureB", "PrecautionaryProcedureC", "PrecautionaryProcedureD", "StageOfOperationCode", "HowDiscoveredCode", "RegistryNNumber", "AircraftMake", "AircraftModel", "AircraftTotalTime", "EngineMake", "PartName", "PartCondition", "Discrepancy"}, MissingField.UseNull)

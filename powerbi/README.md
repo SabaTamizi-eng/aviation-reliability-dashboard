@@ -9,14 +9,15 @@ the DAX and M code.
 
 | Parameter | Default | Use |
 |---|---|---|
-| `SourceMode` | `Web` | `Web` reads the FAA files and the reference tables over HTTPS; `Folder` reads `DataFolder` |
-| `DataFolder` | placeholder | local `data\` folder of this repository, for Folder mode |
+| `SourceMode` | `Folder` | `Folder` reads `DataFolder`; `Web` reads the FAA files and the reference tables over HTTPS |
+| `DataFolder` | placeholder | the repository's `data\` folder (run `data\download_sdr.ps1` first) |
 | `ReferenceUrl` | this repository's `data/reference/` on GitHub | where Web mode reads the lookup files |
 | `FirstYear`, `LastYear` | 2021, 2025 | the period to load |
 
-`fnSdrYear` reads one year of reports and `fnReference` reads one lookup file. Both use
-`Web.Contents` with a fixed base URL and `RelativePath`, which keeps the dataset
-refreshable in the Power BI Service.
+`fnSdrYear` reads one year of reports and `fnReference` reads one lookup file. In Web
+mode both use `Web.Contents` with a fixed base URL and `RelativePath`, the pattern the
+Power BI Service needs to refresh a dataset with a dynamic URL, and the FAA file is
+wrapped in `Binary.Buffer` so it is downloaded once.
 
 ## Pages
 
