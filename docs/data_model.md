@@ -11,7 +11,7 @@ dimensions. Everything is built in Power Query; there are no calculated columns.
 |---|---|---|---|
 | `SDR` | one report | FAA yearly CSV files | 323,671 rows for 2021-2025 |
 | `Date` | day | generated in Power Query | marked as the date table; `Calendar` hierarchy Year > Quarter > Month |
-| `System` | JASC code | `jasc_codes.csv` | 548 codes; hierarchy System Group > Chapter > System |
+| `System` | JASC code | `jasc_codes.csv` | 548 codes; hierarchy System Group > Chapter > System; names are shown without the JASC number and sorted by code |
 | `Aircraft` | make + model | `aircraft_models.csv`, `aircraft_makes.csv`, `aircraft_families.csv` | 8,693 make/model pairs; hierarchy Category > Family > Model |
 | `Flight Phase` | stage of operation | `stage_of_operation.csv` | grouped into In flight, Taxi / ground, Inspection & maintenance |
 | `Discovery Method` | how discovered | `how_discovered.csv` | grouped into Visual, NDT & borescope, Functional check |
@@ -58,8 +58,9 @@ Pareto, Labels and Formatting. A readable copy is in
 - **Year-over-year** measures and labels reuse the `Year Comparison` calculation group
   (`CALCULATE ( [Reports], 'Year Comparison'[Comparison] = "Change %" )`) instead of
   repeating the time logic in every measure.
-- **Pareto Cumulative Share** ranks every chapter (it removes the chapter filter but
-  keeps the slicers), so the chart can show only the top 15 chapters while the running
+- **Pareto Cumulative Share** ranks every chapter (it removes the filters on the chapter
+  and on its sort column, `Chapter Code`, but keeps the slicers), so the chart can show
+  only the top 15 chapters while the running
   share is still a share of all reports.
 - **Insight** measures build the sentences in the Key findings panel from the data, so
   they change with the filters.

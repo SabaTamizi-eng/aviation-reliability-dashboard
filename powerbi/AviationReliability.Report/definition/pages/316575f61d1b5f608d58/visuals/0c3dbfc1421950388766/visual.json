@@ -265,8 +265,13 @@
             },
             "text": {
               "expr": {
-                "Literal": {
-                  "Value": "'Reports by system group'"
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "System Chart Title"
                 }
               }
             }
@@ -286,7 +291,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Drill down to chapter and system'"
+                  "Value": "'5 system groups; drill down to chapters, then systems'"
                 }
               }
             },

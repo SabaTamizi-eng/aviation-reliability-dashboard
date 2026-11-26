@@ -23,12 +23,25 @@
                       "Entity": "Date"
                     }
                   },
-                  "Property": "Month Start"
+                  "Property": "Year"
                 }
               },
-              "queryRef": "Date.Month Start",
-              "nativeQueryRef": "Month Start",
-              "displayName": "Month"
+              "queryRef": "Date.Year",
+              "nativeQueryRef": "Year"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Date"
+                    }
+                  },
+                  "Property": "Month"
+                }
+              },
+              "queryRef": "Date.Month",
+              "nativeQueryRef": "Month"
             }
           ]
         },
@@ -233,7 +246,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Monthly reports and unscheduled landings'"
+                  "Value": "'Reports and unscheduled landings by year'"
                 }
               }
             }
@@ -253,7 +266,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Columns: reports filed per month. Line: reports that ended in an unscheduled landing (right axis).'"
+                  "Value": "'Drill down to months. Columns: reports filed; line: unscheduled landings (right axis).'"
                 }
               }
             },

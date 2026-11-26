@@ -211,8 +211,12 @@ table _Measures
 
 	measure 'Pareto Cumulative Share' =
 			VAR CurrentReports = [Reports]
+			// Chapter is sorted by Chapter Code, so the visual filters both columns; clear both to rank every chapter
 			VAR ChapterTable =
-			    ADDCOLUMNS ( CALCULATETABLE ( VALUES ( 'System'[Chapter] ), REMOVEFILTERS ( 'System'[Chapter] ) ), "@Reports", [Reports] )
+			    CALCULATETABLE (
+			        ADDCOLUMNS ( VALUES ( 'System'[Chapter] ), "@Reports", [Reports] ),
+			        REMOVEFILTERS ( 'System'[Chapter], 'System'[Chapter Code] )
+			    )
 			VAR RunningTotal = SUMX ( FILTER ( ChapterTable, [@Reports] >= CurrentReports ), [@Reports] )
 			RETURN
 			    IF ( NOT ISBLANK ( CurrentReports ), DIVIDE ( RunningTotal, SUMX ( ChapterTable, [@Reports] ) ) )
@@ -220,7 +224,7 @@ table _Measures
 		displayFolder: Pareto
 		lineageTag: b1c89720-d48a-53ea-b77d-7d7e8225e0ed
 
-	measure 'Chapter Share' = DIVIDE ( [Reports], CALCULATE ( [Reports], REMOVEFILTERS ( 'System'[Chapter] ) ) )
+	measure 'Chapter Share' = DIVIDE ( [Reports], CALCULATE ( [Reports], REMOVEFILTERS ( 'System'[Chapter], 'System'[Chapter Code] ) ) )
 		formatString: 0.0%
 		displayFolder: Pareto
 		lineageTag: 030664fc-0748-5d6d-b46d-935b6e1f988c
@@ -472,9 +476,17 @@ table _Measures
 		displayFolder: Labels
 		lineageTag: 40a76667-a1d1-5be7-810e-6ec348d498e9
 
-	measure 'Trend Title' = "Reports per month, " & [Period Label]
+	measure 'System Chart Title' =
+			VAR Base = "Reports by aircraft system"
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        ISFILTERED ( 'System'[Chapter] ) && HASONEVALUE ( 'System'[Chapter] ), Base & ": " & VALUES ( 'System'[Chapter] ),
+			        ISFILTERED ( 'System'[System Group] ) && HASONEVALUE ( 'System'[System Group] ), Base & ": " & VALUES ( 'System'[System Group] ),
+			        Base
+			    )
 		displayFolder: Labels
-		lineageTag: b367c8c6-b5a4-5161-a621-836df1beca48
+		lineageTag: a89b1ea6-961e-59da-a489-417e2db9992b
 
 	measure 'Detail Title' =
 			VAR Parts =

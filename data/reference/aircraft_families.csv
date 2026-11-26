@@ -1,12 +1,12 @@
 make_code,model_prefix,model_suffix,family,category
-BOEING,737,,737,Narrowbody
-BOEING,757,,757,Narrowbody
-BOEING,717,,717,Narrowbody
-BOEING,727,,727,Narrowbody
-BOEING,767,,767,Widebody
-BOEING,777,,777,Widebody
-BOEING,787,,787,Widebody
-BOEING,747,,747,Widebody
+BOEING,737,,Boeing 737,Narrowbody
+BOEING,757,,Boeing 757,Narrowbody
+BOEING,717,,Boeing 717,Narrowbody
+BOEING,727,,Boeing 727,Narrowbody
+BOEING,767,,Boeing 767,Widebody
+BOEING,777,,Boeing 777,Widebody
+BOEING,787,,Boeing 787,Widebody
+BOEING,747,,Boeing 747,Widebody
 AIRBUS,A319,,A320ceo family,Narrowbody
 AIRBUS,A320,,A320ceo family,Narrowbody
 AIRBUS,A321,,A320ceo family,Narrowbody

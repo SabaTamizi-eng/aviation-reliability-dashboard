@@ -23,7 +23,7 @@ wrapped in `Binary.Buffer` so it is downloaded once.
 
 | Page | Visuals |
 |---|---|
-| Overview | KPI cards, monthly reports vs. unscheduled landings (combo), Key findings (text measures), reports by system (drill-down), explorer chart driven by the `Analyze By` field parameter, flight phase donut |
+| Overview | KPI cards, reports vs. unscheduled landings by year with drill-down to months (combo), Key findings (text measures), reports by aircraft system (drill-down; the title names the group or chapter you drilled into), explorer chart driven by the `Analyze By` field parameter, flight phase donut |
 | Systems | Pareto (top 15 chapters, conditional colors), 100% stacked finding mix by system group, chapter x year heat map (matrix, expandable to systems), latest vs. previous year using the `Year Comparison` calculation group |
 | Aging fleet | 100% stacked finding mix by airframe hours, scatter of aircraft families (filtered to families with 1,500+ reports), fleet drill-down, parts most often corroded or cracked |
 | In-flight events | KPIs for unscheduled landings, aborted takeoffs, engine shutdowns, smoke or fumes; year > quarter > month drill-down; system x flight phase heat map; crew actions, symptoms, systems behind unscheduled landings |

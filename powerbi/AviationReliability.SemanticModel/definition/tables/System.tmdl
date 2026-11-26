@@ -12,6 +12,7 @@ table System
 
 	column 'System Name'
 		dataType: string
+		isHidden
 		lineageTag: 97af2d38-bfb5-5df8-a4e8-dbb39598a494
 		summarizeBy: none
 		sourceColumn: System Name
@@ -32,6 +33,7 @@ table System
 		lineageTag: 5046de5d-8bb6-5996-93d7-3f57f24cc599
 		summarizeBy: none
 		sourceColumn: Chapter
+		sortByColumn: 'Chapter Code'
 
 		annotation SummarizationSetBy = Automatic
 
@@ -59,11 +61,13 @@ table System
 		lineageTag: 16b200e7-b6a3-5b16-bbac-e169bfbf1146
 		summarizeBy: none
 		sourceColumn: System
+		sortByColumn: 'JASC Code'
 
 		annotation SummarizationSetBy = Automatic
 
 	column 'Chapter Name'
 		dataType: string
+		isHidden
 		lineageTag: 19ab9cd5-0238-5332-9bfd-3075a927c787
 		summarizeBy: none
 		sourceColumn: Chapter Name
@@ -95,12 +99,15 @@ table System
 				    Source = fnReference("jasc_codes"),
 				    Typed = Table.TransformColumnTypes(Source, {{"system_group_order", Int64.Type}}),
 				    Renamed = Table.RenameColumns(Typed, {
-				        {"jasc_code", "JASC Code"}, {"system", "System Name"}, {"chapter_code", "Chapter Code"}, {"chapter", "Chapter"},
+				        {"jasc_code", "JASC Code"}, {"system", "System Name"}, {"chapter_code", "Chapter Code"}, {"chapter", "Chapter Title"},
 				        {"system_group", "System Group"}, {"system_group_order", "System Group Order"}
 				    }),
-				    WithSystem = Table.AddColumn(Renamed, "System", each [JASC Code] & " " & [System Name], type text),
-				    WithChapterName = Table.AddColumn(WithSystem, "Chapter Name", each Text.AfterDelimiter([Chapter], " "), type text)
+				    // Names are shown without the JASC number ("53 Fuselage" -> "Fuselage"); the codes are kept to sort by
+				    WithChapter = Table.AddColumn(Renamed, "Chapter", each Text.AfterDelimiter([Chapter Title], " "), type text),
+				    WithSystem = Table.AddColumn(WithChapter, "System", each [System Name], type text),
+				    WithChapterName = Table.AddColumn(WithSystem, "Chapter Name", each [Chapter], type text),
+				    Result = Table.RemoveColumns(WithChapterName, {"Chapter Title"})
 				in
-				    WithChapterName
+				    Result
 
 	annotation PBI_ResultType = Table

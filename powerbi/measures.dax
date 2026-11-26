@@ -152,14 +152,18 @@
 
 [Pareto Cumulative Share] =
     VAR CurrentReports = [Reports]
+    // Chapter is sorted by Chapter Code, so the visual filters both columns; clear both to rank every chapter
     VAR ChapterTable =
-        ADDCOLUMNS ( CALCULATETABLE ( VALUES ( 'System'[Chapter] ), REMOVEFILTERS ( 'System'[Chapter] ) ), "@Reports", [Reports] )
+        CALCULATETABLE (
+            ADDCOLUMNS ( VALUES ( 'System'[Chapter] ), "@Reports", [Reports] ),
+            REMOVEFILTERS ( 'System'[Chapter], 'System'[Chapter Code] )
+        )
     VAR RunningTotal = SUMX ( FILTER ( ChapterTable, [@Reports] >= CurrentReports ), [@Reports] )
     RETURN
         IF ( NOT ISBLANK ( CurrentReports ), DIVIDE ( RunningTotal, SUMX ( ChapterTable, [@Reports] ) ) )
 // format: 0%
 
-[Chapter Share] = DIVIDE ( [Reports], CALCULATE ( [Reports], REMOVEFILTERS ( 'System'[Chapter] ) ) )
+[Chapter Share] = DIVIDE ( [Reports], CALCULATE ( [Reports], REMOVEFILTERS ( 'System'[Chapter], 'System'[Chapter Code] ) ) )
 // format: 0.0%
 
 [Pareto Bar Color] =
@@ -348,7 +352,15 @@
                 & " (" & FORMAT ( DIVIDE ( LastValue - FirstValue, FirstValue ), "+0%;-0%" ) & ")."
         )
 
-[Trend Title] = "Reports per month, " & [Period Label]
+[System Chart Title] =
+    VAR Base = "Reports by aircraft system"
+    RETURN
+        SWITCH (
+            TRUE (),
+            ISFILTERED ( 'System'[Chapter] ) && HASONEVALUE ( 'System'[Chapter] ), Base & ": " & VALUES ( 'System'[Chapter] ),
+            ISFILTERED ( 'System'[System Group] ) && HASONEVALUE ( 'System'[System Group] ), Base & ": " & VALUES ( 'System'[System Group] ),
+            Base
+        )
 
 [Detail Title] =
     VAR Parts =

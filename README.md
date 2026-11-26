@@ -63,7 +63,7 @@ operators.
   the year-over-year measures reuse; a Pareto running share across all chapters; text measures
   for KPI captions, dynamic titles and the Key findings panel.
 - **Interaction:** drill-down (system group > chapter > system, category > family >
-  model, year > quarter > month), drill-through to the Report details page, a
+  model, year > month, year > quarter > month), drill-through to the Report details page, a
   report-page tooltip, a field parameter, synced slicers and a reset button.
 - **Design:** custom theme, page backgrounds with a header navigation bar, conditional
   formatting (Pareto colors, heat maps, red/green year-over-year captions).
