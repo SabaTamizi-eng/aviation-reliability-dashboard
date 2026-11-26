@@ -1,0 +1,57 @@
+{
+  "name": "Aviation Reliability",
+  "dataColors": ["#1D4E89", "#E07A1F", "#2A9D8F", "#C0662B", "#6C4AB6", "#8FA9C4", "#E3B23C", "#3B4B5C"],
+  "background": "#FFFFFF",
+  "foreground": "#15263A",
+  "tableAccent": "#1D4E89",
+  "good": "#2D7D4F",
+  "neutral": "#E3B23C",
+  "bad": "#B23A2B",
+  "textClasses": {
+    "callout": { "fontSize": 24, "fontFace": "Segoe UI Semibold", "color": "#15263A" },
+    "title": { "fontSize": 11, "fontFace": "Segoe UI Semibold", "color": "#15263A" },
+    "header": { "fontSize": 11, "fontFace": "Segoe UI Semibold", "color": "#15263A" },
+    "label": { "fontSize": 9, "fontFace": "Segoe UI", "color": "#5F6F82" }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [{ "show": false }],
+        "border": [{ "show": false }],
+        "dropShadow": [{ "show": false }],
+        "title": [{
+          "show": true,
+          "fontFamily": "Segoe UI Semibold",
+          "fontSize": 11,
+          "fontColor": { "solid": { "color": "#15263A" } }
+        }],
+        "categoryAxis": [{
+          "fontSize": 9,
+          "labelColor": { "solid": { "color": "#5F6F82" } },
+          "titleColor": { "solid": { "color": "#5F6F82" } }
+        }],
+        "valueAxis": [{
+          "fontSize": 9,
+          "labelColor": { "solid": { "color": "#5F6F82" } },
+          "titleColor": { "solid": { "color": "#5F6F82" } },
+          "gridlineColor": { "solid": { "color": "#EEF2F6" } }
+        }],
+        "legend": [{
+          "fontSize": 9,
+          "labelColor": { "solid": { "color": "#3E4E60" } }
+        }]
+      }
+    },
+    "card": {
+      "*": {
+        "categoryLabels": [{ "show": false }],
+        "title": [{ "fontSize": 9, "fontColor": { "solid": { "color": "#5F6F82" } } }]
+      }
+    },
+    "page": {
+      "*": {
+        "outspace": [{ "color": { "solid": { "color": "#E8EDF3" } } }]
+      }
+    }
+  }
+}

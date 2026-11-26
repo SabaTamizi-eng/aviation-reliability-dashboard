@@ -1,0 +1,236 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "d50765f670d256539caa",
+  "displayName": "Report details",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "image": {
+            "image": {
+              "name": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'bg_details.png'"
+                  }
+                }
+              },
+              "url": {
+                "expr": {
+                  "ResourcePackageItem": {
+                    "PackageName": "RegisteredResources",
+                    "PackageType": 1,
+                    "ItemName": "bg_details.png"
+                  }
+                }
+              },
+              "scaling": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Fit'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "type": "Drillthrough",
+  "visibility": "HiddenInViewMode",
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "41a0203189f25a9087a0",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "System"
+              }
+            },
+            "Property": "Chapter"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "5b108d1c3ea556829db0",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "System"
+              }
+            },
+            "Property": "System"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "e7bcf6001a9051558987",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Aircraft"
+              }
+            },
+            "Property": "Family"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "5f16e1d130ad5a85a339",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Finding"
+              }
+            },
+            "Property": "Finding Category"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "54a9722686d255c5baf6",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "SDR"
+              }
+            },
+            "Property": "Part Name"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "c2a3c39c75735b61a01a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Flight Phase"
+              }
+            },
+            "Property": "Stage"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      }
+    ]
+  },
+  "pageBinding": {
+    "name": "fd90e95905cc5b159492",
+    "type": "Drillthrough",
+    "parameters": [
+      {
+        "name": "e38ca3c1a0a855fa83ec",
+        "boundFilter": "41a0203189f25a9087a0",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "System"
+              }
+            },
+            "Property": "Chapter"
+          }
+        }
+      },
+      {
+        "name": "2f181dabf3c45ff49689",
+        "boundFilter": "5b108d1c3ea556829db0",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "System"
+              }
+            },
+            "Property": "System"
+          }
+        }
+      },
+      {
+        "name": "6f363666bc68533f9d6e",
+        "boundFilter": "e7bcf6001a9051558987",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Aircraft"
+              }
+            },
+            "Property": "Family"
+          }
+        }
+      },
+      {
+        "name": "312b378523a95ff399b8",
+        "boundFilter": "5f16e1d130ad5a85a339",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Finding"
+              }
+            },
+            "Property": "Finding Category"
+          }
+        }
+      },
+      {
+        "name": "333e7af894da52d78ebb",
+        "boundFilter": "54a9722686d255c5baf6",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "SDR"
+              }
+            },
+            "Property": "Part Name"
+          }
+        }
+      },
+      {
+        "name": "1b85c69d64105469a454",
+        "boundFilter": "c2a3c39c75735b61a01a",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Flight Phase"
+              }
+            },
+            "Property": "Stage"
+          }
+        }
+      }
+    ]
+  }
+}

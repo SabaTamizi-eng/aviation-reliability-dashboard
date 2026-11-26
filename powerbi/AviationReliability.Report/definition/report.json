@@ -1,0 +1,69 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.4.0/schema.json",
+  "themeCollection": {
+    "customTheme": {
+      "name": "AviationReliabilityTheme.json",
+      "reportVersionAtImport": {
+        "visual": "1.8.79",
+        "report": "2.0.79",
+        "page": "1.3.79"
+      },
+      "type": "RegisteredResources"
+    }
+  },
+  "resourcePackages": [
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "AviationReliabilityTheme.json",
+          "path": "AviationReliabilityTheme.json",
+          "type": "CustomTheme"
+        },
+        {
+          "name": "bg_overview.png",
+          "path": "bg_overview.png",
+          "type": "Image"
+        },
+        {
+          "name": "bg_systems.png",
+          "path": "bg_systems.png",
+          "type": "Image"
+        },
+        {
+          "name": "bg_aging.png",
+          "path": "bg_aging.png",
+          "type": "Image"
+        },
+        {
+          "name": "bg_inflight.png",
+          "path": "bg_inflight.png",
+          "type": "Image"
+        },
+        {
+          "name": "bg_engines.png",
+          "path": "bg_engines.png",
+          "type": "Image"
+        },
+        {
+          "name": "bg_details.png",
+          "path": "bg_details.png",
+          "type": "Image"
+        },
+        {
+          "name": "bg_tooltip.png",
+          "path": "bg_tooltip.png",
+          "type": "Image"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "useStylableVisualContainerHeader": true,
+    "exportDataMode": "AllowSummarized",
+    "defaultDrillFilterOtherVisuals": true,
+    "useEnhancedTooltips": false
+  },
+  "linguisticSchemaSyncVersion": 2
+}
