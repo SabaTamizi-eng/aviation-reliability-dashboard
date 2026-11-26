@@ -229,12 +229,21 @@ table _Measures
 		displayFolder: Pareto
 		lineageTag: 030664fc-0748-5d6d-b46d-935b6e1f988c
 
-	measure 'Pareto Bar Color' =
+	measure 'Reports in First 80%' =
 			VAR PriorShare = [Pareto Cumulative Share] - [Chapter Share]
 			RETURN
-			    IF ( PriorShare < 0.8, "#1D4E89", "#B9C6D6" )
+			    IF ( PriorShare < 0.8, [Reports] )
+		formatString: #,0
 		displayFolder: Pareto
-		lineageTag: dc4ac544-dd81-5e64-a665-1b7fd00b59f2
+		lineageTag: 578148de-1f3a-5e97-a79c-2dee69499d3c
+
+	measure 'Reports in Other Chapters' =
+			VAR PriorShare = [Pareto Cumulative Share] - [Chapter Share]
+			RETURN
+			    IF ( PriorShare >= 0.8, [Reports] )
+		formatString: #,0
+		displayFolder: Pareto
+		lineageTag: fddd545c-6fee-50b5-b82a-e50634c80297
 
 	measure 'Period Label' =
 			VAR FirstYear = MIN ( 'Date'[Year] )
@@ -299,10 +308,6 @@ table _Measures
 	measure 'In-Flight Label' = FORMAT ( [In-Flight Reports], "#,0" ) & " reports in flight"
 		displayFolder: Labels
 		lineageTag: 3f026202-ed98-5bc3-92f1-94641a822af1
-
-	measure 'Maintenance Label' = FORMAT ( [Found in Maintenance Share], "0%" ) & " found during inspection"
-		displayFolder: Labels
-		lineageTag: 81a682d4-ca2e-570d-9b2a-8ac11d56bda9
 
 	measure 'Operational Impact Count Label' = FORMAT ( [Operational Impact Reports], "#,0" ) & " reports"
 		displayFolder: Labels

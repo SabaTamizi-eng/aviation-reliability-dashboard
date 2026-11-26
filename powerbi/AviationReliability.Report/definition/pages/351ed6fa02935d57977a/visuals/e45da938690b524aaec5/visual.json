@@ -10,7 +10,7 @@
     "tabOrder": 18000
   },
   "visual": {
-    "visualType": "lineClusteredColumnComboChart",
+    "visualType": "lineStackedColumnComboChart",
     "query": {
       "queryState": {
         "Category": {
@@ -41,11 +41,27 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Reports"
+                  "Property": "Reports in First 80%"
                 }
               },
-              "queryRef": "_Measures.Reports",
-              "nativeQueryRef": "Reports"
+              "queryRef": "_Measures.Reports in First 80%",
+              "nativeQueryRef": "Reports in First 80%",
+              "displayName": "First 80% of reports"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Reports in Other Chapters"
+                }
+              },
+              "queryRef": "_Measures.Reports in Other Chapters",
+              "nativeQueryRef": "Reports in Other Chapters",
+              "displayName": "Other chapters"
             }
           ]
         },
@@ -65,6 +81,24 @@
               "queryRef": "_Measures.Pareto Cumulative Share",
               "nativeQueryRef": "Pareto Cumulative Share",
               "displayName": "Cumulative share"
+            }
+          ]
+        },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Reports"
+                }
+              },
+              "queryRef": "_Measures.Reports",
+              "nativeQueryRef": "Reports"
             }
           ]
         }
@@ -95,13 +129,8 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "_Measures"
-                        }
-                      },
-                      "Property": "Pareto Bar Color"
+                    "Literal": {
+                      "Value": "'#1D4E89'"
                     }
                   }
                 }
@@ -109,14 +138,25 @@
             }
           },
           "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 1
+            "metadata": "_Measures.Reports in First 80%"
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#B9C6D6'"
+                    }
+                  }
                 }
               }
-            ],
-            "metadata": "_Measures.Reports"
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Reports in Other Chapters"
           }
         },
         {
@@ -144,7 +184,28 @@
             "show": {
               "expr": {
                 "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'TopRight'"
+                }
+              }
+            },
+            "showTitle": {
+              "expr": {
+                "Literal": {
                   "Value": "false"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8.5D"
                 }
               }
             }

@@ -166,10 +166,17 @@
 [Chapter Share] = DIVIDE ( [Reports], CALCULATE ( [Reports], REMOVEFILTERS ( 'System'[Chapter], 'System'[Chapter Code] ) ) )
 // format: 0.0%
 
-[Pareto Bar Color] =
+[Reports in First 80%] =
     VAR PriorShare = [Pareto Cumulative Share] - [Chapter Share]
     RETURN
-        IF ( PriorShare < 0.8, "#1D4E89", "#B9C6D6" )
+        IF ( PriorShare < 0.8, [Reports] )
+// format: #,0
+
+[Reports in Other Chapters] =
+    VAR PriorShare = [Pareto Cumulative Share] - [Chapter Share]
+    RETURN
+        IF ( PriorShare >= 0.8, [Reports] )
+// format: #,0
 
 
 // ---------------------------------------------------------------- Labels
@@ -223,8 +230,6 @@
         )
 
 [In-Flight Label] = FORMAT ( [In-Flight Reports], "#,0" ) & " reports in flight"
-
-[Maintenance Label] = FORMAT ( [Found in Maintenance Share], "0%" ) & " found during inspection"
 
 [Operational Impact Count Label] = FORMAT ( [Operational Impact Reports], "#,0" ) & " reports"
 
